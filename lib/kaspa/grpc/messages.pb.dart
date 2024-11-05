@@ -70,8 +70,8 @@ enum KaspadRequest_Payload {
   notSet
 }
 
-class KaspadRequest extends $pb.GeneratedMessage {
-  factory KaspadRequest({
+class HoosatdRequest extends $pb.GeneratedMessage {
+  factory HoosatdRequest({
     $fixnum.Int64? id,
     $1.GetCurrentNetworkRequestMessage? getCurrentNetworkRequest,
     $1.SubmitBlockRequestMessage? submitBlockRequest,
@@ -280,9 +280,9 @@ class KaspadRequest extends $pb.GeneratedMessage {
     }
     return $result;
   }
-  KaspadRequest._() : super();
-  factory KaspadRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory KaspadRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  HoosatdRequest._() : super();
+  factory HoosatdRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory HoosatdRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static const $core.Map<$core.int, KaspadRequest_Payload> _KaspadRequest_PayloadByTag = {
     1001 : KaspadRequest_Payload.getCurrentNetworkRequest,
@@ -337,7 +337,7 @@ class KaspadRequest extends $pb.GeneratedMessage {
     1110 : KaspadRequest_Payload.getCurrentBlockColorRequest,
     0 : KaspadRequest_Payload.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'KaspadRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protowire'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'HoosatdRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protowire'), createEmptyInstance: create)
     ..oo(0, [1001, 1003, 1005, 1007, 1010, 1012, 1014, 1016, 1018, 1020, 1022, 1025, 1027, 1029, 1031, 1033, 1035, 1037, 1039, 1043, 1045, 1047, 1049, 1052, 1054, 1056, 1059, 1061, 1063, 1065, 1067, 1070, 1072, 1074, 1077, 1079, 1081, 1084, 1086, 1088, 1090, 1092, 1094, 1096, 1100, 1102, 1104, 1106, 1108, 1110])
     ..a<$fixnum.Int64>(101, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOM<$1.GetCurrentNetworkRequestMessage>(1001, _omitFieldNames ? '' : 'getCurrentNetworkRequest', protoName: 'getCurrentNetworkRequest', subBuilder: $1.GetCurrentNetworkRequestMessage.create)
@@ -397,22 +397,22 @@ class KaspadRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  KaspadRequest clone() => KaspadRequest()..mergeFromMessage(this);
+  HoosatdRequest clone() => HoosatdRequest()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  KaspadRequest copyWith(void Function(KaspadRequest) updates) => super.copyWith((message) => updates(message as KaspadRequest)) as KaspadRequest;
+  HoosatdRequest copyWith(void Function(HoosatdRequest) updates) => super.copyWith((message) => updates(message as HoosatdRequest)) as HoosatdRequest;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static KaspadRequest create() => KaspadRequest._();
-  KaspadRequest createEmptyInstance() => create();
-  static $pb.PbList<KaspadRequest> createRepeated() => $pb.PbList<KaspadRequest>();
+  static HoosatdRequest create() => HoosatdRequest._();
+  HoosatdRequest createEmptyInstance() => create();
+  static $pb.PbList<HoosatdRequest> createRepeated() => $pb.PbList<HoosatdRequest>();
   @$core.pragma('dart2js:noInline')
-  static KaspadRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<KaspadRequest>(create);
-  static KaspadRequest? _defaultInstance;
+  static HoosatdRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<HoosatdRequest>(create);
+  static HoosatdRequest? _defaultInstance;
 
   KaspadRequest_Payload whichPayload() => _KaspadRequest_PayloadByTag[$_whichOneof(0)]!;
   void clearPayload() => clearField($_whichOneof(0));
@@ -1049,8 +1049,8 @@ enum KaspadResponse_Payload {
   notSet
 }
 
-class KaspadResponse extends $pb.GeneratedMessage {
-  factory KaspadResponse({
+class HoosatdResponse extends $pb.GeneratedMessage {
+  factory HoosatdResponse({
     $fixnum.Int64? id,
     $1.GetCurrentNetworkResponseMessage? getCurrentNetworkResponse,
     $1.SubmitBlockResponseMessage? submitBlockResponse,
@@ -1295,9 +1295,9 @@ class KaspadResponse extends $pb.GeneratedMessage {
     }
     return $result;
   }
-  KaspadResponse._() : super();
-  factory KaspadResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory KaspadResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  HoosatdResponse._() : super();
+  factory HoosatdResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory HoosatdResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static const $core.Map<$core.int, KaspadResponse_Payload> _KaspadResponse_PayloadByTag = {
     1002 : KaspadResponse_Payload.getCurrentNetworkResponse,
@@ -1361,7 +1361,7 @@ class KaspadResponse extends $pb.GeneratedMessage {
     1111 : KaspadResponse_Payload.getCurrentBlockColorResponse,
     0 : KaspadResponse_Payload.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'KaspadResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protowire'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'HoosatdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protowire'), createEmptyInstance: create)
     ..oo(0, [1002, 1004, 1006, 1008, 1009, 1011, 1013, 1015, 1017, 1019, 1021, 1023, 1024, 1026, 1028, 1030, 1032, 1034, 1036, 1038, 1040, 1041, 1042, 1044, 1046, 1048, 1050, 1051, 1053, 1055, 1057, 1058, 1060, 1062, 1064, 1066, 1068, 1069, 1071, 1073, 1075, 1076, 1078, 1080, 1082, 1083, 1085, 1087, 1089, 1091, 1093, 1095, 1097, 1101, 1103, 1105, 1107, 1109, 1111])
     ..a<$fixnum.Int64>(101, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU6, defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOM<$1.GetCurrentNetworkResponseMessage>(1002, _omitFieldNames ? '' : 'getCurrentNetworkResponse', protoName: 'getCurrentNetworkResponse', subBuilder: $1.GetCurrentNetworkResponseMessage.create)
@@ -1430,22 +1430,22 @@ class KaspadResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  KaspadResponse clone() => KaspadResponse()..mergeFromMessage(this);
+  HoosatdResponse clone() => HoosatdResponse()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  KaspadResponse copyWith(void Function(KaspadResponse) updates) => super.copyWith((message) => updates(message as KaspadResponse)) as KaspadResponse;
+  HoosatdResponse copyWith(void Function(HoosatdResponse) updates) => super.copyWith((message) => updates(message as HoosatdResponse)) as HoosatdResponse;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static KaspadResponse create() => KaspadResponse._();
-  KaspadResponse createEmptyInstance() => create();
-  static $pb.PbList<KaspadResponse> createRepeated() => $pb.PbList<KaspadResponse>();
+  static HoosatdResponse create() => HoosatdResponse._();
+  HoosatdResponse createEmptyInstance() => create();
+  static $pb.PbList<HoosatdResponse> createRepeated() => $pb.PbList<HoosatdResponse>();
   @$core.pragma('dart2js:noInline')
-  static KaspadResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<KaspadResponse>(create);
-  static KaspadResponse? _defaultInstance;
+  static HoosatdResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<HoosatdResponse>(create);
+  static HoosatdResponse? _defaultInstance;
 
   KaspadResponse_Payload whichPayload() => _KaspadResponse_PayloadByTag[$_whichOneof(0)]!;
   void clearPayload() => clearField($_whichOneof(0));

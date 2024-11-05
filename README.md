@@ -6,7 +6,7 @@ Kaspium is a non-custodial wallet for Kaspa, available for Android and iOS. It i
 
 | Link | Description |
 | :----- | :------ |
-[kaspium.io](https://kaspium.io) | Kaspium Homepage
+[mobile.hoosat.fi](https://mobile.hoosat.fi) | Kaspium Homepage
 [kaspa.org](https://kaspa.org) | Kaspa Blockchain Homepage
 
 ## Contributing

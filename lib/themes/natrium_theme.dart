@@ -6,7 +6,7 @@ import 'base_theme.dart';
 class NatriumTheme extends BaseTheme {
   static const brightBlue = Color(0xFFA3CDFF);
 
-  static const green = Color(0xFF4AFFAE);
+  static const teal = Color(0xFF4AFFAE);
 
   static const greenDark = Color(0xFF18A264);
 
@@ -30,10 +30,10 @@ class NatriumTheme extends BaseTheme {
   Color primary15 = brightBlue.withOpacity(0.15);
   Color primary10 = brightBlue.withOpacity(0.1);
 
-  Color success = green;
-  Color success60 = green.withOpacity(0.6);
-  Color success30 = green.withOpacity(0.3);
-  Color success15 = green.withOpacity(0.15);
+  Color success = teal;
+  Color success60 = teal.withOpacity(0.6);
+  Color success30 = teal.withOpacity(0.3);
+  Color success15 = teal.withOpacity(0.15);
 
   Color successDark = greenDark;
   Color successDark30 = greenDark.withOpacity(0.3);

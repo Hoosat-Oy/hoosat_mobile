@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
-set(BINARY_NAME "kaspa_wallet")
-set(APPLICATION_ID "io.kaspium.kaspa_wallet")
+set(BINARY_NAME "hoosat_mobile")
+set(APPLICATION_ID "if.hoosat.mobile")
 
 cmake_policy(SET CMP0063 NEW)
 

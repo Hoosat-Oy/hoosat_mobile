@@ -105,8 +105,7 @@ class _$BlockExplorerSettingsImpl extends _BlockExplorerSettings {
   const _$BlockExplorerSettingsImpl(
       {final Map<String, BlockExplorer> selection = const {
         kKaspaNetworkIdMainnet: kKaspaExplorerMainnet,
-        kKaspaNetworkIdTestnet10: kKaspaExplorerTestnet10,
-        kKaspaNetworkIdTestnet11: kKaspaExplorerTestnet11
+        kKaspaNetworkIdTestnet10: kKaspaExplorerTestnet10
       }})
       : _selection = selection,
         super._();

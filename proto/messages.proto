@@ -3,7 +3,7 @@ package protowire;
 
 import "rpc.proto";
 
-message KaspadRequest {
+message HoosatdRequest {
   uint64 id = 101;
   oneof payload {
     GetCurrentNetworkRequestMessage getCurrentNetworkRequest = 1001;
@@ -68,7 +68,7 @@ message KaspadRequest {
   }
 }
 
-message KaspadResponse {
+message HoosatdResponse {
   uint64 id = 101;
   oneof payload {
     GetCurrentNetworkResponseMessage getCurrentNetworkResponse = 1002;
@@ -134,5 +134,5 @@ message KaspadResponse {
 }
 
 service RPC {
-  rpc MessageStream (stream KaspadRequest) returns (stream KaspadResponse) {}
+  rpc MessageStream (stream HoosatdRequest) returns (stream HoosatdResponse) {}
 }

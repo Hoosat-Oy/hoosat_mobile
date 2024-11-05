@@ -195,7 +195,7 @@ class SendConfirmSheet extends HookConsumerWidget {
         AppDialogs.showInfoDialog(
           context,
           l10n.insufficientBalance,
-          l10n.insufficientBalanceDetails.replaceAll('KAS', symbol),
+          l10n.insufficientBalanceDetails.replaceAll('HTN', symbol),
         );
         return;
       }

@@ -31,13 +31,13 @@ class VoidKaspaClient extends KaspaClient {
         );
 
   @override
-  Future<KaspadResponse> _singleRequest(KaspadRequest message) async {
-    return KaspadResponse();
+  Future<HoosatdResponse> _singleRequest(HoosatdRequest message) async {
+    return HoosatdResponse();
   }
 
   @override
-  Stream<KaspadResponse> _streamRequest(KaspadRequest message) {
-    return StreamController<KaspadResponse>().stream;
+  Stream<HoosatdResponse> _streamRequest(HoosatdRequest message) {
+    return StreamController<HoosatdResponse>().stream;
   }
 
   @override
@@ -75,8 +75,8 @@ class KaspaClient {
 
   Future<void> terminate() => channel.terminate();
 
-  Future<KaspadResponse> _singleRequest(KaspadRequest message) async {
-    final request = StreamController<KaspadRequest>();
+  Future<HoosatdResponse> _singleRequest(HoosatdRequest message) async {
+    final request = StreamController<HoosatdRequest>();
     final response = rpcClient.messageStream(request.stream);
 
     request.sink.add(message);
@@ -88,8 +88,8 @@ class KaspaClient {
     return result;
   }
 
-  Stream<KaspadResponse> _streamRequest(KaspadRequest message) {
-    final request = StreamController<KaspadRequest>();
+  Stream<HoosatdResponse> _streamRequest(HoosatdRequest message) {
+    final request = StreamController<HoosatdRequest>();
     final response = rpcClient.messageStream(request.stream);
 
     request.sink.add(message);
@@ -100,7 +100,7 @@ class KaspaClient {
   Future<List<RpcBalancesByAddressesEntry>> getBalancesByAddresses(
     Iterable<String> addresses,
   ) async {
-    final message = KaspadRequest(
+    final message = HoosatdRequest(
       getBalancesByAddressesRequest: GetBalancesByAddressesRequestMessage(
         addresses: addresses,
       ),
@@ -117,7 +117,7 @@ class KaspaClient {
   Future<List<RpcUtxosByAddressesEntry>> getUtxosByAddresses(
     Iterable<String> addresses,
   ) async {
-    final message = KaspadRequest(
+    final message = HoosatdRequest(
       getUtxosByAddressesRequest: GetUtxosByAddressesRequestMessage(
         addresses: addresses,
       ),
@@ -135,7 +135,7 @@ class KaspaClient {
   Stream<UtxosChangedNotificationMessage> notifyUtxosChanged(
     Iterable<String> addresses,
   ) {
-    final message = KaspadRequest(
+    final message = HoosatdRequest(
       notifyUtxosChangedRequest: NotifyUtxosChangedRequestMessage(
         addresses: addresses,
       ),
@@ -155,7 +155,7 @@ class KaspaClient {
   }
 
   Future<void> stopNotifyingUtxosChanged(List<String> addresses) async {
-    final message = KaspadRequest(
+    final message = HoosatdRequest(
       stopNotifyingUtxosChangedRequest: StopNotifyingUtxosChangedRequestMessage(
         addresses: addresses,
       ),
@@ -171,7 +171,7 @@ class KaspaClient {
   // Block Notifications
 
   Stream<BlockAddedNotificationMessage> notifyBlockAdded() {
-    final message = KaspadRequest(
+    final message = HoosatdRequest(
       notifyBlockAddedRequest: NotifyBlockAddedRequestMessage(),
     );
 
@@ -194,7 +194,7 @@ class KaspaClient {
     RpcTransaction transaction, {
     bool allowOrphan = false,
   }) async {
-    final message = KaspadRequest(
+    final message = HoosatdRequest(
       submitTransactionRequest: SubmitTransactionRequestMessage(
         transaction: transaction,
         allowOrphan: allowOrphan,
@@ -212,7 +212,7 @@ class KaspaClient {
 
   Future<({String transactionId, RpcTransaction replacedTransaction})>
       submitTransactionReplacement(RpcTransaction transaction) async {
-    final message = KaspadRequest(
+    final message = HoosatdRequest(
       submitTransactionReplacementRequest:
           SubmitTransactionReplacementRequestMessage(
         transaction: transaction,
@@ -236,7 +236,7 @@ class KaspaClient {
   // Fee Estimate
 
   Future<RpcFeeEstimate> getFeeEstimate() async {
-    final message = KaspadRequest(
+    final message = HoosatdRequest(
       getFeeEstimateRequest: GetFeeEstimateRequestMessage(),
     );
 
@@ -256,7 +256,7 @@ class KaspaClient {
     bool includeOrphanPool = true,
     bool filterTransactionPool = true,
   }) async {
-    final message = KaspadRequest(
+    final message = HoosatdRequest(
       getMempoolEntryRequest: GetMempoolEntryRequestMessage(
         txId: txId,
         includeOrphanPool: includeOrphanPool,
@@ -277,7 +277,7 @@ class KaspaClient {
     bool includeOrphanPool = true,
     bool filterTransactionPool = true,
   }) async {
-    final message = KaspadRequest(
+    final message = HoosatdRequest(
       getMempoolEntriesRequest: GetMempoolEntriesRequestMessage(
         includeOrphanPool: includeOrphanPool,
         filterTransactionPool: filterTransactionPool,
@@ -298,7 +298,7 @@ class KaspaClient {
     bool filterTransactionPool = true,
     bool includeOrphanPool = true,
   }) async {
-    final message = KaspadRequest(
+    final message = HoosatdRequest(
       getMempoolEntriesByAddressesRequest:
           GetMempoolEntriesByAddressesRequestMessage(
         addresses: addresses,
@@ -319,7 +319,7 @@ class KaspaClient {
   // Network info
 
   Future<String> getCurrentNetwork() async {
-    final message = KaspadRequest(
+    final message = HoosatdRequest(
       getCurrentNetworkRequest: GetCurrentNetworkRequestMessage(),
     );
 
@@ -333,7 +333,7 @@ class KaspaClient {
   }
 
   Future<GetBlockDagInfoResponseMessage> getBlockDagInfo() async {
-    final message = KaspadRequest(
+    final message = HoosatdRequest(
       getBlockDagInfoRequest: GetBlockDagInfoRequestMessage(),
     );
 
@@ -349,7 +349,7 @@ class KaspaClient {
   // Get Info
 
   Future<GetInfoResponseMessage> getInfo() async {
-    final message = KaspadRequest(
+    final message = HoosatdRequest(
       getInfoRequest: GetInfoRequestMessage(),
     );
 
@@ -368,7 +368,7 @@ class KaspaClient {
       notifyVirtualSelectedParentChainChanged({
     required includeAcceptedTransactionIds,
   }) {
-    final message = KaspadRequest(
+    final message = HoosatdRequest(
       notifyVirtualChainChangedRequest: NotifyVirtualChainChangedRequestMessage(
         includeAcceptedTransactionIds: includeAcceptedTransactionIds,
       ),
@@ -390,7 +390,7 @@ class KaspaClient {
   // Virtual Selected Parent Blue Score
 
   Future<Int64> getVirtualSelectedParentBlueScore() async {
-    final message = KaspadRequest(
+    final message = HoosatdRequest(
       getSinkBlueScoreRequest: GetSinkBlueScoreRequestMessage(),
     );
 
@@ -404,7 +404,7 @@ class KaspaClient {
   }
 
   Stream<Int64> notifyVirtualSelectedParentBlueScoreChanged() {
-    final message = KaspadRequest(
+    final message = HoosatdRequest(
       notifySinkBlueScoreChangedRequest:
           NotifySinkBlueScoreChangedRequestMessage(),
     );
@@ -425,7 +425,7 @@ class KaspaClient {
   // Virtual DAA Score
 
   Stream<Int64> notifyVirtualDaaScoreChanged() {
-    final message = KaspadRequest(
+    final message = HoosatdRequest(
       notifyVirtualDaaScoreChangedRequest:
           NotifyVirtualDaaScoreChangedRequestMessage(),
     );
@@ -447,7 +447,7 @@ class KaspaClient {
     String hash, {
     bool includeTransactions = true,
   }) async {
-    final message = KaspadRequest(
+    final message = HoosatdRequest(
       getBlockRequest: GetBlockRequestMessage(
         hash: hash,
         includeTransactions: includeTransactions,

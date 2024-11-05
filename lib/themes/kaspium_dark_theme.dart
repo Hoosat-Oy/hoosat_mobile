@@ -4,19 +4,17 @@ import 'package:flutter/services.dart';
 import 'base_theme.dart';
 
 class KaspiumDarkTheme extends BaseTheme {
-  static const brightBlue = Color(0xff49eacb);
+  static const brightBlue = Color(0xFF116466);
 
-  //static const green = Color(0xfffc865a);
-  static const green = Color(0xffbcbec0);
+  static const teal = Color(0xFF1E7A7A);
 
-  //static const greenDark = Color(0xfffc865a);
-  static const greenDark = Color(0xff49eacb);
+  static const greenDark = Color(0xfffc865a);
 
   static const blueishGreyDark = Color(0xff232323);
 
   static const blueishGreyLight = Color(0xff323232);
 
-  static const blueishGreyDarkest = Color(0xff232323);
+  static const blueishGreyDarkest = Color(0xFF454868);
 
   static const white = Color(0xffffffff);
 
@@ -32,10 +30,10 @@ class KaspiumDarkTheme extends BaseTheme {
   Color primary15 = brightBlue.withOpacity(0.15);
   Color primary10 = brightBlue.withOpacity(0.1);
 
-  Color success = green;
-  Color success60 = green.withOpacity(0.6);
-  Color success30 = green.withOpacity(0.3);
-  Color success15 = green.withOpacity(0.15);
+  Color success = teal;
+  Color success60 = teal.withOpacity(0.6);
+  Color success30 = teal.withOpacity(0.3);
+  Color success15 = teal.withOpacity(0.15);
 
   Color successDark = greenDark;
   Color successDark30 = greenDark.withOpacity(0.3);

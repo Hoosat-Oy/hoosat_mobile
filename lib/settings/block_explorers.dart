@@ -91,9 +91,6 @@ const kBlockExplorersOptions = <String, List<BlockExplorer>>{
   kKaspaNetworkIdTestnet10: [
     kKaspaExplorerTestnet10,
   ],
-  kKaspaNetworkIdTestnet11: [
-    kKaspaExplorerTestnet11,
-  ],
   kKaspaNetworkIdDevnet: [],
   kKaspaNetworkIdSimnet: [],
 };

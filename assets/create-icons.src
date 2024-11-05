@@ -1,0 +1,4 @@
+convert hoosat.png -resize 128x128 ./htn_icon.png
+convert hoosat.png -resize 180x180 ./hoosat_180.png
+convert hoosat.png -resize 180x180 ./hoosat_transparent_180.png
+convert hoosat.png -resize 120x120 ./qr_code_icon.png

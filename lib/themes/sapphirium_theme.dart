@@ -6,8 +6,8 @@ import 'base_theme.dart';
 class SapphiriumTheme extends BaseTheme {
   static const brightBlue = Color(0xffc5e8fe);
 
-  //static const green = Color(0xfffc865a);
-  static const green = Color(0xff00ffff);
+  //static const teal = Color(0xfffc865a);
+  static const teal = Color(0xff00ffff);
 
   static const greenDark = Color(0xff053762);
 
@@ -31,10 +31,10 @@ class SapphiriumTheme extends BaseTheme {
   Color primary15 = brightBlue.withOpacity(0.15);
   Color primary10 = brightBlue.withOpacity(0.1);
 
-  Color success = green;
-  Color success60 = green.withOpacity(0.6);
-  Color success30 = green.withOpacity(0.3);
-  Color success15 = green.withOpacity(0.15);
+  Color success = teal;
+  Color success60 = teal.withOpacity(0.6);
+  Color success30 = teal.withOpacity(0.3);
+  Color success15 = teal.withOpacity(0.15);
 
   Color successDark = greenDark;
   Color successDark30 = greenDark.withOpacity(0.3);

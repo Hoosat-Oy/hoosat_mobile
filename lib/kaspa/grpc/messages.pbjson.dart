@@ -14,8 +14,8 @@ import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
 @$core.Deprecated('Use kaspadRequestDescriptor instead')
-const KaspadRequest$json = {
-  '1': 'KaspadRequest',
+const HoosatdRequest$json = {
+  '1': 'HoosatdRequest',
   '2': [
     {'1': 'id', '3': 101, '4': 1, '5': 4, '10': 'id'},
     {'1': 'getCurrentNetworkRequest', '3': 1001, '4': 1, '5': 11, '6': '.protowire.GetCurrentNetworkRequestMessage', '9': 0, '10': 'getCurrentNetworkRequest'},
@@ -74,7 +74,7 @@ const KaspadRequest$json = {
   ],
 };
 
-/// Descriptor for `KaspadRequest`. Decode as a `google.protobuf.DescriptorProto`.
+/// Descriptor for `HoosatdRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List kaspadRequestDescriptor = $convert.base64Decode(
     'Cg1LYXNwYWRSZXF1ZXN0Eg4KAmlkGGUgASgEUgJpZBJpChhnZXRDdXJyZW50TmV0d29ya1JlcX'
     'Vlc3QY6QcgASgLMioucHJvdG93aXJlLkdldEN1cnJlbnROZXR3b3JrUmVxdWVzdE1lc3NhZ2VI'
@@ -177,8 +177,8 @@ final $typed_data.Uint8List kaspadRequestDescriptor = $convert.base64Decode(
     'dEIJCgdwYXlsb2Fk');
 
 @$core.Deprecated('Use kaspadResponseDescriptor instead')
-const KaspadResponse$json = {
-  '1': 'KaspadResponse',
+const HoosatdResponse$json = {
+  '1': 'HoosatdResponse',
   '2': [
     {'1': 'id', '3': 101, '4': 1, '5': 4, '10': 'id'},
     {'1': 'getCurrentNetworkResponse', '3': 1002, '4': 1, '5': 11, '6': '.protowire.GetCurrentNetworkResponseMessage', '9': 0, '10': 'getCurrentNetworkResponse'},
@@ -246,7 +246,7 @@ const KaspadResponse$json = {
   ],
 };
 
-/// Descriptor for `KaspadResponse`. Decode as a `google.protobuf.DescriptorProto`.
+/// Descriptor for `HoosatdResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List kaspadResponseDescriptor = $convert.base64Decode(
     'Cg5LYXNwYWRSZXNwb25zZRIOCgJpZBhlIAEoBFICaWQSbAoZZ2V0Q3VycmVudE5ldHdvcmtSZX'
     'Nwb25zZRjqByABKAsyKy5wcm90b3dpcmUuR2V0Q3VycmVudE5ldHdvcmtSZXNwb25zZU1lc3Nh'

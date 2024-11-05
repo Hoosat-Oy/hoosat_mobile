@@ -49,7 +49,7 @@ final _kaspaPriceRemoteProvider =
       timestamp: timestamp,
     );
   } catch (e, st) {
-    log.e('Failed to fetch KAS exchange rate', error: e, stackTrace: st);
+    log.e('Failed to fetch HTN exchange rate', error: e, stackTrace: st);
     if (cached.currency == currency.currency) {
       return cached;
     }

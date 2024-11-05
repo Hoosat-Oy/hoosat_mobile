@@ -1,4 +1,4 @@
-package io.kaspium.kaspiumwallet
+package io.hoosat_mobile.hoosatwallet
 
 import io.flutter.embedding.android.FlutterFragmentActivity
 

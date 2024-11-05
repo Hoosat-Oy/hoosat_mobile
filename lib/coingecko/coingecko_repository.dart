@@ -31,7 +31,7 @@ Future<num?> getCoinGeckoApiPrice(String fiat) async {
     final uri = Uri.https(
       'api.coingecko.com',
       '/api/v3/simple/price',
-      {'ids': 'kaspa', 'vs_currencies': fiat},
+      {'ids': 'hoosat-network', 'vs_currencies': fiat},
     );
     final response = await http.get(uri, headers: {
       'Accept': 'application/json',
@@ -45,7 +45,7 @@ Future<num?> getCoinGeckoApiPrice(String fiat) async {
     if (data is! Map) {
       throw Exception('Returned data is not a Map');
     }
-    final rates = data['kaspa'] as Map<String, dynamic>;
+    final rates = data['hoosat-network'] as Map<String, dynamic>;
     return rates[fiat] as num;
   } catch (_) {
     return null;

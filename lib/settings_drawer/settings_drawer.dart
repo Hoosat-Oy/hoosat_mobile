@@ -420,32 +420,32 @@ class _SettingsSheetState extends ConsumerState<SettingsSheet>
                       //     },
                       //   ),
                       // ],
-                      if (canDonate) ...[
-                        Divider(height: 2, color: theme.text15),
-                        SingleLineItem(
-                          heading: l10n.donate,
-                          settingIcon: Icons.handshake_rounded,
-                          onPressed: () {
-                            setState(() => _donateOpen = true);
-                            _donateController.forward();
-                          },
-                        ),
-                      ],
-                      Divider(height: 2, color: theme.text15),
-                      DoubleLineItem(
-                        heading: l10n.contactSupport,
-                        defaultMethod: const ContactSupportItem(
-                          email: kSupportEmail,
-                        ),
-                        icon: Icons.email,
-                        onPressed: contactSupport,
-                      ),
-                      Divider(height: 2, color: theme.text15),
-                      SingleLineItem(
-                        heading: l10n.shareKaspium,
-                        settingIcon: AppIcons.share,
-                        onPressed: share,
-                      ),
+                      // if (canDonate) ...[
+                      //   Divider(height: 2, color: theme.text15),
+                      //   SingleLineItem(
+                      //     heading: l10n.donate,
+                      //     settingIcon: Icons.handshake_rounded,
+                      //     onPressed: () {
+                      //       setState(() => _donateOpen = true);
+                      //       _donateController.forward();
+                      //     },
+                      //   ),
+                      // ],
+                      // Divider(height: 2, color: theme.text15),
+                      // DoubleLineItem(
+                      //   heading: l10n.contactSupport,
+                      //   defaultMethod: const ContactSupportItem(
+                      //     email: kSupportEmail,
+                      //   ),
+                      //   icon: Icons.email,
+                      //   onPressed: contactSupport,
+                      // ),
+                      // Divider(height: 2, color: theme.text15),
+                      // SingleLineItem(
+                      //   heading: l10n.shareKaspium,
+                      //   settingIcon: AppIcons.share,
+                      //   onPressed: share,
+                      // ),
                       Divider(height: 2, color: theme.text15),
                       SingleLineItem(
                         heading: l10n.logoutOrSwitchWallet,

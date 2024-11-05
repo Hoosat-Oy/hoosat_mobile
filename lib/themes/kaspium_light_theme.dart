@@ -4,42 +4,39 @@ import 'package:flutter/services.dart';
 import 'base_theme.dart';
 
 class KaspiumLightTheme extends BaseTheme {
-  //static const deepBlue = Color(0xFF009688);
-  static const deepBlue = Color(0xFF6FC0B3);
+  static const deepTeal = Color(0xFF116466);
 
-  //static const green = Color(0xFF009688);
-  static const green = Color(0xFF6FC0B3);
+  static const teal = Color(0xFF1E7A7A);
 
-  //static const greenLight = Color(0xFF9EEDD4);
-  static const greenLight = Color(0xFF6FC0B3);
+  static const tealLight = Color.fromARGB(255, 104, 168, 168);
 
   static const white = Color(0xFFFFFFFF);
 
-  static const whiteishDark = Color(0xFFE8F0FA);
+  static const whiteishDark = Color(0xFFF0F7F7);
 
   static const grey = Color(0xFF454868);
 
   static const black = Color(0xFF000000);
 
-  static const darkDeepBlue = Color(0xFF009688);
+  static const darkDeepTeal = Color(0xFF009688);
 
   bool isLightTheme = true;
 
-  Color primary = deepBlue;
-  Color primary60 = deepBlue.withOpacity(0.9);
-  Color primary45 = deepBlue.withOpacity(0.8);
-  Color primary30 = deepBlue.withOpacity(0.6);
-  Color primary20 = deepBlue.withOpacity(0.45);
-  Color primary15 = deepBlue.withOpacity(0.3);
-  Color primary10 = deepBlue.withOpacity(0.2);
+  Color primary = deepTeal;
+  Color primary60 = deepTeal.withOpacity(0.9);
+  Color primary45 = deepTeal.withOpacity(0.8);
+  Color primary30 = deepTeal.withOpacity(0.6);
+  Color primary20 = deepTeal.withOpacity(0.45);
+  Color primary15 = deepTeal.withOpacity(0.3);
+  Color primary10 = deepTeal.withOpacity(0.2);
 
-  Color success = green;
-  Color success60 = green.withOpacity(0.6);
-  Color success30 = green.withOpacity(0.3);
-  Color success15 = green.withOpacity(0.15);
+  Color success = teal;
+  Color success60 = teal.withOpacity(0.6);
+  Color success30 = teal.withOpacity(0.3);
+  Color success15 = teal.withOpacity(0.15);
 
-  Color successDark = greenLight;
-  Color successDark30 = greenLight.withOpacity(0.3);
+  Color successDark = tealLight;
+  Color successDark30 = tealLight.withOpacity(0.3);
 
   Color background = white;
   Color background40 = white.withOpacity(0.4);
@@ -82,12 +79,12 @@ class KaspiumLightTheme extends BaseTheme {
       SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.transparent);
 
   BoxShadow boxShadow = BoxShadow(
-    color: darkDeepBlue.withOpacity(0.1),
+    color: darkDeepTeal.withOpacity(0.1),
     offset: Offset(0, 3),
     blurRadius: 15,
   );
   BoxShadow boxShadowButton = BoxShadow(
-    color: darkDeepBlue.withOpacity(0.2),
+    color: darkDeepTeal.withOpacity(0.2),
     offset: Offset(0, 3),
     blurRadius: 15,
   );

@@ -4,10 +4,10 @@ import 'package:kaspium_wallet/kaspa/kaspa.dart';
 
 void main() {
   final address =
-      'kaspa:precqv0krj3r6uyyfa36ga7s0u9jct0v4wg8ctsfde2gkrsgwgw8jgxfzfc98';
+      'hoosaat:precqv0krj3r6uyyfa36ga7s0u9jct0v4wg8ctsfde2gkrsgwgw8jgxfzfc98';
 
   test('Uri with invalid address', () {
-    final uriStr = 'kaspa:invalid';
+    final uriStr = 'hoosat:invalid';
     final uri = KaspaUri.tryParse(uriStr);
 
     expect(uri, isNull);
@@ -15,7 +15,7 @@ void main() {
 
   test('Uri with different prefix', () {
     final uriStr = address;
-    final uri = KaspaUri.tryParse(uriStr, prefix: AddressPrefix.kaspaTest);
+    final uri = KaspaUri.tryParse(uriStr, prefix: AddressPrefix.hoosatTest);
 
     expect(uri, isNull);
   });

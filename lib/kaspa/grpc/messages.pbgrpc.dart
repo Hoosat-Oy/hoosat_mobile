@@ -21,10 +21,10 @@ export 'messages.pb.dart';
 
 @$pb.GrpcServiceName('protowire.RPC')
 class RPCClient extends $grpc.Client {
-  static final _$messageStream = $grpc.ClientMethod<$0.KaspadRequest, $0.KaspadResponse>(
+  static final _$messageStream = $grpc.ClientMethod<$0.HoosatdRequest, $0.HoosatdResponse>(
       '/protowire.RPC/MessageStream',
-      ($0.KaspadRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.KaspadResponse.fromBuffer(value));
+      ($0.HoosatdRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.HoosatdResponse.fromBuffer(value));
 
   RPCClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -32,7 +32,7 @@ class RPCClient extends $grpc.Client {
       : super(channel, options: options,
         interceptors: interceptors);
 
-  $grpc.ResponseStream<$0.KaspadResponse> messageStream($async.Stream<$0.KaspadRequest> request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseStream<$0.HoosatdResponse> messageStream($async.Stream<$0.HoosatdRequest> request, {$grpc.CallOptions? options}) {
     return $createStreamingCall(_$messageStream, request, options: options);
   }
 }
@@ -42,14 +42,14 @@ abstract class RPCServiceBase extends $grpc.Service {
   $core.String get $name => 'protowire.RPC';
 
   RPCServiceBase() {
-    $addMethod($grpc.ServiceMethod<$0.KaspadRequest, $0.KaspadResponse>(
+    $addMethod($grpc.ServiceMethod<$0.HoosatdRequest, $0.HoosatdResponse>(
         'MessageStream',
         messageStream,
         true,
         true,
-        ($core.List<$core.int> value) => $0.KaspadRequest.fromBuffer(value),
-        ($0.KaspadResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $0.HoosatdRequest.fromBuffer(value),
+        ($0.HoosatdResponse value) => value.writeToBuffer()));
   }
 
-  $async.Stream<$0.KaspadResponse> messageStream($grpc.ServiceCall call, $async.Stream<$0.KaspadRequest> request);
+  $async.Stream<$0.HoosatdResponse> messageStream($grpc.ServiceCall call, $async.Stream<$0.HoosatdRequest> request);
 }

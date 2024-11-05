@@ -817,7 +817,7 @@ const WORDLIST = [
   "grass",
   "gravity",
   "great",
-  "green",
+  "teal",
   "grid",
   "grief",
   "grit",
