@@ -13,8 +13,8 @@ _$BlockExplorerSettingsImpl _$$BlockExplorerSettingsImplFromJson(Map json) =>
                 BlockExplorer.fromJson(Map<String, dynamic>.from(e as Map))),
           ) ??
           const {
-            kKaspaNetworkIdMainnet: kKaspaExplorerMainnet,
-            kKaspaNetworkIdTestnet10: kKaspaExplorerTestnet10
+            kHoosatNetworkIdMainnet: kKaspaExplorerMainnet,
+            kHoosatNetworkIdTestnet10: kKaspaExplorerTestnet10
           },
     );
 

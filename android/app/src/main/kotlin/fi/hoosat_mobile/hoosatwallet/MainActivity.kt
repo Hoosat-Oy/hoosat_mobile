@@ -1,4 +1,4 @@
-package io.hoosat_mobile.hoosatwallet
+package fi.hoosat_mobile.hoosatwallet
 
 import io.flutter.embedding.android.FlutterFragmentActivity
 

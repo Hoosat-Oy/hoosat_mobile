@@ -14,14 +14,14 @@ String convertIfXpub(String hdPubKey) {
   if (hdPubKey.startsWith('xpub')) {
     try {
       final bip32 = BIP32.fromBase58(hdPubKey);
-      bip32.network = networkTypeForNetwork(KaspaNetwork.mainnet);
+      bip32.network = networkTypeForNetwork(HoosatNetwork.mainnet);
       return bip32.toBase58();
     } catch (_) {}
   }
   return hdPubKey;
 }
 
-String convertHdPublicKey(String hdPubKey, KaspaNetwork toNetwork) {
+String convertHdPublicKey(String hdPubKey, HoosatNetwork toNetwork) {
   final network = networkForKpub(hdPubKey);
   if (network == toNetwork) {
     return hdPubKey;
@@ -34,15 +34,15 @@ String convertHdPublicKey(String hdPubKey, KaspaNetwork toNetwork) {
   return bip32.toBase58();
 }
 
-AddressPrefix addressPrefixForNetwork(KaspaNetwork network) {
+AddressPrefix addressPrefixForNetwork(HoosatNetwork network) {
   switch (network) {
-    case KaspaNetwork.mainnet:
+    case HoosatNetwork.mainnet:
       return AddressPrefix.hoosat;
-    case KaspaNetwork.testnet:
+    case HoosatNetwork.testnet:
       return AddressPrefix.hoosatTest;
-    case KaspaNetwork.devnet:
+    case HoosatNetwork.devnet:
       return AddressPrefix.hoosatDev;
-    case KaspaNetwork.simnet:
+    case HoosatNetwork.simnet:
       return AddressPrefix.hoosatSim;
   }
 }

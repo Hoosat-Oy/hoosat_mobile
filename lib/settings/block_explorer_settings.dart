@@ -12,8 +12,8 @@ class BlockExplorerSettings with _$BlockExplorerSettings {
 
   const factory BlockExplorerSettings({
     @Default(const {
-      kKaspaNetworkIdMainnet: kKaspaExplorerMainnet,
-      kKaspaNetworkIdTestnet10: kKaspaExplorerTestnet10,
+      kHoosatNetworkIdMainnet: kKaspaExplorerMainnet,
+      kHoosatNetworkIdTestnet10: kKaspaExplorerTestnet10,
     })
     Map<String, BlockExplorer> selection,
   }) = _BlockExplorerSettings;

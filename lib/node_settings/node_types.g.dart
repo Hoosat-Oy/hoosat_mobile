@@ -35,7 +35,7 @@ _$NodeConfigImpl _$$NodeConfigImplFromJson(Map json) => _$NodeConfigImpl(
       isDns: json['isDns'] as bool? ?? false,
       isSecure: json['isSecure'] as bool? ?? false,
       urls: (json['urls'] as List<dynamic>).map((e) => e as String).toList(),
-      network: $enumDecode(_$KaspaNetworkEnumMap, json['network']),
+      network: $enumDecode(_$HoosatNetworkEnumMap, json['network']),
       networkSuffix: json['networkSuffix'] as String? ?? '',
     );
 
@@ -46,13 +46,13 @@ Map<String, dynamic> _$$NodeConfigImplToJson(_$NodeConfigImpl instance) =>
       'isDns': instance.isDns,
       'isSecure': instance.isSecure,
       'urls': instance.urls,
-      'network': _$KaspaNetworkEnumMap[instance.network]!,
+      'network': _$HoosatNetworkEnumMap[instance.network]!,
       'networkSuffix': instance.networkSuffix,
     };
 
-const _$KaspaNetworkEnumMap = {
-  KaspaNetwork.mainnet: 'mainnet',
-  KaspaNetwork.testnet: 'testnet',
-  KaspaNetwork.devnet: 'devnet',
-  KaspaNetwork.simnet: 'simnet',
+const _$HoosatNetworkEnumMap = {
+  HoosatNetwork.mainnet: 'mainnet',
+  HoosatNetwork.testnet: 'testnet',
+  HoosatNetwork.devnet: 'devnet',
+  HoosatNetwork.simnet: 'simnet',
 };

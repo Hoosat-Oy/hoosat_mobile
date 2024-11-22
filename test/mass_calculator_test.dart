@@ -2,8 +2,8 @@ import 'dart:typed_data';
 
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:kaspium_wallet/kaspa/kaspa.dart';
-import 'package:kaspium_wallet/kaspa/transaction/mass_calculator.dart';
+import 'package:hoosat_mobile/kaspa/kaspa.dart';
+import 'package:hoosat_mobile/kaspa/transaction/mass_calculator.dart';
 
 void main() {
   Transaction generateTxFromAmounts(

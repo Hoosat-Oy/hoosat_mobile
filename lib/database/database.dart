@@ -70,7 +70,7 @@ class Database {
 
   static bool _isInitialized = false;
   static Future<void> _initHive() async {
-    await Hive.initFlutter('kaspium_wallet');
+    await Hive.initFlutter('hoosat_mobile');
 
     Hive.registerAdapter(walletAddressAdapter);
     Hive.registerAdapter(addressBalanceAdapter);
@@ -112,7 +112,7 @@ class Database {
   }
 
   Future<void> _init() async {
-    await Hive.initFlutter('kaspium_wallet');
+    await Hive.initFlutter('hoosat_mobile');
 
     final vault = Vault();
     final dbKey = await vault.getDbKey();

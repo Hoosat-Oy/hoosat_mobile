@@ -121,11 +121,11 @@ class NodeAddSheet extends HookConsumerWidget {
           isSecure = false;
         }
 
-        KaspaNetwork network;
+        HoosatNetwork network;
         String suffix;
         final parts = networkName.split('-');
         if (parts.length > 1) {
-          network = KaspaNetwork.tryParse(parts[1]) ?? networkForPort(port);
+          network = HoosatNetwork.tryParse(parts[1]) ?? networkForPort(port);
           suffix = parts.length == 3 ? parts[2] : '';
         } else {
           network = networkForPort(port);

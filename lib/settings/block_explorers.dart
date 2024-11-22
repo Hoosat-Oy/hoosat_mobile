@@ -11,7 +11,7 @@ const kParamPattern = '{0}';
 class BlockExplorer with _$BlockExplorer {
   const BlockExplorer._();
   const factory BlockExplorer({
-    required KaspaNetwork network,
+    required HoosatNetwork network,
     required String name,
     required String url,
     required String addressUrl,
@@ -28,7 +28,7 @@ class BlockExplorer with _$BlockExplorer {
 }
 
 const kKaspaExplorerMainnet = BlockExplorer(
-  network: KaspaNetwork.mainnet,
+  network: HoosatNetwork.mainnet,
   name: 'Kaspa Explorer',
   url: 'explorer.kaspa.org',
   addressUrl: 'https://explorer.kaspa.org/addresses/$kParamPattern',
@@ -36,7 +36,7 @@ const kKaspaExplorerMainnet = BlockExplorer(
 );
 
 const kKaspaExplorerTestnet10 = BlockExplorer(
-  network: KaspaNetwork.testnet,
+  network: HoosatNetwork.testnet,
   name: 'Kaspa Explorer',
   url: 'explorer-tn10.kaspa.org',
   addressUrl: 'https://explorer-tn10.kaspa.org/addresses/$kParamPattern',
@@ -44,7 +44,7 @@ const kKaspaExplorerTestnet10 = BlockExplorer(
 );
 
 const kKaspaExplorerTestnet11 = BlockExplorer(
-  network: KaspaNetwork.testnet,
+  network: HoosatNetwork.testnet,
   name: 'Kaspa Explorer',
   url: 'explorer-tn11.kaspa.org',
   addressUrl: 'https://explorer-tn11.kaspa.org/addresses/$kParamPattern',
@@ -52,7 +52,7 @@ const kKaspaExplorerTestnet11 = BlockExplorer(
 );
 
 const kKasFyiMainnet = BlockExplorer(
-  network: KaspaNetwork.mainnet,
+  network: HoosatNetwork.mainnet,
   name: 'Kas.fyi',
   url: 'kas.fyi',
   addressUrl: 'https://kas.fyi/address/$kParamPattern',
@@ -60,7 +60,7 @@ const kKasFyiMainnet = BlockExplorer(
 );
 
 const kKasFyiTestnet = BlockExplorer(
-  network: KaspaNetwork.testnet,
+  network: HoosatNetwork.testnet,
   name: 'Kas.fyi Testnet',
   url: 'testnet.kas.fyi',
   addressUrl: 'https://testnet.kas.fyi/address/$kParamPattern',
@@ -68,7 +68,7 @@ const kKasFyiTestnet = BlockExplorer(
 );
 
 const kKatnipMainnet = BlockExplorer(
-  network: KaspaNetwork.mainnet,
+  network: HoosatNetwork.mainnet,
   name: 'Katnip',
   url: 'katnip.kaspad.net',
   addressUrl: 'https://katnip.kaspad.net/addr/$kParamPattern',
@@ -76,7 +76,7 @@ const kKatnipMainnet = BlockExplorer(
 );
 
 const kKatnipTestnet = BlockExplorer(
-  network: KaspaNetwork.testnet,
+  network: HoosatNetwork.testnet,
   name: 'Katnip Testnet',
   url: 'katnip-testnet.kaspad.net',
   addressUrl: 'https://katnip-testnet.kaspad.net/addr/$kParamPattern',
@@ -84,13 +84,13 @@ const kKatnipTestnet = BlockExplorer(
 );
 
 const kBlockExplorersOptions = <String, List<BlockExplorer>>{
-  kKaspaNetworkIdMainnet: [
+  kHoosatNetworkIdMainnet: [
     kKaspaExplorerMainnet,
     kKasFyiMainnet,
   ],
-  kKaspaNetworkIdTestnet10: [
+  kHoosatNetworkIdTestnet10: [
     kKaspaExplorerTestnet10,
   ],
-  kKaspaNetworkIdDevnet: [],
-  kKaspaNetworkIdSimnet: [],
+  kHoosatNetworkIdDevnet: [],
+  kHoosatNetworkIdSimnet: [],
 };

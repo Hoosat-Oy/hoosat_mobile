@@ -10,10 +10,10 @@ part 'node_types.g.dart';
 
 const mainnetNodeConfig = NodeConfig(
   id: '3dcfd8432b304450496736cb0c4c41c9',
-  name: 'Hoosat Official',
-  urls: ['node-mainnet-1.hoosat.fi'],
+  name: 'Hoosat Mainnet',
+  urls: ['mainnet-node-1.hoosat.fi'],
   isSecure: true,
-  network: KaspaNetwork.mainnet,
+  network: HoosatNetwork.mainnet,
 );
 
 @freezed
@@ -36,7 +36,7 @@ class NodeConfig with _$NodeConfig {
     @Default(false) bool isDns,
     @Default(false) bool isSecure,
     required List<String> urls,
-    required KaspaNetwork network,
+    required HoosatNetwork network,
     @Default('') String networkSuffix,
   }) = _NodeConfig;
 
@@ -54,7 +54,7 @@ class ActiveNodeConfig with _$ActiveNodeConfig {
   }) = _ActiveNodeConfig;
 
   String get name => config.name;
-  KaspaNetwork get network => config.network;
+  HoosatNetwork get network => config.network;
 
   bool get isSecure => config.isSecure;
   late final String url = config.urls[Random().nextInt(config.urls.length)];

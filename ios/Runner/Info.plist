@@ -87,7 +87,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>io.kaspium.kaspiumwallet</string>
+			<string>fi.hoosat_mobile.hoosatwallet</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>kaspa</string>
@@ -97,7 +97,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>io.kaspium.kaspiumwallet</string>
+			<string>fi.hoosat_mobile.hoosatwallet</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>kaspatest</string>
@@ -107,7 +107,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>io.kaspium.kaspiumwallet</string>
+			<string>fi.hoosat_mobile.hoosatwallet</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>kaspadev</string>
@@ -117,7 +117,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>io.kaspium.kaspiumwallet</string>
+			<string>fi.hoosat_mobile.hoosatwallet</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>kaspasim</string>

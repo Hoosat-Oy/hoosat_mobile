@@ -96,8 +96,8 @@ final _kaspaApiProvider = Provider<KaspaApi>((ref) {
   final networkId = ref.watch(networkIdProvider);
 
   return switch (networkId) {
-    kKaspaNetworkIdMainnet => KaspaApiMainnet('https://api.network.hoosat.fi'),
-    kKaspaNetworkIdTestnet10 => KaspaApiMainnet('https://api.network.hoosat.fi'),
+    kHoosatNetworkIdMainnet => KaspaApiMainnet('https://api.network.hoosat.fi'),
+    kHoosatNetworkIdTestnet10 => KaspaApiMainnet('https://api.network.hoosat.fi'),
     _ => KaspaApiEmpty(),
   };
 });
@@ -288,7 +288,7 @@ final kasSymbolProvider = Provider((ref) {
   final network = ref.watch(networkProvider);
 
   return switch (network) {
-    KaspaNetwork.mainnet => 'HTN',
+    HoosatNetwork.mainnet => 'HTN',
     _ => 'THTN',
   };
 });

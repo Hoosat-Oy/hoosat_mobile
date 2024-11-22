@@ -45,7 +45,7 @@ For some details regarding translations, have a look at [Translations and transl
 
 ## Have a question?
 
-If you need any help, feel free to [file a feature request or an issue](https://github.com/azbuky/kaspium_wallet/issues/new/choose) if you do not manage to find a solution.
+If you need any help, feel free to [file a feature request or an issue](https://github.com/azbuky/hoosat_mobile/issues/new/choose) if you do not manage to find a solution.
 
 ## License
 

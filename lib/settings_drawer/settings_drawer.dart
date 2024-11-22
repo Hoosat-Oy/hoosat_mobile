@@ -251,7 +251,7 @@ class _SettingsSheetState extends ConsumerState<SettingsSheet>
       final hasMnemonic = ref.watch(walletHasMnemonic);
 
       final canDonate = !kPlatformIsIOS &&
-          network == KaspaNetwork.mainnet &&
+          network == HoosatNetwork.mainnet &&
           !wallet.isViewOnly;
 
       Future<void> backupSecretPhrase() async {
@@ -404,7 +404,7 @@ class _SettingsSheetState extends ConsumerState<SettingsSheet>
                           onPressed: backupSecretPhrase,
                         ),
                       ],
-                      // if (network == KaspaNetwork.mainnet) ...[
+                      // if (network == HoosatNetwork.mainnet) ...[
                       //   Divider(height: 2, color: theme.text15),
                       //   DoubleLineItem(
                       //     heading: l10n.buyKaspaTitle,

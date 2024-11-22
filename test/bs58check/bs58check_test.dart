@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:kaspium_wallet/kaspa/bs58check/bs58check.dart' as bs58check;
+import 'package:hoosat_mobile/kaspa/bs58check/bs58check.dart' as bs58check;
 import 'dart:io';
 import 'package:hex/hex.dart';
 import 'dart:convert';

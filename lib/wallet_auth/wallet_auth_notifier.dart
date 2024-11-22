@@ -166,7 +166,7 @@ class WalletAuthNotifier extends StateNotifier<WalletAuth> {
     return keyPair.publicKey;
   }
 
-  HdAddressGenerator addressGenerator(KaspaNetwork network) {
+  HdAddressGenerator addressGenerator(HoosatNetwork network) {
     final wallet = state.wallet;
     final prefix = addressPrefixForNetwork(network);
     final hdPubKey = wallet.hdPublicKey(network);

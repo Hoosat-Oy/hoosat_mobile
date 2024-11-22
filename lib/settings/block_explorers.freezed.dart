@@ -20,7 +20,7 @@ BlockExplorer _$BlockExplorerFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BlockExplorer {
-  KaspaNetwork get network => throw _privateConstructorUsedError;
+  HoosatNetwork get network => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
   String get addressUrl => throw _privateConstructorUsedError;
@@ -39,7 +39,7 @@ abstract class $BlockExplorerCopyWith<$Res> {
       _$BlockExplorerCopyWithImpl<$Res, BlockExplorer>;
   @useResult
   $Res call(
-      {KaspaNetwork network,
+      {HoosatNetwork network,
       String name,
       String url,
       String addressUrl,
@@ -69,7 +69,7 @@ class _$BlockExplorerCopyWithImpl<$Res, $Val extends BlockExplorer>
       network: null == network
           ? _value.network
           : network // ignore: cast_nullable_to_non_nullable
-              as KaspaNetwork,
+              as HoosatNetwork,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -99,7 +99,7 @@ abstract class _$$BlockExplorerImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {KaspaNetwork network,
+      {HoosatNetwork network,
       String name,
       String url,
       String addressUrl,
@@ -127,7 +127,7 @@ class __$$BlockExplorerImplCopyWithImpl<$Res>
       network: null == network
           ? _value.network
           : network // ignore: cast_nullable_to_non_nullable
-              as KaspaNetwork,
+              as HoosatNetwork,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -163,7 +163,7 @@ class _$BlockExplorerImpl extends _BlockExplorer {
       _$$BlockExplorerImplFromJson(json);
 
   @override
-  final KaspaNetwork network;
+  final HoosatNetwork network;
   @override
   final String name;
   @override
@@ -212,7 +212,7 @@ class _$BlockExplorerImpl extends _BlockExplorer {
 
 abstract class _BlockExplorer extends BlockExplorer {
   const factory _BlockExplorer(
-      {required final KaspaNetwork network,
+      {required final HoosatNetwork network,
       required final String name,
       required final String url,
       required final String addressUrl,
@@ -223,7 +223,7 @@ abstract class _BlockExplorer extends BlockExplorer {
       _$BlockExplorerImpl.fromJson;
 
   @override
-  KaspaNetwork get network;
+  HoosatNetwork get network;
   @override
   String get name;
   @override

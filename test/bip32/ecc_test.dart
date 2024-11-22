@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hex/hex.dart';
-import 'package:kaspium_wallet/kaspa/bip32/bip32.dart';
+import 'package:hoosat_mobile/kaspa/bip32/bip32.dart';
 
 final defichainTestnet = NetworkType(
   messagePrefix: "DefiChain Signed Message:\n",

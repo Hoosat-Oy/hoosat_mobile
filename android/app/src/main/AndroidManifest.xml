@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.kaspium.kaspiumwallet"
+    package="fi.hoosat_mobile.hoosatwallet"
     android:installLocation="auto"
     >
 
@@ -18,7 +18,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="${applicationName}"
-        android:label="Kaspium"
+        android:label="Hoosat Mobile"
         android:icon="@mipmap/ic_launcher"
         android:allowBackup="false">
         <meta-data
@@ -48,10 +48,10 @@
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="kaspa" />
-                <data android:scheme="kaspatest" />
-                <data android:scheme="kaspadev" />
-                <data android:scheme="kaspasim" />
+                <data android:scheme="hoosat" />
+                <data android:scheme="hoosattest" />
+                <data android:scheme="hoosatdev" />
+                <data android:scheme="hoosatsim" />
             </intent-filter>
         </activity>
 

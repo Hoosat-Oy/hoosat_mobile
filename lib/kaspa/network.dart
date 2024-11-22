@@ -1,32 +1,32 @@
 import 'bip32/bip32.dart';
 
-const String kKaspaNetworkMainnet = 'hoosat-mainnet';
-const String kKaspaNetworkTestnet = 'hoosat-testnet';
-const String kKaspaNetworkSimnet = 'hoosat-simnet';
-const String kKaspaNetworkDevnet = 'hoosat-devnet';
+const String kHoosatNetworkMainnet = 'hoosat-mainnet';
+const String kHoosatNetworkTestnet = 'hoosat-testnet';
+const String kHoosatNetworkSimnet = 'hoosat-simnet';
+const String kHoosatNetworkDevnet = 'hoosat-devnet';
 
-const String kKaspaNetworkIdMainnet = '$kKaspaNetworkMainnet';
-const String kKaspaNetworkIdTestnet10 = '$kKaspaNetworkTestnet';
-const String kKaspaNetworkIdSimnet = '$kKaspaNetworkSimnet';
-const String kKaspaNetworkIdDevnet = '$kKaspaNetworkDevnet';
+const String kHoosatNetworkIdMainnet = '$kHoosatNetworkMainnet';
+const String kHoosatNetworkIdTestnet10 = '$kHoosatNetworkTestnet';
+const String kHoosatNetworkIdSimnet = '$kHoosatNetworkSimnet';
+const String kHoosatNetworkIdDevnet = '$kHoosatNetworkDevnet';
 
 const int kMainnetRpcPort = 42420;
 const int kTestnetPpcPort = 42422;
 const int kSimnetRpcPort = 42424;
 const int kDevnetRpcPort = 42426;
 
-enum KaspaNetwork {
+enum HoosatNetwork {
   mainnet,
   testnet,
   devnet,
   simnet;
 
-  static KaspaNetwork? tryParse(String network) {
+  static HoosatNetwork? tryParse(String network) {
     return switch (network) {
-      kKaspaNetworkMainnet => KaspaNetwork.mainnet,
-      kKaspaNetworkTestnet => KaspaNetwork.testnet,
-      kKaspaNetworkSimnet => KaspaNetwork.simnet,
-      kKaspaNetworkDevnet => KaspaNetwork.devnet,
+      kHoosatNetworkMainnet => HoosatNetwork.mainnet,
+      kHoosatNetworkTestnet => HoosatNetwork.testnet,
+      kHoosatNetworkSimnet => HoosatNetwork.simnet,
+      kHoosatNetworkDevnet => HoosatNetwork.devnet,
       _ => null,
     };
   }
@@ -39,47 +39,47 @@ enum KaspaNetwork {
   }
 
   int get defaultRpcPort => switch (this) {
-        KaspaNetwork.mainnet => kMainnetRpcPort,
-        KaspaNetwork.testnet => kTestnetPpcPort,
-        KaspaNetwork.simnet => kSimnetRpcPort,
-        KaspaNetwork.devnet => kDevnetRpcPort
+        HoosatNetwork.mainnet => kMainnetRpcPort,
+        HoosatNetwork.testnet => kTestnetPpcPort,
+        HoosatNetwork.simnet => kSimnetRpcPort,
+        HoosatNetwork.devnet => kDevnetRpcPort
       };
 }
 
-KaspaNetwork networkForPort(int port) {
+HoosatNetwork networkForPort(int port) {
   switch (port) {
     case kMainnetRpcPort:
-      return KaspaNetwork.mainnet;
+      return HoosatNetwork.mainnet;
     case kTestnetPpcPort:
-      return KaspaNetwork.testnet;
+      return HoosatNetwork.testnet;
     case kSimnetRpcPort:
-      return KaspaNetwork.simnet;
+      return HoosatNetwork.simnet;
     case kDevnetRpcPort:
-      return KaspaNetwork.devnet;
+      return HoosatNetwork.devnet;
     default:
-      return KaspaNetwork.mainnet;
+      return HoosatNetwork.mainnet;
   }
 }
 
-KaspaNetwork networkForKpub(String kpub) {
+HoosatNetwork networkForKpub(String kpub) {
   return switch (kpub.substring(0, 4)) {
-    'kpub' => KaspaNetwork.mainnet,
-    'ktub' => KaspaNetwork.testnet,
-    'ksub' => KaspaNetwork.simnet,
-    'kdub' => KaspaNetwork.devnet,
-    _ => KaspaNetwork.mainnet,
+    'kpub' => HoosatNetwork.mainnet,
+    'ktub' => HoosatNetwork.testnet,
+    'ksub' => HoosatNetwork.simnet,
+    'kdub' => HoosatNetwork.devnet,
+    _ => HoosatNetwork.mainnet,
   };
 }
 
-NetworkType networkTypeForNetwork(KaspaNetwork network) {
+NetworkType networkTypeForNetwork(HoosatNetwork network) {
   switch (network) {
-    case KaspaNetwork.mainnet:
+    case HoosatNetwork.mainnet:
       return kaspaMainnet;
-    case KaspaNetwork.testnet:
+    case HoosatNetwork.testnet:
       return kaspaTestnet;
-    case KaspaNetwork.devnet:
+    case HoosatNetwork.devnet:
       return kaspaDevnet;
-    case KaspaNetwork.simnet:
+    case HoosatNetwork.simnet:
       return kaspaSimnet;
   }
 }

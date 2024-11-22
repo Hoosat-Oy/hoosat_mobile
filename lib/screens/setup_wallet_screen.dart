@@ -96,7 +96,7 @@ class SetupWalletScreen extends HookConsumerWidget {
 
         WalletDiscoveryResult discovery;
 
-        if (network == KaspaNetwork.mainnet && !introData.generated) {
+        if (network == HoosatNetwork.mainnet && !introData.generated) {
           message.value = l10n.walletSetupAddressDiscovery;
           discovery = await addressDiscovery.addressDiscovery(
             startReceiveIndex: 0,

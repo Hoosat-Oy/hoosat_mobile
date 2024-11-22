@@ -7,7 +7,7 @@ import '../kaspa/kaspa.dart';
 final _networkBannerProvider = Provider<String?>((ref) {
   final nodeConfig = ref.watch(kaspaNodeConfigProvider);
 
-  if (nodeConfig.network != KaspaNetwork.mainnet) {
+  if (nodeConfig.network != HoosatNetwork.mainnet) {
     return nodeConfig.networkId.toUpperCase();
   }
   return null;

@@ -1,7 +1,7 @@
 import 'package:decimal/decimal.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:kaspium_wallet/kaspa/kaspa.dart';
-import 'package:kaspium_wallet/util/numberutil.dart';
+import 'package:hoosat_mobile/kaspa/kaspa.dart';
+import 'package:hoosat_mobile/util/numberutil.dart';
 
 void main() {
   group('NumberUtil.formatAmount', () {

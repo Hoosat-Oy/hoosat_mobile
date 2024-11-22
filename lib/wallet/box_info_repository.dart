@@ -9,11 +9,11 @@ BoxInfo _genBoxInfo({
   required String wid,
   required String networkId,
 }) {
-  final addressBoxKey = hash('addressBoxKey#KaspaNetwork.$networkId#$wid');
-  final balanceBoxKey = hash('balanceBoxKey#KaspaNetwork.$networkId#$wid');
-  final utxoBoxKey = hash('utxoBoxKey#KaspaNetwork.$networkId#$wid');
-  final txIndexBoxKey = hash('txIndexBoxKey#KaspaNetwork.$networkId#$wid');
-  final txBoxKey = hash('txBoxKey#KaspaNetwork.$networkId#$wid');
+  final addressBoxKey = hash('addressBoxKey#HoosatNetwork.$networkId#$wid');
+  final balanceBoxKey = hash('balanceBoxKey#HoosatNetwork.$networkId#$wid');
+  final utxoBoxKey = hash('utxoBoxKey#HoosatNetwork.$networkId#$wid');
+  final txIndexBoxKey = hash('txIndexBoxKey#HoosatNetwork.$networkId#$wid');
+  final txBoxKey = hash('txBoxKey#HoosatNetwork.$networkId#$wid');
 
   return BoxInfo(
     address: BoxKeys(
@@ -85,7 +85,7 @@ extension BoxInfoExtension on SettingsRepository {
         byNetworkId: mainnet != null
             ? {
                 ...bundle.byNetworkId,
-                kKaspaNetworkIdMainnet: mainnet,
+                kHoosatNetworkIdMainnet: mainnet,
               }
             : bundle.byNetworkId,
         wasMigrated: true,
