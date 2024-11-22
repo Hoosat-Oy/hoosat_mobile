@@ -9,7 +9,7 @@ part 'node_types.freezed.dart';
 part 'node_types.g.dart';
 
 const mainnetNodeConfig = NodeConfig(
-  id: '3dcfd8432b304450496736cb0c4c41c9',
+  id: '57b0fe448a279d9273bf4868ec7317a3',
   name: 'Hoosat Mainnet',
   urls: ['mainnet-node-1.hoosat.fi'],
   isSecure: true,
