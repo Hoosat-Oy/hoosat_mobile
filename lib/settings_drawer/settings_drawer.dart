@@ -14,7 +14,6 @@ import '../l10n/l10n.dart';
 import '../settings/available_currency.dart';
 import '../settings/available_language.dart';
 import '../settings/available_themes.dart';
-import '../settings/setting_item.dart';
 import '../settings_advanced/advanced_menu.dart';
 import '../util/platform.dart';
 import '../util/ui_util.dart';
