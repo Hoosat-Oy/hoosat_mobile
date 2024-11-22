@@ -12,7 +12,7 @@ const mainnetNodeConfig = NodeConfig(
   id: '57b0fe448a279d9273bf4868ec7317a3',
   name: 'Hoosat Mainnet',
   urls: ['mainnet-node-1.hoosat.fi'],
-  isSecure: true,
+  isSecure: false,
   network: HoosatNetwork.mainnet,
 );
 
