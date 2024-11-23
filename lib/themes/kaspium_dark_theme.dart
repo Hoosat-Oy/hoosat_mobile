@@ -10,11 +10,10 @@ class KaspiumDarkTheme extends BaseTheme {
 
   static const greenDark = Color(0xfffc865a);
 
-  static const blueishGreyDark = Color(0xff232323);
+  static const blueishGreyDark = Color(0xFF3A3A3A);
+  static const blueishGreyLight = Color(0xFF2F2F2F);
 
-  static const blueishGreyLight = Color(0xff323232);
-
-  static const blueishGreyDarkest = Color(0xFF454868);
+  static const blueishGreyDarkest = Color(0xFFA9A9A9);
 
   static const white = Color(0xffffffff);
 
