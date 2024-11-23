@@ -13,7 +13,7 @@ class BlockExplorerSettings with _$BlockExplorerSettings {
   const factory BlockExplorerSettings({
     @Default(const {
       kHoosatNetworkIdMainnet: kHoosatExplorerMainnet,
-      kHoosatNetworkIdTestnet: kHoosatExplorerTestnet10,
+      kHoosatNetworkIdTestnet: kHoosatExplorerTestnet,
     })
     Map<String, BlockExplorer> selection,
   }) = _BlockExplorerSettings;

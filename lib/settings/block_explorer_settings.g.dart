@@ -14,7 +14,7 @@ _$BlockExplorerSettingsImpl _$$BlockExplorerSettingsImplFromJson(Map json) =>
           ) ??
           const {
             kHoosatNetworkIdMainnet: kHoosatExplorerMainnet,
-            kHoosatNetworkIdTestnet: kHoosatExplorerTestnet10
+            kHoosatNetworkIdTestnet: kHoosatExplorerTestnet
           },
     );
 
