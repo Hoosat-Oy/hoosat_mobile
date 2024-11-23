@@ -6,7 +6,7 @@ const String kHoosatNetworkSimnet = 'hoosat-simnet';
 const String kHoosatNetworkDevnet = 'hoosat-devnet';
 
 const String kHoosatNetworkIdMainnet = '$kHoosatNetworkMainnet';
-const String kHoosatNetworkIdTestnet10 = '$kHoosatNetworkTestnet';
+const String kHoosatNetworkIdTestnet = '$kHoosatNetworkTestnet';
 const String kHoosatNetworkIdSimnet = '$kHoosatNetworkSimnet';
 const String kHoosatNetworkIdDevnet = '$kHoosatNetworkDevnet';
 

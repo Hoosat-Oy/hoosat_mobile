@@ -12,14 +12,14 @@ class BlockExplorerSettings with _$BlockExplorerSettings {
 
   const factory BlockExplorerSettings({
     @Default(const {
-      kHoosatNetworkIdMainnet: kKaspaExplorerMainnet,
-      kHoosatNetworkIdTestnet10: kKaspaExplorerTestnet10,
+      kHoosatNetworkIdMainnet: kHoosatExplorerMainnet,
+      kHoosatNetworkIdTestnet: kHoosatExplorerTestnet10,
     })
     Map<String, BlockExplorer> selection,
   }) = _BlockExplorerSettings;
 
   BlockExplorer explorerForNetwork(String networkId) {
-    return selection[networkId] ?? kKaspaExplorerMainnet;
+    return selection[networkId] ?? kHoosatExplorerMainnet;
   }
 
   factory BlockExplorerSettings.fromJson(Map<String, dynamic> json) =>

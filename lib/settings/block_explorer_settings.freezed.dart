@@ -104,8 +104,8 @@ class __$$BlockExplorerSettingsImplCopyWithImpl<$Res>
 class _$BlockExplorerSettingsImpl extends _BlockExplorerSettings {
   const _$BlockExplorerSettingsImpl(
       {final Map<String, BlockExplorer> selection = const {
-        kHoosatNetworkIdMainnet: kKaspaExplorerMainnet,
-        kHoosatNetworkIdTestnet10: kKaspaExplorerTestnet10
+        kHoosatNetworkIdMainnet: kHoosatExplorerMainnet,
+        kHoosatNetworkIdTestnet: kHoosatExplorerTestnet10
       }})
       : _selection = selection,
         super._();

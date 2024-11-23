@@ -97,7 +97,7 @@ final _kaspaApiProvider = Provider<KaspaApi>((ref) {
 
   return switch (networkId) {
     kHoosatNetworkIdMainnet => KaspaApiMainnet('https://api.network.hoosat.fi'),
-    kHoosatNetworkIdTestnet10 => KaspaApiMainnet('https://api.network.hoosat.fi'),
+    kHoosatNetworkIdTestnet => KaspaApiMainnet('https://api.network.hoosat.fi'),
     _ => KaspaApiEmpty(),
   };
 });

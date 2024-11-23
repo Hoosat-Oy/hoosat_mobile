@@ -52,4 +52,4 @@ Some hints to the table above:
 ## How to contribute
 The whole translation effort is coordinated by Helix. If you like to add another language, 
 feel free to get in touch at our Discord, especially the channel _#translation_ and have 
-a look at the [translations part in our wiki](https://wiki.kaspa.org/en/i18n).
+a look at the [translations part in our wiki](https://wiki.hoosat.fi/en/i18n).
