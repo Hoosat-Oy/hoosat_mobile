@@ -29,7 +29,7 @@ class BlockExplorer with _$BlockExplorer {
 
 const kHoosatExplorerMainnet = BlockExplorer(
   network: HoosatNetwork.mainnet,
-  name: 'Kaspa Explorer',
+  name: 'Hoosat Explorer',
   url: 'explorer.hoosat.fi',
   addressUrl: 'https://explorer.hoosat.fi/addresses/$kParamPattern',
   txUrl: 'https://explorer.hoosat.fi/txs/$kParamPattern',
@@ -37,7 +37,7 @@ const kHoosatExplorerMainnet = BlockExplorer(
 
 const kHoosatExplorerTestnet = BlockExplorer(
   network: HoosatNetwork.testnet,
-  name: 'Kaspa Explorer',
+  name: 'Hoosat Explorer',
   url: 'explorer-testet.hoosat.fi',
   addressUrl: 'https://explorer-testnet.hoosat.fi/addresses/$kParamPattern',
   txUrl: 'https://explorer-testet.hoosat.fi/txs/$kParamPattern',
