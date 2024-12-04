@@ -7,8 +7,9 @@ import '../core/core_providers.dart';
 import '../l10n/l10n.dart';
 import '../util/util.dart';
 
-const kPrivacyUrl = 'https://mobile.hoosat.fi/assets/wallet/privacy-policy.html';
-const kEulaUrl = 'https://mobile.hoosat.fi/assets/wallet/eula.html';
+const kPrivacyUrl =
+    'https://network.hoosat.fi/public/HoosatMobilePrivacyPolicy.html';
+const kEulaUrl = 'https://network.hoosat.fi/public/HoosatMobileEULA.html';
 
 class VersionWidget extends HookConsumerWidget {
   const VersionWidget({Key? key}) : super(key: key);

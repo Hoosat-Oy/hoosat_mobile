@@ -38,7 +38,7 @@ const kHoosatExplorerMainnet = BlockExplorer(
 const kHoosatExplorerTestnet = BlockExplorer(
   network: HoosatNetwork.testnet,
   name: 'Hoosat Explorer',
-  url: 'explorer-testet.hoosat.fi',
+  url: 'explorer-testnet.hoosat.fi',
   addressUrl: 'https://explorer-testnet.hoosat.fi/addresses/$kParamPattern',
   txUrl: 'https://explorer-testet.hoosat.fi/txs/$kParamPattern',
 );
