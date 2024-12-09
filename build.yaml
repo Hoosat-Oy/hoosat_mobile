@@ -1,19 +1,19 @@
 targets:
   $default:
-    sources:
-      - $package$
-      - lib/**
-      - proto/**
+    # sources:
+    #   - $package$
+    #   - lib/**
+    #   - proto/**
     builders:
-      protoc_builder:
-        options:
-          protobuf_version: "3.19.1"
-          protoc_plugin_version: "20.0.1"
-          root_dir: "proto/"
-          proto_paths:
-            - "proto/"
-          out_dir: "lib/hoosat/grpc"
-          grpc: true
+      # protoc_builder:
+      #   options:
+      #     protobuf_version: "3.19.1"
+      #     protoc_plugin_version: "20.0.1"
+      #     root_dir: "proto/"
+      #     proto_paths:
+      #       - "proto/"
+      #     out_dir: "lib/hoosat/grpc"
+      #     grpc: true
       json_serializable:
         options:
           any_map: true
