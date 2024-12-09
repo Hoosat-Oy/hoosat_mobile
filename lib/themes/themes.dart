@@ -1,8 +1,8 @@
 export 'base_theme.dart';
 export 'carbon_theme.dart';
 export 'indium_theme.dart';
-export 'kaspium_dark_theme.dart';
-export 'kaspium_light_theme.dart';
+export 'hoosat_dark_theme.dart';
+export 'hoosat_light_theme.dart';
 export 'natrium_theme.dart';
 export 'neptunium_theme.dart';
 export 'pillium_theme.dart';

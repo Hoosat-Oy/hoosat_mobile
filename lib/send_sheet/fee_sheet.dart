@@ -7,7 +7,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../app_providers.dart';
 import '../app_router.dart';
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../l10n/l10n.dart';
 import '../util/numberutil.dart';
 import '../util/ui_util.dart';
@@ -38,7 +38,7 @@ class FeeSheet extends HookConsumerWidget {
     final styles = ref.watch(stylesProvider);
     final l10n = l10nOf(context);
 
-    final kaspaFormatter = ref.watch(kaspaFormatterProvider);
+    final hoosatFormatter = ref.watch(hoosatFormatterProvider);
     //final symbol = ref.watch(kasSymbolProvider);
 
     final feeEstimate = ref.watch(feeEstimateProvider((txMass, baseFee)));
@@ -63,7 +63,7 @@ class FeeSheet extends HookConsumerWidget {
     }, [focusNode]);
 
     void onValueChanged(String text) {
-      final value = kaspaFormatter.tryParse(text);
+      final value = hoosatFormatter.tryParse(text);
 
       if (value == null) {
         amount.value = null;
@@ -115,7 +115,7 @@ class FeeSheet extends HookConsumerWidget {
               topMargin: 15,
               cursorColor: theme.primary,
               style: styles.textStyleParagraphPrimary,
-              inputFormatters: [kaspaFormatter],
+              inputFormatters: [hoosatFormatter],
               onChanged: onValueChanged,
               textInputAction: TextInputAction.done,
               maxLines: null,

@@ -8,7 +8,7 @@ import '../l10n/l10n.dart';
 import '../widgets/dialog.dart';
 import 'node_types.dart';
 
-final kaspaNodeConfigItemProvider =
+final hoosatNodeConfigItemProvider =
     Provider<ActiveNodeConfig>((ref) => throw UnimplementedError);
 
 class NodeItem extends ConsumerWidget {
@@ -20,8 +20,8 @@ class NodeItem extends ConsumerWidget {
     final styles = ref.watch(stylesProvider);
     final l10n = l10nOf(context);
 
-    final item = ref.watch(kaspaNodeConfigItemProvider);
-    final activeConfig = ref.watch(kaspaNodeConfigProvider);
+    final item = ref.watch(hoosatNodeConfigItemProvider);
+    final activeConfig = ref.watch(hoosatNodeConfigProvider);
 
     Future<void> change() async {
       final oldNetworkId = ref.read(networkIdProvider);
@@ -32,7 +32,7 @@ class NodeItem extends ConsumerWidget {
         await repository.openWalletBoxes(wallet, networkId: newNetworkId);
       }
 
-      final notifier = ref.read(kaspaNodeSettingsProvider.notifier);
+      final notifier = ref.read(hoosatNodeSettingsProvider.notifier);
       await notifier.updateSelected(item.config);
 
       if (oldNetworkId != newNetworkId) {
@@ -41,7 +41,7 @@ class NodeItem extends ConsumerWidget {
     }
 
     void delete() {
-      final notifier = ref.read(kaspaNodeSettingsProvider.notifier);
+      final notifier = ref.read(hoosatNodeSettingsProvider.notifier);
       notifier.removeOption(item.config);
     }
 

@@ -1,7 +1,7 @@
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 
 part 'wallet_types.freezed.dart';
 part 'wallet_types.g.dart';

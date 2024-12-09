@@ -1,7 +1,7 @@
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 
 import '../database/boxes.dart';
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../util/safe_change_notifier.dart';
 import 'wallet_address.dart';
 import 'wallet_address_aware.dart';

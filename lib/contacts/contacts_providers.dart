@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/core_providers.dart';
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import 'contact.dart';
 import 'contacts_notifier.dart';
 

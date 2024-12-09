@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 
 import '../coingecko/coingecko_providers.dart';
 import '../core/core_providers.dart';
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../settings/available_currency.dart';
 import '../settings/settings_providers.dart';
 import '../util/formatters.dart';
@@ -15,8 +15,8 @@ import '../wallet_address/wallet_address_providers.dart';
 import '../wallet_auth/wallet_auth_providers.dart';
 import 'wallet_balance_notifier.dart';
 
-final kaspaPriceProvider = Provider.autoDispose((ref) {
-  return ref.watch(coingeckoKaspaPriceProvider);
+final hoosatPriceProvider = Provider.autoDispose((ref) {
+  return ref.watch(coingeckoHoosatPriceProvider);
 });
 
 final _addressBalanceBoxProvider = Provider.autoDispose((ref) {
@@ -32,7 +32,7 @@ final _addressBalanceBoxProvider = Provider.autoDispose((ref) {
 final balanceNotifierProvider = ChangeNotifierProvider.autoDispose((ref) {
   final balanceBox = ref.watch(_addressBalanceBoxProvider);
   final addressNotifier = ref.watch(addressNotifierProvider.notifier);
-  final client = ref.watch(kaspaClientProvider);
+  final client = ref.watch(hoosatClientProvider);
 
   final notifier = WalletBalanceNotifier(
     balanceBox: balanceBox,
@@ -110,7 +110,7 @@ final formatedTotalBalanceProvider = Provider.autoDispose((ref) {
 
 final formatedTotalFiatProvider = Provider.autoDispose((ref) {
   final balance = ref.watch(totalBalanceProvider);
-  final price = ref.watch(kaspaPriceProvider);
+  final price = ref.watch(hoosatPriceProvider);
   final currency = ref.watch(currencyProvider);
   final fiat = balance.value * price.price;
   final decimals = fiat >= Decimal.parse('1')
@@ -130,8 +130,8 @@ final formatedTotalFiatProvider = Provider.autoDispose((ref) {
   return formatter.format(DecimalIntl(fiat));
 });
 
-final formatedKaspaPriceProvider = Provider.autoDispose((ref) {
-  final price = ref.watch(kaspaPriceProvider).price;
+final formatedhoosatPriceProvider = Provider.autoDispose((ref) {
+  final price = ref.watch(hoosatPriceProvider).price;
   final currency = ref.watch(currencyProvider);
   final symbol = ref.watch(kasSymbolProvider);
   final decimals = price >= Decimal.parse('1')
@@ -152,7 +152,7 @@ final formatedKaspaPriceProvider = Provider.autoDispose((ref) {
 
 final fiatValueForAddressProvider =
     Provider.autoDispose.family<Decimal, String>((ref, address) {
-  final price = ref.watch(kaspaPriceProvider);
+  final price = ref.watch(hoosatPriceProvider);
   final balance = ref.watch(balanceForAddressProvider(address));
 
   return balance.value * price.price;
@@ -171,7 +171,7 @@ final formatedFiatForAddressProvider =
 
 final formatedFiatForAmountProvider =
     Provider.autoDispose.family<String, Amount>((ref, value) {
-  final price = ref.watch(kaspaPriceProvider);
+  final price = ref.watch(hoosatPriceProvider);
   final currency = ref.watch(currencyProvider);
 
   final fiatValue = value.value * price.price;
@@ -183,7 +183,7 @@ final formatedFiatForAmountProvider =
 
 final fiatForAmountProvider =
     Provider.autoDispose.family<String, Amount>((ref, value) {
-  final price = ref.watch(kaspaPriceProvider);
+  final price = ref.watch(hoosatPriceProvider);
   final currency = ref.watch(currencyProvider);
 
   final fiatValue = value.value * price.price;
@@ -199,23 +199,23 @@ final fiatForAmountProvider =
       .replaceAll(formater.currencySymbol, '');
 });
 
-final kaspaFormatterProvider = Provider((ref) {
+final hoosatFormatterProvider = Provider((ref) {
   final symbol = ref.watch(kasSymbolProvider);
   final format = NumberFormat.currency(name: '', symbol: symbol);
   final formatter = CurrencyFormatter(
     groupSeparator: format.symbols.GROUP_SEP,
     decimalSeparator: format.symbols.DECIMAL_SEP,
-    maxDecimalDigits: TokenInfo.kaspa.decimals,
-    maxAmount: kMaxKaspa,
+    maxDecimalDigits: TokenInfo.hoosat.decimals,
+    maxAmount: kMaxHoosat,
   );
 
   return formatter;
 });
 
 final fiatFormatterProvider = Provider.autoDispose((ref) {
-  final price = ref.watch(kaspaPriceProvider);
+  final price = ref.watch(hoosatPriceProvider);
   final currency = ref.watch(currencyProvider);
-  final maxAmount = price.price * kMaxKaspa;
+  final maxAmount = price.price * kMaxHoosat;
 
   final format = NumberFormat.currency(
     name: currency.name,

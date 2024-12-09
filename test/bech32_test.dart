@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hoosat_mobile/kaspa/bech32/bech32.dart';
-import 'package:hoosat_mobile/kaspa/kaspa.dart';
+import 'package:hoosat_mobile/hoosat/bech32/bech32.dart';
+import 'package:hoosat_mobile/hoosat/hoosat.dart';
 
 const checkEncodingStringTests = [
   ["a", "0", "", "a:qqeq69uvrh"],

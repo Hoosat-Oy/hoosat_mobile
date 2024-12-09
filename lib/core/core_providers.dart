@@ -10,8 +10,8 @@ import '../app_providers.dart';
 import '../app_styles.dart';
 import '../chain_state/chain_state.dart';
 import '../database/database.dart';
-import '../kaspa/grpc/rpc.pb.dart';
-import '../kaspa/kaspa.dart';
+import '../hoosat/grpc/rpc.pb.dart';
+import '../hoosat/hoosat.dart';
 import '../main_card/main_card_notifier.dart';
 import '../main_card/main_card_state.dart';
 import '../util/auth_util.dart';
@@ -76,12 +76,12 @@ final loggerProvider = Provider(
 );
 
 final networkProvider = Provider((ref) {
-  final config = ref.watch(kaspaNodeConfigProvider);
+  final config = ref.watch(hoosatNodeConfigProvider);
   return config.network;
 });
 
 final networkIdProvider = Provider((ref) {
-  final config = ref.watch(kaspaNodeConfigProvider);
+  final config = ref.watch(hoosatNodeConfigProvider);
   return config.networkId;
 });
 
@@ -92,28 +92,30 @@ final addressPrefixProvider = Provider((ref) {
   return prefix;
 });
 
-final _kaspaApiProvider = Provider<KaspaApi>((ref) {
+final _HoosatApiProvider = Provider<HoosatApi>((ref) {
   final networkId = ref.watch(networkIdProvider);
 
   return switch (networkId) {
-    kHoosatNetworkIdMainnet => KaspaApiMainnet('https://api.network.hoosat.fi'),
-    kHoosatNetworkIdTestnet => KaspaApiMainnet('https://api.network.hoosat.fi'),
-    _ => KaspaApiEmpty(),
+    kHoosatNetworkIdMainnet =>
+      HoosatApiMainnet('https://api.network.hoosat.fi'),
+    kHoosatNetworkIdTestnet =>
+      HoosatApiMainnet('https://api.network.hoosat.fi'),
+    _ => HoosatApiEmpty(),
   };
 });
 
-final kaspaApiServiceProvider = Provider<KaspaApiService>((ref) {
-  final api = ref.watch(_kaspaApiProvider);
-  return KaspaApiService(api);
+final HoosatApiServiceProvider = Provider<HoosatApiService>((ref) {
+  final api = ref.watch(_HoosatApiProvider);
+  return HoosatApiService(api);
 });
 
-final kaspaClientProvider = Provider((ref) {
-  final config = ref.watch(kaspaNodeConfigProvider);
+final hoosatClientProvider = Provider((ref) {
+  final config = ref.watch(hoosatNodeConfigProvider);
   final inBackground = ref.watch(inBackgroundProvider);
 
   final client = inBackground
-      ? VoidKaspaClient()
-      : KaspaClient.url(config.url, isSecure: config.isSecure);
+      ? VoidHoosatClient()
+      : HoosatClient.url(config.url, isSecure: config.isSecure);
 
   ref.onDispose(() {
     client.close();
@@ -125,7 +127,7 @@ final kaspaClientProvider = Provider((ref) {
 final balancesForAddressesProvider = FutureProvider.family
     .autoDispose<Iterable<RpcBalancesByAddressesEntry>, List<String>>(
         (ref, addresses) async {
-  final client = ref.watch(kaspaClientProvider);
+  final client = ref.watch(hoosatClientProvider);
   final balance = await client.getBalancesByAddresses(addresses);
   return balance;
 });
@@ -151,7 +153,7 @@ final lastKnownVirtualDaaScoreProvider = StateProvider<BigInt>((ref) {
 });
 
 final virtualDaaScoreProvider = StreamProvider((ref) {
-  final client = ref.watch(kaspaClientProvider);
+  final client = ref.watch(hoosatClientProvider);
   return client.notifyVirtualDaaScoreChanged().map((value) {
     final virtualDaaScore = value.toUnsignedBigInt();
 
@@ -168,7 +170,7 @@ final virtualSelectedParentBlueScoreProvider = StateProvider<BigInt>((ref) {
 });
 
 final virtualSelectedParentBlueScoreStreamProvider = StreamProvider((ref) {
-  final client = ref.watch(kaspaClientProvider);
+  final client = ref.watch(hoosatClientProvider);
   return client.notifyVirtualSelectedParentBlueScoreChanged().map((value) {
     final blueScore = value.toUnsignedBigInt();
 
@@ -208,7 +210,7 @@ final appLinkProvider = StateProvider<String?>((ref) {
 final fiatModeProvider = StateProvider<bool>((ref) => false);
 
 final pendingTxsProvider = FutureProvider.autoDispose((ref) async {
-  final client = ref.watch(kaspaClientProvider);
+  final client = ref.watch(hoosatClientProvider);
   final addresses = ref.watch(activeAddressesProvider);
   // refresh when utxos change
   ref.watch(utxosChangedProvider);
@@ -232,7 +234,7 @@ final pendingTxsProvider = FutureProvider.autoDispose((ref) async {
 final rpcFeeEstimateProvider = FutureProvider.autoDispose((ref) async {
   // refresh once every 10 seconds
   ref.watch(timeProvider);
-  final client = ref.watch(kaspaClientProvider);
+  final client = ref.watch(hoosatClientProvider);
 
   try {
     final feeEstimate = await client.getFeeEstimate();
@@ -295,7 +297,7 @@ final kasSymbolProvider = Provider((ref) {
 
 final symbolProvider = Provider.family<String, Amount>((ref, amount) {
   final kasSymbol = ref.watch(kasSymbolProvider);
-  if (amount.tokenInfo.tokenId != TokenInfo.kaspa.tokenId) {
+  if (amount.tokenInfo.tokenId != TokenInfo.hoosat.tokenId) {
     return amount.symbolLabel;
   }
 

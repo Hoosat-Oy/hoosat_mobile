@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/core_providers.dart';
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../wallet_address/wallet_address_providers.dart';
 import '../wallet_auth/wallet_auth_providers.dart';
 import 'wallet_signer.dart';
@@ -15,7 +15,7 @@ final walletSignerProvider = Provider.autoDispose((ref) {
 
 final walletServiceProvider = Provider.autoDispose((ref) {
   final signer = ref.watch(walletSignerProvider);
-  final client = ref.watch(kaspaClientProvider);
+  final client = ref.watch(hoosatClientProvider);
 
   return WalletService(
     signer: signer,

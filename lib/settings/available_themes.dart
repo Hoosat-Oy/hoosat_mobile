@@ -73,9 +73,9 @@ class ThemeSetting extends SettingSelectionItem {
       // case ThemeOptions.PILLIUM:
       //   return PilliumTheme();
       case ThemeOptions.KASPIUM_LIGHT:
-        return KaspiumLightTheme();
+        return HoosatLightTheme();
       case ThemeOptions.KASPIUM_DARK:
-        return KaspiumDarkTheme();
+        return HoosatDarkTheme();
     }
   }
 

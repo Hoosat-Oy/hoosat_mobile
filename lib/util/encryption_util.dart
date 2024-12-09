@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 import '../encrypt/crypter.dart';
-import '../kaspa/utils.dart';
+import '../hoosat/utils.dart';
 
 abstract class EncryptionUtil {
   static bool isEncryptedHex(String hex) {

@@ -4,7 +4,7 @@ import 'package:decimal/decimal.dart';
 import 'package:decimal/intl.dart';
 import 'package:intl/intl.dart';
 
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 
 class NumberUtil {
   static const int maxDecimalDigits = 8; // Max digits after decimal

@@ -1,14 +1,14 @@
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 
 import '../database/boxes.dart';
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../util/safe_change_notifier.dart';
 import '../wallet_address/wallet_address_aware.dart';
 
 class WalletBalanceNotifier extends SafeChangeNotifier {
   final TypedBox<AddressBalance> _balanceBox;
   final WalletAddressAware addressAware;
-  final KaspaClient client;
+  final HoosatClient client;
 
   final Map<String, BigInt> _balances = {};
   BigInt _totalBalance = BigInt.zero;

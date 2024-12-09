@@ -2,7 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:intl/intl.dart';
 
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../l10n/l10n.dart';
 import '../transactions/transaction_types.dart';
 import '../txnotes/txnotes_notifier.dart';
@@ -89,7 +89,7 @@ TxReportItem convertTx(
   final note = txNotes.getNoteForTxId(tx.id)?.note ?? '';
 
   String formatAmount(Amount amount) {
-    return amount.value.toStringAsFixed(TokenInfo.kaspa.decimals);
+    return amount.value.toStringAsFixed(TokenInfo.hoosat.decimals);
   }
 
   if (isSendToSelf) {

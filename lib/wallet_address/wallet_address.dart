@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 
 part 'wallet_address.freezed.dart';
 part 'wallet_address.g.dart';

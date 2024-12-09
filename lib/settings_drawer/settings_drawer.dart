@@ -9,7 +9,7 @@ import '../app_icons.dart';
 import '../app_providers.dart';
 import '../app_router.dart';
 import '../contacts/contacts_widget.dart';
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../l10n/l10n.dart';
 import '../settings/available_currency.dart';
 import '../settings/available_language.dart';
@@ -274,12 +274,12 @@ class _SettingsSheetState extends ConsumerState<SettingsSheet>
       }
 
       void contactSupport() =>
-          openUrl('mailto:$kSupportEmail?subject=Kaspium support');
+          openUrl('mailto:$kSupportEmail?subject=Hoosat Mobile support');
 
       void share() {
         Share.share(
-          l10n.shareKaspiumText,
-          subject: l10n.shareKaspiumSubject,
+          l10n.shareHoosatMobileText,
+          subject: l10n.shareHoosatMobileSubject,
         );
       }
 
@@ -407,7 +407,7 @@ class _SettingsSheetState extends ConsumerState<SettingsSheet>
                       // if (network == HoosatNetwork.mainnet) ...[
                       //   Divider(height: 2, color: theme.text15),
                       //   DoubleLineItem(
-                      //     heading: l10n.buyKaspaTitle,
+                      //     heading: l10n.buyHoosatTitle,
                       //     defaultMethod: BuySettingItem(),
                       //     icon: Icons.currency_exchange,
                       //     onPressed: () {
@@ -441,7 +441,7 @@ class _SettingsSheetState extends ConsumerState<SettingsSheet>
                       // ),
                       // Divider(height: 2, color: theme.text15),
                       // SingleLineItem(
-                      //   heading: l10n.shareKaspium,
+                      //   heading: l10n.shareHoosatMobile,
                       //   settingIcon: AppIcons.share,
                       //   onPressed: share,
                       // ),

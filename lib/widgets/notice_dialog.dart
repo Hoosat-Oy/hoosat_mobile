@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:hoosat_mobile/util/util.dart';
 
 import '../app_providers.dart';
 import '../app_router.dart';
@@ -17,7 +18,7 @@ class NoticeDialog extends HookConsumerWidget {
     final styles = ref.watch(stylesProvider);
     final l10n = l10nOf(context);
 
-    final title = l10n.kaspiumWallet;
+    final title = l10n.hoosatMobile;
     final content = l10n.welcomeMessage(version);
 
     final isChecked = useState(false);
@@ -55,14 +56,14 @@ class NoticeDialog extends HookConsumerWidget {
         ),
       ),
       actions: [
-        // TextButton(
-        //   style: styles.dialogButtonStyle,
-        //   child: Text(
-        //     'Join Discord',
-        //     style: styles.textStyleDialogOptions,
-        //   ),
-        //   onPressed: () => openUrl('https://discord.gg/kaspa'),
-        // ),
+        TextButton(
+          style: styles.dialogButtonStyle,
+          child: Text(
+            'Join Discord',
+            style: styles.textStyleDialogOptions,
+          ),
+          onPressed: () => openUrl('https://discord.gg/gux4Fu3EUB'),
+        ),
         TextButton(
           style: styles.dialogButtonStyle,
           child: Text(

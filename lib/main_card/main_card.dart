@@ -5,9 +5,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../app_icons.dart';
 import '../app_providers.dart';
-import '../kaspa/types.dart';
+import '../hoosat/types.dart';
 import '../l10n/l10n.dart';
-import '../themes/kaspium_light_theme.dart';
+import '../themes/hoosat_light_theme.dart';
 import '../util/ui_util.dart';
 import '../util/user_data_util.dart';
 import '../widgets/app_icon_button.dart';
@@ -25,9 +25,9 @@ class MainCard extends ConsumerWidget {
     final l10n = l10nOf(context);
 
     final wallet = ref.watch(walletProvider);
-    final kaspaBalance = ref.watch(formatedTotalBalanceProvider);
+    final hoosatBalance = ref.watch(formatedTotalBalanceProvider);
     final fiatBalance = ref.watch(formatedTotalFiatProvider);
-    final kaspaPrice = ref.watch(formatedKaspaPriceProvider);
+    final hoosatPrice = ref.watch(formatedhoosatPriceProvider);
     final scaffoldKey = ref.watch(homePageScaffoldKeyProvider);
 
     Future<void> scanQrCode() async {
@@ -38,7 +38,7 @@ class MainCard extends ConsumerWidget {
       }
 
       final prefix = ref.read(addressPrefixProvider);
-      final uri = KaspaUri.tryParse(data, prefix: prefix);
+      final uri = HoosatUri.tryParse(data, prefix: prefix);
 
       if (uri == null) {
         UIUtil.showSnackbar(l10n.scanQrCodeError, context);
@@ -93,13 +93,13 @@ class MainCard extends ConsumerWidget {
                               Image.asset(
                                 'assets/hoosat_transparent_180.png',
                                 width: 30,
-                                color: theme is KaspiumLightTheme
+                                color: theme is HoosatLightTheme
                                     ? theme.primary
                                     : null,
                               ),
                               const SizedBox(width: 4),
                               Text(
-                                '$kaspaBalance',
+                                '$hoosatBalance',
                                 textAlign: TextAlign.end,
                                 style: styles.textStyleCurrency,
                               ),
@@ -109,7 +109,7 @@ class MainCard extends ConsumerWidget {
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        kaspaPrice,
+                        hoosatPrice,
                         textAlign: TextAlign.end,
                         style: styles.textStyleTransactionAmountSmall.copyWith(
                           fontSize: 13,

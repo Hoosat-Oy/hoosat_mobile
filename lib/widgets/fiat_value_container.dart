@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import 'fiat_value_widget.dart';
 
 class FiatValueContainer extends ConsumerWidget {

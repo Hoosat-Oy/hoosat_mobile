@@ -3,7 +3,7 @@ import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:logger/logger.dart';
 
 import '../database/boxes.dart';
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../util/safe_change_notifier.dart';
 
 String _outpointKey(Outpoint outpoint) =>
@@ -13,7 +13,7 @@ String _utxoKey(Utxo utxo) => _outpointKey(utxo.outpoint);
 
 class UtxosNotifier extends SafeChangeNotifier {
   final TypedBox<Utxo> _utxoBox;
-  final KaspaClient client;
+  final HoosatClient client;
   final Logger log;
 
   final _utxosByAddress = <String, Set<Utxo>>{};

@@ -6,7 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../app_icons.dart';
 import '../app_providers.dart';
 import '../app_router.dart';
-import '../kaspa/utils.dart';
+import '../hoosat/utils.dart';
 import '../l10n/l10n.dart';
 import '../util/formatters.dart';
 import '../util/ui_util.dart';

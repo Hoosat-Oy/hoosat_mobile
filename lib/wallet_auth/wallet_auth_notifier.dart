@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../util/encryption_util.dart';
 import '../wallet/wallet_vault.dart';
 import 'wallet_auth_types.dart';

@@ -6,7 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 
 import '../app_providers.dart';
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../l10n/l10n.dart';
 import '../settings/tx_settings.dart';
 import '../utxos/utxos_notifier.dart';
@@ -154,7 +154,7 @@ class TransactionsWidget extends ConsumerWidget {
 
       final networkError = ref.read(networkErrorProvider);
       if (networkError) {
-        final _ = ref.refresh(kaspaClientProvider);
+        final _ = ref.refresh(hoosatClientProvider);
       }
 
       final balanceNotifier = ref.read(balanceNotifierProvider);

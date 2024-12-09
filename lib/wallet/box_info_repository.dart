@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import '../database/database.dart';
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../settings/settings_repository.dart';
 import '../wallet/wallet_types.dart';
 

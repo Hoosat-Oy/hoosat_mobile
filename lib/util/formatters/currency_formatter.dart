@@ -7,7 +7,7 @@ import 'package:intl/intl.dart';
 
 import '../numberutil.dart';
 
-final kMaxKaspa = Decimal.parse('28700000000');
+final kMaxHoosat = Decimal.parse('17100000000');
 
 class CurrencyFormatter extends TextInputFormatter {
   final String groupSeparator;

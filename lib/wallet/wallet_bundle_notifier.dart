@@ -1,7 +1,7 @@
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../util/random_util.dart';
 import 'wallet_repository.dart';
 import 'wallet_types.dart';
@@ -60,7 +60,7 @@ class WalletBundleNotifier extends StateNotifier<WalletBundle> {
         final seed = hexToBytes(data.seed);
         return HdWallet.hdPublicKeyFromSeed(
           seed,
-          networkType: kaspaMainnet,
+          networkType: hoosatMainnet,
         );
       },
       kpub: (data) {

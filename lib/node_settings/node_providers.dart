@@ -4,19 +4,19 @@ import '../app_providers.dart';
 import 'node_settings_notifier.dart';
 import 'node_types.dart';
 
-final kaspaNodeSettingsProvider =
+final hoosatNodeSettingsProvider =
     StateNotifierProvider<NodeSettingsNotifier, NodeConfigSettings>((ref) {
   final repository = ref.watch(settingsRepositoryProvider);
   final notifier = NodeSettingsNotifier(repository);
   return notifier;
 });
 
-final kaspaNodeOptionsProvider = Provider((ref) {
-  final settings = ref.watch(kaspaNodeSettingsProvider);
+final hoosatNodeOptionsProvider = Provider((ref) {
+  final settings = ref.watch(hoosatNodeSettingsProvider);
   return settings.options;
 });
 
-final kaspaNodeConfigProvider = Provider((ref) {
-  final settings = ref.watch(kaspaNodeSettingsProvider);
+final hoosatNodeConfigProvider = Provider((ref) {
+  final settings = ref.watch(hoosatNodeSettingsProvider);
   return ActiveNodeConfig(config: settings.selected);
 });

@@ -4,8 +4,8 @@ import 'package:oktoast/oktoast.dart';
 
 import '../app_providers.dart';
 import '../app_router.dart';
-import '../kaspa/kaspa.dart';
-import '../kaspa/transaction/mass_calculator.dart';
+import '../hoosat/hoosat.dart';
+import '../hoosat/transaction/mass_calculator.dart';
 import '../l10n/l10n.dart';
 import '../send_sheet/fee_sheet.dart';
 import '../send_sheet/send_complete_sheet.dart';
@@ -250,7 +250,7 @@ abstract class UIUtil {
   static Future<void> showSendFlow(
     BuildContext context, {
     required WidgetRef ref,
-    required KaspaUri uri,
+    required HoosatUri uri,
     bool useRbf = false,
   }) async {
     final theme = ref.read(themeProvider);
@@ -332,8 +332,7 @@ abstract class UIUtil {
       action += '\n$amountConfirm';
     }
     if (fee != null && fee != BigInt.zero) {
-      final kaspa = TokenInfo.kaspa;
-      final feeStr = NumberUtil.approxAmountRaw(fee, kaspa.decimals);
+      final feeStr = NumberUtil.approxAmountRaw(fee, TokenInfo.hoosat.decimals);
       final feeConfirm = l10n.feeConfirm(feeStr, symbol);
       action += '\n$feeConfirm';
     }

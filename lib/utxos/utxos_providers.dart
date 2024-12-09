@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/core_providers.dart';
 import '../database/boxes.dart';
-import '../kaspa/transaction/types.dart';
+import '../hoosat/transaction/types.dart';
 import '../wallet_address/wallet_address_providers.dart';
 import '../wallet_auth/wallet_auth_providers.dart';
 import '../wallet_balance/wallet_balance_providers.dart';
@@ -20,7 +20,7 @@ final _utxoBoxProvider = Provider.autoDispose<TypedBox<Utxo>>((ref) {
 });
 
 final utxosChangedProvider = StreamProvider.autoDispose((ref) {
-  final client = ref.watch(kaspaClientProvider);
+  final client = ref.watch(hoosatClientProvider);
   final addresses = ref.watch(allAddressesProvider);
 
   return client.notifyUtxosChanged(addresses);
@@ -28,7 +28,7 @@ final utxosChangedProvider = StreamProvider.autoDispose((ref) {
 
 final utxoNotifierProvider =
     ChangeNotifierProvider.autoDispose<UtxosNotifier>((ref) {
-  final client = ref.watch(kaspaClientProvider);
+  final client = ref.watch(hoosatClientProvider);
   final utxoBox = ref.watch(_utxoBoxProvider);
   final log = ref.watch(loggerProvider);
 

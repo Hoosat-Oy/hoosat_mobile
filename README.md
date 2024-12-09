@@ -1,28 +1,29 @@
-# Kaspium - a non-custodial wallet for Kaspa blockDAG
+# Hoosat Mobile - a non-custodial wallet for Hoosat blockDAG
 
-## What is Kaspium?
+## What is Hoosat Mobile?
 
-Kaspium is a non-custodial wallet for Kaspa, available for Android and iOS. It is written in [Dart](https://dart.dev) using [Flutter](https://flutter.dev).
+Hoosat Mobile is a non-custodial wallet for Hoosat, available for Android and iOS. It is written in [Dart](https://dart.dev) using [Flutter](https://flutter.dev).
 
-| Link | Description |
-| :----- | :------ |
-[mobile.hoosat.fi](https://mobile.hoosat.fi) | Kaspium Homepage
-[kaspa.org](https://kaspa.org) | Kaspa Blockchain Homepage
+| Link                           | Description                        |
+| :----------------------------- | :--------------------------------- |
+| [hoosat.fi](https://hoosat.fi) | Hoosat Network Blockchain Homepage |
 
 ## Contributing
 
-* Fork the repository and clone it to your local machine
-* Follow the instructions [here](https://flutter.io/docs/get-started/install) to install the Flutter SDK
-* Setup [Android Studio](https://flutter.io/docs/development/tools/android-studio) or [Visual Studio Code](https://flutter.io/docs/development/tools/vs-code).
+- Fork the repository and clone it to your local machine
+- Follow the instructions [here](https://flutter.io/docs/get-started/install) to install the Flutter SDK
+- Setup [Android Studio](https://flutter.io/docs/development/tools/android-studio) or [Visual Studio Code](https://flutter.io/docs/development/tools/vs-code).
 
 ## Building
 
-Android: 
+Android:
+
 ```bash
 flutter build apk
 ```
 
-iOS: 
+iOS:
+
 ```bash
 flutter build ios
 ```
@@ -30,11 +31,13 @@ flutter build ios
 If you have a connected device or emulator you can run the app right from your development machine.
 
 Debug mode:
+
 ```bash
 flutter run
-``` 
+```
 
 Release mode:
+
 ```bash
 flutter run --release
 ```
@@ -49,4 +52,4 @@ If you need any help, feel free to [file a feature request or an issue](https://
 
 ## License
 
-Kaspium is released under the MIT License
+Hoosat Mobile is released under the MIT License

@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../app_providers.dart';
 import '../contacts/contact.dart';
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../l10n/l10n.dart';
 import '../send_sheet/send_sheet.dart';
 import '../util/ui_util.dart';
@@ -25,7 +25,7 @@ class DonateMenuItem extends ConsumerWidget {
 
     Future<void> donate() async {
       final l10n = l10nOf(context);
-      final uri = KaspaUri(
+      final uri = HoosatUri(
         address: Address.decodeAddress(contact.address),
       );
 

@@ -57,7 +57,7 @@ class BuySettingItem extends SettingSelectionItem {
   @override
   String getDisplayName(BuildContext context) {
     final l10n = l10nOf(context);
-    return l10n.buyKaspaSubtitle;
+    return l10n.buyHoosatSubtitle;
   }
 }
 
@@ -76,12 +76,12 @@ class BuySheet extends ConsumerWidget {
       showAppDialog(context: context, builder: (_) => const BuyInfoDialog());
     }
 
-    void buyKaspa() {
+    void buyHoosat() {
       final source = ref.read(_sourceProvider);
       final address = ref.read(selectedAddressProvider);
       final amount = ref.read(amountProvider);
 
-      final uri = Uri.https('kaspa-topper.vercel.app', '/api/topper', {
+      final uri = Uri.https('hoosat-topper.vercel.app', '/api/topper', {
         'source': source,
         'target': 'HTN',
         'amount': amount?.value.toStringAsFixed(8) ?? '0',
@@ -92,7 +92,7 @@ class BuySheet extends ConsumerWidget {
     }
 
     return SheetWidget(
-      title: l10n.buyKaspaTitle,
+      title: l10n.buyHoosatTitle,
       mainWidget: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -102,7 +102,7 @@ class BuySheet extends ConsumerWidget {
               right: MediaQuery.of(context).size.width * 0.115,
             ),
             child: Text(
-              l10n.buyKaspaMessage + '\n' + l10n.buyKaspaMessageSecondary,
+              l10n.buyHoosatMessage + '\n' + l10n.buyHoosatMessageSecondary,
               style: styles.textStyleAccount,
               textAlign: TextAlign.center,
             ),
@@ -131,7 +131,7 @@ class BuySheet extends ConsumerWidget {
         child: Column(children: [
           PrimaryButton(
             title: l10n.getStarted,
-            onPressed: buyKaspa,
+            onPressed: buyHoosat,
           ),
           const SizedBox(height: 16),
           PrimaryOutlineButton(

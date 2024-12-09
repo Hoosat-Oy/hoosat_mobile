@@ -2,8 +2,8 @@ import 'dart:typed_data';
 
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hoosat_mobile/kaspa/kaspa.dart';
-import 'package:hoosat_mobile/kaspa/transaction/mass_calculator.dart';
+import 'package:hoosat_mobile/hoosat/hoosat.dart';
+import 'package:hoosat_mobile/hoosat/transaction/mass_calculator.dart';
 
 void main() {
   Transaction generateTxFromAmounts(
@@ -110,7 +110,7 @@ void main() {
 
     test('Test mass storage more outs than ins', () {
       // Create a tx with more outs than ins
-      final baseValue = BigInt.from(10000) * kSompiPerKaspa;
+      final baseValue = BigInt.from(10000) * kSompiPerHoosat;
       final tx = generateTxFromAmounts(
           [baseValue, baseValue, baseValue * BigInt.two],
           List.filled(4, baseValue));
@@ -128,10 +128,10 @@ void main() {
       expect(storageMass, BigInt.from(4));
     });
     test('Test mass storage less outs than ins 2', () {
-      final baseValue = BigInt.from(10000) * kSompiPerKaspa;
+      final baseValue = BigInt.from(10000) * kSompiPerHoosat;
       final tx = generateTxFromAmounts(
           [baseValue, baseValue, baseValue * BigInt.two],
-          [BigInt.from(10) * kSompiPerKaspa, ...List.filled(3, baseValue)]);
+          [BigInt.from(10) * kSompiPerHoosat, ...List.filled(3, baseValue)]);
       final storageMassParameter = kStorageMassParameter;
       final calculator = MassCalculator(
         massPerTxByte: 0,
@@ -148,7 +148,7 @@ void main() {
 
     test('Test mass storage increase values over the limit', () {
       // Increase values over the lim
-      final baseValue = BigInt.from(10000) * kSompiPerKaspa;
+      final baseValue = BigInt.from(10000) * kSompiPerHoosat;
       final tx = generateTxFromAmounts(
           [baseValue, baseValue, baseValue * BigInt.two],
           List.filled(4, baseValue + BigInt.one));

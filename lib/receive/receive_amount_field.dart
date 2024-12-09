@@ -4,7 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../app_providers.dart';
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../l10n/l10n.dart';
 import '../util/numberutil.dart';
 import '../widgets/app_text_field.dart';
@@ -29,7 +29,7 @@ class ReceiveAmountField extends HookConsumerWidget {
     final styles = ref.watch(stylesProvider);
     final l10n = l10nOf(context);
 
-    final kaspaFormatter = ref.watch(kaspaFormatterProvider);
+    final hoosatFormatter = ref.watch(hoosatFormatterProvider);
     final fiatFormatter = ref.watch(fiatFormatterProvider);
 
     final amount = ref.watch(amountProvider);
@@ -64,7 +64,7 @@ class ReceiveAmountField extends HookConsumerWidget {
       final notifier = ref.read(amountProvider.notifier);
       final value = switch (fiatMode) {
         true => () {
-            final price = ref.read(kaspaPriceProvider);
+            final price = ref.read(hoosatPriceProvider);
             final fiatValue = fiatFormatter.tryParse(text);
             if (price.price == Decimal.zero || fiatValue == null) {
               return null;
@@ -72,7 +72,7 @@ class ReceiveAmountField extends HookConsumerWidget {
             return (fiatValue / price.price)
                 .toDecimal(scaleOnInfinitePrecision: 8);
           }(),
-        false => kaspaFormatter.tryParse(text),
+        false => hoosatFormatter.tryParse(text),
       };
 
       if (value == null) {
@@ -98,7 +98,7 @@ class ReceiveAmountField extends HookConsumerWidget {
         topMargin: 15,
         cursorColor: theme.primary,
         style: styles.textStyleParagraphPrimary,
-        inputFormatters: [fiatMode ? fiatFormatter : kaspaFormatter],
+        inputFormatters: [fiatMode ? fiatFormatter : hoosatFormatter],
         onChanged: onValueChanged,
         textInputAction: TextInputAction.done,
         maxLines: null,

@@ -6,7 +6,7 @@ import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:validators/validators.dart';
 
 import '../app_router.dart';
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../widgets/qr_scanner_widget.dart';
 
 enum DataType { RAW, URL, ADDRESS }

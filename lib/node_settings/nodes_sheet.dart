@@ -41,7 +41,7 @@ class ViteNodesSheet extends ConsumerWidget {
     final theme = ref.watch(themeProvider);
     final l10n = l10nOf(context);
 
-    final items = ref.watch(kaspaNodeOptionsProvider);
+    final items = ref.watch(hoosatNodeOptionsProvider);
 
     void addNode() {
       Sheets.showAppHeightNineSheet(
@@ -66,7 +66,7 @@ class ViteNodesSheet extends ConsumerWidget {
               final config = ActiveNodeConfig(config: items[index]);
               return ProviderScope(
                 overrides: [
-                  kaspaNodeConfigItemProvider.overrideWithValue(config),
+                  hoosatNodeConfigItemProvider.overrideWithValue(config),
                 ],
                 child: const NodeItem(),
               );

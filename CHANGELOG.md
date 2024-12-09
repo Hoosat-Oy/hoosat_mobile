@@ -1,13 +1,13 @@
 # Changelog
 
-## 0.3.0 - Kaspa Wallet Beta
+## 1.0.2 - Hoosat Mobile
 
-* Second beta release.
+- Change rest of the Kaspa references.
 
-## 0.2.0 - Kaspa Wallet Beta
+## 1.0.1 - Hoosat Mobile
 
-* First beta release.
+- Fix Privacy Policy to match Google requirements.
 
-## 0.1.0 - Kaspa Wallet Preview
+## 1.0.0 - Hoosat Mobile
 
-* Preview version.
+- First Play store release.

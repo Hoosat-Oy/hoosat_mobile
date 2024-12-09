@@ -15,7 +15,7 @@ class DonateSettingItem extends SettingSelectionItem {
   @override
   String getDisplayName(BuildContext context) {
     final l10n = l10nOf(context);
-    return l10n.kaspaDevFund;
+    return l10n.hoosatDevFund;
   }
 }
 

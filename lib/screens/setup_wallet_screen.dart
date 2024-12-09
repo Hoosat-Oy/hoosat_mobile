@@ -5,7 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../app_providers.dart';
 import '../app_router.dart';
 import '../intro/intro_providers.dart';
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../l10n/l10n.dart';
 import '../wallet/wallet_types.dart';
 import '../wallet_address/address_discovery.dart';
@@ -79,8 +79,8 @@ class SetupWalletScreen extends HookConsumerWidget {
         await auth.unlock(password: introData.password);
 
         // address discovery
-        final client = ref.read(kaspaClientProvider);
-        final api = ref.read(kaspaApiServiceProvider);
+        final client = ref.read(hoosatClientProvider);
+        final api = ref.read(HoosatApiServiceProvider);
         final addressGenerator = auth.addressGenerator(network);
 
         final addressDiscovery = AddressDiscovery(

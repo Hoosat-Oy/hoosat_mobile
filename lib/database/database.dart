@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../contacts/contact.dart';
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../transactions/transaction_types.dart';
 import '../txnotes/txnotes_types.dart';
 import '../util/vault.dart';

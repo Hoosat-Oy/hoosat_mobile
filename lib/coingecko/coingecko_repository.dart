@@ -2,29 +2,29 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-Future<num?> getKaspiumApiPrice(String fiat) async {
-  try {
-    final uri = Uri.https(
-      'api.kaspium.io',
-      '/api/v1/kaspa/price',
-      {'currencies': fiat},
-    );
+// Future<num?> getKaspiumApiPrice(String fiat) async {
+//   try {
+//     final uri = Uri.https(
+//       'api.kaspium.io',
+//       '/api/v1/hoosat/price',
+//       {'currencies': fiat},
+//     );
 
-    final response = await http.get(uri, headers: {
-      'Accept': 'application/json',
-      'User-Agent': 'Kaspium Wallet',
-    });
+//     final response = await http.get(uri, headers: {
+//       'Accept': 'application/json',
+//       'User-Agent': 'Kaspium Wallet',
+//     });
 
-    if (response.statusCode != 200) {
-      return null;
-    }
+//     if (response.statusCode != 200) {
+//       return null;
+//     }
 
-    final data = json.decode(response.body);
-    return data[fiat] as num;
-  } catch (_) {
-    return null;
-  }
-}
+//     final data = json.decode(response.body);
+//     return data[fiat] as num;
+//   } catch (_) {
+//     return null;
+//   }
+// }
 
 Future<num?> getCoinGeckoApiPrice(String fiat) async {
   try {

@@ -1,4 +1,4 @@
-import '../kaspa/utils.dart';
+import '../hoosat/utils.dart';
 import '../util/encryption_util.dart';
 import '../util/vault.dart';
 

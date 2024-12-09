@@ -1,6 +1,6 @@
 import 'package:decimal/decimal.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hoosat_mobile/kaspa/kaspa.dart';
+import 'package:hoosat_mobile/hoosat/hoosat.dart';
 import 'package:hoosat_mobile/util/numberutil.dart';
 
 void main() {

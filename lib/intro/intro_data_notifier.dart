@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../kaspa/utils.dart';
+import '../hoosat/utils.dart';
 import 'intro_types.dart';
 
 String _computeSeed(({String mnemonic, String passphrase}) data) {

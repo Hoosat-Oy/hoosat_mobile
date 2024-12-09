@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:typed_data';
 
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../wallet_address/wallet_address_notifier.dart';
 import '../wallet_auth/wallet_auth_notifier.dart';
 

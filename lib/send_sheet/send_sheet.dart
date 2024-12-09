@@ -10,7 +10,7 @@ import '../app_icons.dart';
 import '../app_providers.dart';
 import '../app_router.dart';
 import '../contacts/contact.dart';
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../l10n/l10n.dart';
 import '../settings_advanced/compound_utxos_dialog.dart';
 import '../util/numberutil.dart';
@@ -34,7 +34,7 @@ enum AddressStyle { TEXT60, TEXT90, PRIMARY }
 class SendSheet extends ConsumerStatefulWidget {
   final String? title;
   final Contact? contact;
-  final KaspaUri? uri;
+  final HoosatUri? uri;
   final BigInt? feeRaw;
   final bool rbf;
 
@@ -186,7 +186,7 @@ class _SendSheetState extends ConsumerState<SendSheet> {
     if (amountRaw != null) {
       _amountController.text = NumberUtil.getStringFromRaw(
         amountRaw!,
-        TokenInfo.kaspa.decimals,
+        TokenInfo.hoosat.decimals,
       );
     }
   }
@@ -220,7 +220,7 @@ class _SendSheetState extends ConsumerState<SendSheet> {
       }
 
       final prefix = ref.read(addressPrefixProvider);
-      final uri = KaspaUri.tryParse(qrData, prefix: prefix);
+      final uri = HoosatUri.tryParse(qrData, prefix: prefix);
       final address = uri?.address;
       if (address == null) {
         UIUtil.showSnackbar(l10n.qrInvalidAddress, context);
@@ -231,7 +231,7 @@ class _SendSheetState extends ConsumerState<SendSheet> {
       if (amount != null) {
         _amountController.text = NumberUtil.getStringFromRaw(
           amount.raw,
-          TokenInfo.kaspa.decimals,
+          TokenInfo.hoosat.decimals,
         );
         amountRaw = amount.raw;
       }
@@ -308,7 +308,7 @@ class _SendSheetState extends ConsumerState<SendSheet> {
       final text = _noteController.text;
       final note = text.isNotEmpty ? text : _note;
 
-      final uri = KaspaUri(
+      final uri = HoosatUri(
         address: toAddress,
         amount: Amount.raw(amountRaw!),
         message: note,
@@ -652,7 +652,7 @@ class _SendSheetState extends ConsumerState<SendSheet> {
       final styles = ref.watch(stylesProvider);
       final l10n = l10nOf(context);
 
-      final kaspaFormatter = ref.watch(kaspaFormatterProvider);
+      final hoosatFormatter = ref.watch(hoosatFormatterProvider);
       final fiatFormatter = ref.watch(fiatFormatterProvider);
       final maxSend = ref.watch(maxSendProvider);
       final isMaxSend = amountRaw == maxSend.raw || maxSend.raw == BigInt.zero;
@@ -676,7 +676,7 @@ class _SendSheetState extends ConsumerState<SendSheet> {
       void onValueChanged(String text) {
         final value = switch (fiatMode) {
           true => () {
-              final price = ref.read(kaspaPriceProvider);
+              final price = ref.read(hoosatPriceProvider);
               final fiatValue = fiatFormatter.tryParse(text);
               if (price.price == Decimal.zero || fiatValue == null) {
                 return null;
@@ -684,7 +684,7 @@ class _SendSheetState extends ConsumerState<SendSheet> {
               return (fiatValue / price.price)
                   .toDecimal(scaleOnInfinitePrecision: 8);
             }(),
-          false => kaspaFormatter.tryParse(text),
+          false => hoosatFormatter.tryParse(text),
         };
 
         if (value == null) {
@@ -727,7 +727,7 @@ class _SendSheetState extends ConsumerState<SendSheet> {
           topMargin: 15,
           cursorColor: theme.primary,
           style: styles.textStyleParagraphPrimary,
-          inputFormatters: [fiatMode ? fiatFormatter : kaspaFormatter],
+          inputFormatters: [fiatMode ? fiatFormatter : hoosatFormatter],
           onChanged: onValueChanged,
           textInputAction: TextInputAction.done,
           maxLines: null,

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../app_providers.dart';
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 
 final _networkBannerProvider = Provider<String?>((ref) {
-  final nodeConfig = ref.watch(kaspaNodeConfigProvider);
+  final nodeConfig = ref.watch(hoosatNodeConfigProvider);
 
   if (nodeConfig.network != HoosatNetwork.mainnet) {
     return nodeConfig.networkId.toUpperCase();

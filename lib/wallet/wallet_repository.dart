@@ -1,7 +1,7 @@
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 
 import '../database/database.dart';
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../settings/settings_repository.dart';
 import '../transactions/transaction_types.dart';
 import '../util/vault.dart';

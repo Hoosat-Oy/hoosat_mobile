@@ -3,7 +3,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hoosat_mobile/kaspa/bip39/bip39.dart' as bip39;
+import 'package:hoosat_mobile/hoosat/bip39/bip39.dart' as bip39;
 import 'package:hex/hex.dart';
 
 void main() {

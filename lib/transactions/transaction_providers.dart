@@ -4,15 +4,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../app_providers.dart';
 import '../database/boxes.dart';
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../wallet/wallet_types.dart';
 import 'transaction_notifier.dart';
 import 'transaction_types.dart';
 import 'tx_cache_service.dart';
 
-// All new transactions from kaspa node
+// All new transactions from hoosat node
 final _newTransactionProvider = StreamProvider.autoDispose((ref) {
-  final client = ref.watch(kaspaClientProvider);
+  final client = ref.watch(hoosatClientProvider);
 
   final newBlock = client.notifyBlockAdded();
 
@@ -60,7 +60,7 @@ final _newWalletTransactionProvider = StreamProvider.autoDispose((ref) {
 });
 
 final _acceptedTransactionIdsProvider = StreamProvider.autoDispose((ref) {
-  final client = ref.watch(kaspaClientProvider);
+  final client = ref.watch(hoosatClientProvider);
   return client
       .notifyVirtualSelectedParentChainChanged(
     includeAcceptedTransactionIds: true,
@@ -103,7 +103,7 @@ final txCacheServiceProvider =
   );
 
   ref.listen(
-    kaspaApiServiceProvider,
+    HoosatApiServiceProvider,
     (_, api) => txCache.api = api,
     fireImmediately: true,
   );
@@ -145,7 +145,7 @@ final txNotifierForWalletProvider = ChangeNotifierProvider.autoDispose
   // Update transaction status
   ref.listen(_acceptedTransactionIdsProvider, (_, next) {
     if (next.asData?.value case final ids?) {
-      final client = ref.read(kaspaClientProvider);
+      final client = ref.read(hoosatClientProvider);
 
       notifier.processAcceptedTxIds(
         ids.acceptedTransactionIds,

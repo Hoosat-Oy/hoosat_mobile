@@ -9,7 +9,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../app_providers.dart';
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../l10n/l10n.dart';
 import '../send_sheet/account_address_widget.dart';
 import '../util/ui_util.dart';
@@ -36,7 +36,8 @@ class ReceiveSheet extends HookConsumerWidget {
     final address = receiveAddress.encoded;
     final amount = ref.watch(amountProvider);
 
-    final kaspaUri = KaspaUri(address: receiveAddress.address, amount: amount);
+    final hoosatUri =
+        HoosatUri(address: receiveAddress.address, amount: amount);
 
     final shareCardKey = useRef(GlobalKey());
     final showShareCard = useState(false);
@@ -73,10 +74,10 @@ class ReceiveSheet extends HookConsumerWidget {
 
     Future<void> copyUri() async {
       try {
-        await Clipboard.setData(ClipboardData(text: kaspaUri.toString()));
-        UIUtil.showSnackbar(l10n.kaspaUriCopied, context);
+        await Clipboard.setData(ClipboardData(text: hoosatUri.toString()));
+        UIUtil.showSnackbar(l10n.hoosatUriCopied, context);
       } catch (_) {
-        UIUtil.showSnackbar(l10n.kaspaUriCopyFailed, context);
+        UIUtil.showSnackbar(l10n.hoosatUriCopyFailed, context);
       }
     }
 
@@ -169,7 +170,7 @@ class ReceiveSheet extends HookConsumerWidget {
                       ),
                       Center(
                         child: QrCodeWidget(
-                          data: '$kaspaUri',
+                          data: '$hoosatUri',
                           onTap: copyUri,
                         ),
                       ),

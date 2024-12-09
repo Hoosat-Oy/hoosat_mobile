@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:logger/logger.dart';
 
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import '../util/safe_change_notifier.dart';
 import 'transaction_types.dart';
 import 'tx_cache_service.dart';
@@ -11,7 +11,7 @@ import 'tx_cache_service.dart';
 class TransactionNotifier extends SafeChangeNotifier {
   final TxCacheService cache;
 
-  KaspaApiService get api => cache.api;
+  HoosatApiService get api => cache.api;
   Logger get log => cache.log;
 
   var loadedTxs = IList<Tx>();
@@ -63,7 +63,7 @@ class TransactionNotifier extends SafeChangeNotifier {
   Future<void> processAcceptedTxIds(
     Iterable<String> acceptedTxIds, {
     required String acceptingBlockHash,
-    required KaspaClient client,
+    required HoosatClient client,
   }) async {
     final walletIds = acceptedTxIds.where(cache.isWalletTxId);
     if (walletIds.isEmpty) {

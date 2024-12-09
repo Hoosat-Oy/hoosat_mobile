@@ -4,7 +4,7 @@ import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:logger/logger.dart';
 
 import '../database/boxes.dart';
-import '../kaspa/kaspa.dart';
+import '../hoosat/hoosat.dart';
 import 'transaction_types.dart';
 import 'tx_cache_index.dart';
 
@@ -18,7 +18,7 @@ class TxCacheService {
   // A cache of transactions that are currently loaded in memory
   final memCache = <String, ApiTransaction>{};
 
-  late KaspaApiService api;
+  late HoosatApiService api;
   final Logger log;
 
   int get txCount => _txIndex.length;

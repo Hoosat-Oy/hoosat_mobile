@@ -47,8 +47,8 @@ class AddressDiscoveryDialog extends HookConsumerWidget {
         final network = ref.read(networkProvider);
         final auth = ref.read(walletAuthProvider.notifier);
         final addressGenerator = auth.addressGenerator(network);
-        final client = ref.read(kaspaClientProvider);
-        final api = ref.read(kaspaApiServiceProvider);
+        final client = ref.read(hoosatClientProvider);
+        final api = ref.read(HoosatApiServiceProvider);
 
         final addressDiscovery = AddressDiscovery(
           client: client,

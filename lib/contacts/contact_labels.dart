@@ -1,29 +1,22 @@
 import 'contact.dart';
 
-const kKaspaDevFundAddress =
-    'kaspa:precqv0krj3r6uyyfa36ga7s0u9jct0v4wg8ctsfde2gkrsgwgw8jgxfzfc98';
+const hoosatDevFundAddress =
+    'hoosat:qp4ad2eh72xc8dtjjyz4llxzq9utn6k26uyl644xxw70wskdfl85zsqj9k4vz';
 
-const kCommunityMarketingFundAddress =
-    'kaspa:qpyr8yp7jmantyaatyqtpwuzv3fcthe2r7jz6n55nl4hdd0288e8jljunnqgv';
+const communityMarketingFundAddress =
+    'hoosat:qp4ad2eh72xc8dtjjyz4llxzq9utn6k26uyl644xxw70wskdfl85zsqj9k4vz';
 
-const kKaspiumTeamAddress =
-    'kaspa:qp0qnczz5jc8vpujuyqrjw5eey73paqfgxks7505pqdz9eqwmwftxg44gu00z';
-
-const kDonationAddresses = const [
+const donationAddresses = const [
   Contact(
-    name: 'Kaspa Dev Fund',
-    address: kKaspaDevFundAddress,
+    name: 'Hoosat Dev Fund',
+    address: hoosatDevFundAddress,
   ),
   Contact(
     name: 'Community Marketing Fund',
-    address: kCommunityMarketingFundAddress,
-  ),
-  Contact(
-    name: 'Kaspium Team',
-    address: kKaspiumTeamAddress,
-  ),
+    address: communityMarketingFundAddress,
+  )
 ];
 
 final labeledAddresses = Map.fromEntries(
-  kDonationAddresses.map((e) => MapEntry(e.address, e)),
+  donationAddresses.map((e) => MapEntry(e.address, e)),
 );

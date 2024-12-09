@@ -65,7 +65,7 @@ class DonateMenu extends ConsumerWidget {
               style: styles.textStyleAppTextFieldHint,
             ),
           ),
-          for (final contact in kDonationAddresses)
+          for (final contact in donationAddresses)
             DonateMenuItem(contact: contact),
         ]),
       ),
