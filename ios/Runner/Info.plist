@@ -87,7 +87,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>fi.hoosat_mobile.hoosatwallet</string>
+			<string>network.hoosat.fi</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>hoosat</string>
@@ -97,7 +97,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>fi.hoosat_mobile.hoosatwallet</string>
+			<string>network.hoosat.fi</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>hoosattest</string>
@@ -107,7 +107,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>fi.hoosat_mobile.hoosatwallet</string>
+			<string>network.hoosat.fi</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>hoosatdev</string>
@@ -117,7 +117,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>fi.hoosat_mobile.hoosatwallet</string>
+			<string>network.hoosat.fi</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>hoosatsim</string>
