@@ -218,10 +218,10 @@ packages:
     dependency: "direct main"
     description:
       name: decimal
-      sha256: cb6da0314d399040316718ec34cb376d434e94e410d46521f2b40b18a89a8f73
+      sha256: "24a261d5d5c87e86c7651c417a5dbdf8bcd7080dd592533910e8d0505a279f21"
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.0"
+    version: "2.3.3"
   device_info_plus:
     dependency: "direct main"
     description:
@@ -998,10 +998,10 @@ packages:
     dependency: transitive
     description:
       name: rational
-      sha256: "49ba0eb1a7b0d39358998cbbd4d4a384382a83ac02f433aefc567853c84ed975"
+      sha256: cb808fb6f1a839e6fc5f7d8cb3b0a10e1db48b3be102de73938c627f0b636336
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.1"
+    version: "2.2.3"
   riverpod:
     dependency: transitive
     description:
