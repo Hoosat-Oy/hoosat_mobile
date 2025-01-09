@@ -4,6 +4,7 @@
 
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -637,21 +638,31 @@ Future<T?> showAppDialog<T>({
 }) {
   assert(builder != null);
   assert(debugCheckHasMaterialLocalizations(context));
-  return showGeneralDialog(
-    context: context,
-    pageBuilder: (BuildContext buildContext, Animation<double> animation,
-        Animation<double> secondaryAnimation) {
-      final Widget pageChild = Builder(builder: builder!);
-      return SafeArea(
-        child: Builder(builder: (BuildContext context) {
-          return pageChild;
-        }),
-      );
-    },
-    barrierDismissible: barrierDismissible,
-    barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
-    barrierColor: (context as WidgetRef).read(themeProvider).barrier,
-    transitionDuration: const Duration(milliseconds: 150),
-    transitionBuilder: _buildMaterialDialogTransitions,
-  );
+
+  // Use CupertinoDialog for iOS, MaterialDialog for other platforms
+  if (Theme.of(context).platform == TargetPlatform.iOS) {
+    return showCupertinoDialog<T>(
+      context: context,
+      barrierDismissible: barrierDismissible,
+      builder: builder!,
+    );
+  } else {
+    return showGeneralDialog<T>(
+      context: context,
+      pageBuilder: (BuildContext buildContext, Animation<double> animation,
+          Animation<double> secondaryAnimation) {
+        final Widget pageChild = Builder(builder: builder!);
+        return SafeArea(
+          child: Builder(builder: (BuildContext context) {
+            return pageChild;
+          }),
+        );
+      },
+      barrierDismissible: barrierDismissible,
+      barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
+      barrierColor: (context as WidgetRef).read(themeProvider).barrier,
+      transitionDuration: const Duration(milliseconds: 150),
+      transitionBuilder: _buildMaterialDialogTransitions,
+    );
+  }
 }
