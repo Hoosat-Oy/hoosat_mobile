@@ -3,8 +3,6 @@
 // found in the LICENSE file.
 
 import 'dart:async';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -79,7 +77,10 @@ class Dialog extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(4.0)));
   @override
   Widget build(BuildContext context) {
-    final DialogTheme dialogTheme = DialogTheme.of(context) as DialogTheme;
+    final dialogTheme = DialogTheme.of(context);
+    if (dialogTheme == null || dialogTheme is! DialogTheme) {
+      print("DialogTheme is not properly defined in the current context");
+    }
     return AnimatedPadding(
       padding: MediaQuery.of(context).viewInsets +
           const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
@@ -638,31 +639,21 @@ Future<T?> showAppDialog<T>({
 }) {
   assert(builder != null);
   assert(debugCheckHasMaterialLocalizations(context));
-
-  // Use CupertinoDialog for iOS, MaterialDialog for other platforms
-  if (Theme.of(context).platform == TargetPlatform.iOS) {
-    return showCupertinoDialog<T>(
-      context: context,
-      barrierDismissible: barrierDismissible,
-      builder: builder!,
-    );
-  } else {
-    return showGeneralDialog<T>(
-      context: context,
-      pageBuilder: (BuildContext buildContext, Animation<double> animation,
-          Animation<double> secondaryAnimation) {
-        final Widget pageChild = Builder(builder: builder!);
-        return SafeArea(
-          child: Builder(builder: (BuildContext context) {
-            return pageChild;
-          }),
-        );
-      },
-      barrierDismissible: barrierDismissible,
-      barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
-      barrierColor: (context as WidgetRef).read(themeProvider).barrier,
-      transitionDuration: const Duration(milliseconds: 150),
-      transitionBuilder: _buildMaterialDialogTransitions,
-    );
-  }
+  return showGeneralDialog<T>(
+    context: context,
+    pageBuilder: (BuildContext buildContext, Animation<double> animation,
+        Animation<double> secondaryAnimation) {
+      final Widget pageChild = Builder(builder: builder!);
+      return SafeArea(
+        child: Builder(builder: (BuildContext context) {
+          return pageChild;
+        }),
+      );
+    },
+    barrierDismissible: barrierDismissible,
+    barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
+    barrierColor: (context as WidgetRef).read(themeProvider).barrier,
+    transitionDuration: const Duration(milliseconds: 150),
+    transitionBuilder: _buildMaterialDialogTransitions,
+  );
 }
