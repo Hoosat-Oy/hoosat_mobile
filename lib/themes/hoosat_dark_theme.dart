@@ -13,7 +13,7 @@ class HoosatDarkTheme extends BaseTheme {
   static const blueishGreyDark = Color(0xFF3A3A3A);
   static const blueishGreyLight = Color(0xFF2F2F2F);
 
-  static const blueishGreyDarkest = Color(0xFFA9A9A9);
+  static const blueishGreyDarkest = Color.fromARGB(255, 99, 99, 100);
 
   static const white = Color(0xffffffff);
 
