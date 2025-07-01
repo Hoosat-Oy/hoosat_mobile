@@ -1,9 +1,9 @@
 import 'package:collection/collection.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
+import 'package:hoosat_mobile/l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 
 import '../hoosat/hoosat.dart';
-import '../l10n/l10n.dart';
 import '../transactions/transaction_types.dart';
 import '../txnotes/txnotes_notifier.dart';
 import '../wallet_address/wallet_address_notifier.dart';

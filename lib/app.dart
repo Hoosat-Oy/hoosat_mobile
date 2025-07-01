@@ -4,13 +4,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:hoosat_mobile/l10n/app_localizations.dart';
 import 'package:oktoast/oktoast.dart';
 
 import 'app_constants.dart';
 import 'app_providers.dart';
 import 'app_router.dart';
 import 'app_styles.dart';
-import 'l10n/l10n.dart';
 import 'screens/privacy_screen.dart';
 import 'themes/themes.dart';
 import 'util/platform.dart';
@@ -44,8 +44,8 @@ class App extends HookConsumerWidget {
 
     useEffect(() {
       final appLinks = AppLinks();
-      final sub = appLinks.allStringLinkStream.listen((appLink) {
-        ref.read(appLinkProvider.notifier).state = appLink;
+      final sub = appLinks.uriLinkStream.listen((uri) {
+        ref.read(appLinkProvider.notifier).state = uri.toString();
       });
       return sub.cancel;
     }, const []);
@@ -69,7 +69,6 @@ class App extends HookConsumerWidget {
                 title: kWalletTitle,
                 theme: ThemeData(
                   useMaterial3: false,
-                  dialogBackgroundColor: theme.backgroundDark,
                   primaryColor: theme.primary,
                   fontFamily: kDefaultFontFamily,
                   brightness: Brightness.dark,
@@ -93,6 +92,8 @@ class App extends HookConsumerWidget {
                         secondary: theme.primary10,
                       )
                       .copyWith(surface: theme.backgroundDark),
+                  dialogTheme:
+                      DialogThemeData(backgroundColor: theme.backgroundDark),
                 ),
                 localizationsDelegates: AppLocalizations.localizationsDelegates,
                 supportedLocales: AppLocalizations.supportedLocales,

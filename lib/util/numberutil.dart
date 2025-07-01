@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:decimal/decimal.dart';
-import 'package:decimal/intl.dart';
 import 'package:intl/intl.dart';
 
 import '../hoosat/hoosat.dart';
@@ -37,7 +36,7 @@ class NumberUtil {
       symbol: '',
       decimalDigits: scale,
     );
-    final formated = formatter.format(DecimalIntl(value)).trim();
+    final formated = formatter.format(value.toDouble()).trim();
 
     return formated;
   }

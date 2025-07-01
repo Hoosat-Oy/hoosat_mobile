@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hoosat_mobile/l10n/app_localizations.dart';
 
 import '../app_icons.dart';
 import '../app_providers.dart';

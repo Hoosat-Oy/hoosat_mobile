@@ -236,7 +236,7 @@
   "transferIntro": "Prozesu honek funtsak paperezko kartera batetik zure Hoosat Mobile Kartera transferituko ditu. \n\nSakatu \"{button}\" botoia hasteko.",
   "transferLoading": "Bidaltzen",
   "transferManualHint": "Mesedez, sartu behean hazia.",
-  "transferNoFunds": "Hazi honek ez du KASrik",
+  "transferNoFunds": "Hazi honek ez du HTNrik",
   "transferQrScanError": "QR kode honek ez du baliozko hazirik.",
   "transferQrScanHint": "Eskaneatu Hoosat \nhazia edo giltza pribatu bat",
   "unconfirmed": "Baieztatu gabe",

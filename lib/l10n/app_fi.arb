@@ -236,7 +236,7 @@
   "transferIntro": "Tämä prosessi siirtää varat paperilompakosta Hoosat Mobile-lompakkoosi.\n\nNapauta painiketta \"{button}\" aloittaaksesi.",
   "transferLoading": "Siirretään",
   "transferManualHint": "Syötä seed alle.",
-  "transferNoFunds": "Tämä seed ei pidä sisällään yhtään KASia",
+  "transferNoFunds": "Tämä seed ei pidä sisällään yhtään Hoosattia",
   "transferQrScanError": "Tämä QR-koodi ei sisällä validia seediä.",
   "transferQrScanHint": "Skannaa Hoosat \nseed tai yksityinen avain",
   "unconfirmed": "vahvistamaton",

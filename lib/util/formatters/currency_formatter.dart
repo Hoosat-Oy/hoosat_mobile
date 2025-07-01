@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:decimal/decimal.dart';
-import 'package:decimal/intl.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
@@ -37,7 +36,7 @@ class CurrencyFormatter extends TextInputFormatter {
   String _formatNumber(String numberStr) {
     final number = Decimal.tryParse(numberStr);
     if (number != null) {
-      return numberFormat.format(DecimalIntl(number));
+      return numberFormat.format(number.toDouble());
     }
     return numberStr;
   }

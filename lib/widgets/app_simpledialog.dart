@@ -78,7 +78,7 @@ class Dialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dialogTheme = DialogTheme.of(context);
-    if (dialogTheme == null || dialogTheme is! DialogTheme) {
+    if (dialogTheme is! DialogTheme) {
       print("DialogTheme is not properly defined in the current context");
     }
     return AnimatedPadding(

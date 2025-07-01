@@ -1,5 +1,4 @@
 import 'package:decimal/decimal.dart';
-import 'package:decimal/intl.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
@@ -127,7 +126,7 @@ final formatedTotalFiatProvider = Provider.autoDispose((ref) {
     decimalDigits: decimals,
   );
 
-  return formatter.format(DecimalIntl(fiat));
+  return formatter.format(fiat.toDouble());
 });
 
 final formatedhoosatPriceProvider = Provider.autoDispose((ref) {
@@ -145,7 +144,7 @@ final formatedhoosatPriceProvider = Provider.autoDispose((ref) {
     symbol: currency.symbol,
     name: currency.name,
     decimalDigits: decimals,
-  ).format(DecimalIntl(price));
+  ).format(price.toDouble());
 
   return '$priceStr / $symbol';
 });
@@ -166,7 +165,7 @@ final formatedFiatForAddressProvider =
   return NumberFormat.currency(
     symbol: currency.symbol,
     name: currency.name,
-  ).format(DecimalIntl(balance));
+  ).format(balance.toDouble());
 });
 
 final formatedFiatForAmountProvider =
@@ -178,7 +177,7 @@ final formatedFiatForAmountProvider =
   return NumberFormat.currency(
     symbol: currency.symbol,
     name: currency.name,
-  ).format(DecimalIntl(fiatValue));
+  ).format(fiatValue.toDouble());
 });
 
 final fiatForAmountProvider =
@@ -195,7 +194,7 @@ final fiatForAmountProvider =
     name: currency.name,
   );
   return formater
-      .format(DecimalIntl(fiatValue))
+      .format(fiatValue.toDouble())
       .replaceAll(formater.currencySymbol, '');
 });
 
