@@ -20,6 +20,8 @@ class UtxosNotifier extends SafeChangeNotifier {
   final _balancesByAddress = <String, BigInt>{};
 
   final _utxoIds = <String>{};
+  DateTime? _lastRefreshTime;
+  static const _refreshInterval = Duration(minutes: 1);
 
   List<Utxo>? _utxoList;
   List<Utxo> get utxoList {
@@ -72,6 +74,19 @@ class UtxosNotifier extends SafeChangeNotifier {
   }
 
   Future<void> refresh({required Iterable<String> addresses}) async {
+    // Check if enough time has passed since the last refresh
+    final now = DateTime.now();
+    if (_lastRefreshTime != null &&
+        now.difference(_lastRefreshTime!).inSeconds <
+            _refreshInterval.inSeconds) {
+      log.i(
+          'Refresh skipped: ${now.difference(_lastRefreshTime!).inSeconds}s since last refresh, need ${_refreshInterval.inSeconds}s');
+      return;
+    }
+
+    log.i('Starting refresh for ${addresses.length} addresses at $now');
+    _lastRefreshTime = now; // Update last refresh time
+
     final oldUtxos = <String, Set<Utxo>>{};
     for (final address in addresses) {
       final set = _utxosByAddress[address];
@@ -79,42 +94,49 @@ class UtxosNotifier extends SafeChangeNotifier {
       oldUtxos[address] = Set.of(set);
     }
 
-    final utxos = await client.getUtxosByAddresses(addresses);
+    try {
+      final utxos = await client.getUtxosByAddresses(addresses);
 
-    final newUtxos = <String, Set<Utxo>>{};
-    for (final utxo in utxos.map(Utxo.fromRpc)) {
-      final set = newUtxos.putIfAbsent(utxo.address, () => <Utxo>{});
-      set.add(utxo);
-    }
-
-    for (final address in addresses) {
-      final oldSet = oldUtxos[address] ?? {};
-      final newSet = newUtxos[address] ?? {};
-
-      _utxosByAddress[address] = newSet;
-      _balancesByAddress[address] = newSet.fold(
-        BigInt.zero,
-        (total, utxo) => total + utxo.utxoEntry.amount,
-      );
-
-      // update box
-      final removeSet = oldSet.difference(newSet);
-      final addSet = newSet.difference(oldSet);
-      if (removeSet.isNotEmpty) {
-        await _utxoBox.removeAll(removeSet.map(_utxoKey));
+      final newUtxos = <String, Set<Utxo>>{};
+      for (final utxo in utxos.map(Utxo.fromRpc)) {
+        final set = newUtxos.putIfAbsent(utxo.address, () => <Utxo>{});
+        set.add(utxo);
       }
-      if (addSet.isNotEmpty) {
-        await _utxoBox.setAll(
-          Map.fromEntries(addSet.map(
-            (utxo) => MapEntry(_utxoKey(utxo), utxo),
-          )),
+
+      for (final address in addresses) {
+        final oldSet = oldUtxos[address] ?? {};
+        final newSet = newUtxos[address] ?? {};
+
+        _utxosByAddress[address] = newSet;
+        _balancesByAddress[address] = newSet.fold(
+          BigInt.zero,
+          (total, utxo) => total + utxo.utxoEntry.amount,
         );
-        // update id set
-        _utxoIds.addAll(addSet.map((utxo) => _utxoKey(utxo)));
-      }
-    }
 
-    _utxoList = null;
-    notifyListeners();
+        // Update box
+        final removeSet = oldSet.difference(newSet);
+        final addSet = newSet.difference(oldSet);
+        if (removeSet.isNotEmpty) {
+          await _utxoBox.removeAll(removeSet.map(_utxoKey));
+        }
+        if (addSet.isNotEmpty) {
+          await _utxoBox.setAll(
+            Map.fromEntries(addSet.map(
+              (utxo) => MapEntry(_utxoKey(utxo), utxo),
+            )),
+          );
+          // Update id set
+          _utxoIds.addAll(addSet.map((utxo) => _utxoKey(utxo)));
+        }
+      }
+
+      _utxoList = null;
+      notifyListeners();
+      log.i(
+          'Refresh completed for ${addresses.length} addresses, ${newUtxos.values.fold(0, (sum, set) => sum + set.length)} UTXOs');
+    } catch (e, stackTrace) {
+      log.e('Refresh failed: $e\n$stackTrace');
+      rethrow;
+    }
   }
 }

@@ -12,6 +12,8 @@ class WalletBalanceNotifier extends SafeChangeNotifier {
 
   final Map<String, BigInt> _balances = {};
   BigInt _totalBalance = BigInt.zero;
+  DateTime? _lastRefreshTime;
+  static const _refreshInterval = Duration(seconds: 1);
 
   WalletBalanceNotifier({
     required TypedBox<AddressBalance> balanceBox,
@@ -45,6 +47,14 @@ class WalletBalanceNotifier extends SafeChangeNotifier {
       Amount.raw(_balances[address] ?? BigInt.zero);
 
   Future<void> refresh(Iterable<String> addresses) async {
+    final now = DateTime.now();
+    if (_lastRefreshTime != null &&
+        now.difference(_lastRefreshTime!).inSeconds <
+            _refreshInterval.inSeconds) {
+      return;
+    }
+    _lastRefreshTime = now;
+
     if (addresses.isEmpty) {
       return;
     }

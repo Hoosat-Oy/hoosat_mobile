@@ -65,6 +65,9 @@ class HoosatClient {
         credentials: isSecure
             ? ChannelCredentials.secure()
             : ChannelCredentials.insecure(),
+        connectionTimeout: Duration(minutes: 10),
+        idleTimeout: Duration(minutes: 10),
+        connectTimeout: Duration(minutes: 10),
       ),
     );
 
@@ -117,19 +120,42 @@ class HoosatClient {
   Future<List<RpcUtxosByAddressesEntry>> getUtxosByAddresses(
     Iterable<String> addresses,
   ) async {
+    final startTime = DateTime.now();
+    print(
+        'Starting getUtxosByAddresses for ${addresses.length} addresses at $startTime');
+
     final message = HoosatdRequest(
       getUtxosByAddressesRequest: GetUtxosByAddressesRequestMessage(
         addresses: addresses,
       ),
     );
 
-    final result = await _singleRequest(message);
-    final error = result.getUtxosByAddressesResponse.error;
-    if (error.message.isNotEmpty) {
-      throw RpcException(error);
-    }
+    try {
+      final result = await _singleRequest(message).timeout(
+        Duration(seconds: 60),
+        onTimeout: () {
+          throw TimeoutException('Request timed out after 60 seconds');
+        },
+      );
+      final endTime = DateTime.now();
+      final duration = endTime.difference(startTime).inMilliseconds;
+      print('Received response after $duration ms');
 
-    return result.getUtxosByAddressesResponse.entries;
+      final error = result.getUtxosByAddressesResponse.error;
+      if (error.message.isNotEmpty) {
+        print('Server error: ${error.message}');
+        throw RpcException(error);
+      }
+
+      final entries = result.getUtxosByAddressesResponse.entries;
+      print('Received ${entries.length} UTXOs');
+      final roughSizeBytes = entries.toString().length * 2; // Rough estimate
+      print('Estimated response size: ${roughSizeBytes / (1024 * 1024)} MB');
+      return entries;
+    } catch (e, stackTrace) {
+      print('Error in getUtxosByAddresses: $e\n$stackTrace');
+      rethrow;
+    }
   }
 
   Stream<UtxosChangedNotificationMessage> notifyUtxosChanged(
