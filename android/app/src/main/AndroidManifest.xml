@@ -9,6 +9,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-feature android:name="android.hardware.nfc" android:required="false" />
 
 
     <!-- io.flutter.app.FlutterApplication is an android.app.Application that
@@ -20,7 +22,8 @@
         android:name="${applicationName}"
         android:label="Hoosat Mobile"
         android:icon="@mipmap/ic_launcher"
-        android:allowBackup="false">
+        android:allowBackup="false"
+        android:enableOnBackInvokedCallback="true">
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
@@ -52,6 +55,16 @@
                 <data android:scheme="hoosattest" />
                 <data android:scheme="hoosatdev" />
                 <data android:scheme="hoosatsim" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/uri-list" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="hoosat" />
             </intent-filter>
         </activity>
 

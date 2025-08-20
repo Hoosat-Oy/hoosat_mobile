@@ -44,10 +44,29 @@ class App extends HookConsumerWidget {
 
     useEffect(() {
       final appLinks = AppLinks();
+      Future.microtask(() async {
+        try {
+          final initial = await appLinks.getInitialLink();
+          if (initial != null) {
+            ref.read(appLinkProvider.notifier).state = initial.toString();
+          }
+        } catch (_) {}
+      });
       final sub = appLinks.uriLinkStream.listen((uri) {
         ref.read(appLinkProvider.notifier).state = uri.toString();
       });
-      return sub.cancel;
+      const channel = MethodChannel('fi.hoosat_mobile.hoosatwallet/links');
+      channel.setMethodCallHandler((call) async {
+        if (call.method == 'link') {
+          final s = call.arguments as String?;
+          ref.read(appLinkProvider.notifier).state = s;
+        }
+      });
+
+      return () {
+        sub.cancel();
+        channel.setMethodCallHandler(null);
+      };
     }, const []);
 
     return Container(

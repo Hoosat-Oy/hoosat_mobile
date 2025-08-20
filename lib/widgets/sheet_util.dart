@@ -14,6 +14,7 @@ class Sheets {
     int animationDurationMs = 250,
     bool removeUntilHome = false,
     bool closeOnTap = false,
+    bool barrierDismissible = true,
     Function? onDisposed,
     Color? backgroundColor,
   }) {
@@ -30,6 +31,7 @@ class Sheets {
       barrier: barrier,
       animationDurationMs: animationDurationMs,
       closeOnTap: closeOnTap,
+      barrierDismissibleFlag: barrierDismissible,
       onDisposed: onDisposed,
     );
     if (removeUntilHome) {
@@ -121,6 +123,7 @@ class _AppHeightNineModalRoute<T> extends PopupRoute<T> {
     this.barrier,
     this.animationDurationMs,
     this.closeOnTap = false,
+    this.barrierDismissibleFlag = true,
     this.onDisposed,
   }) : super(settings: settings);
 
@@ -130,13 +133,14 @@ class _AppHeightNineModalRoute<T> extends PopupRoute<T> {
   final Color? barrier;
   final int? animationDurationMs;
   final bool closeOnTap;
+  final bool barrierDismissibleFlag;
   final Function? onDisposed;
 
   @override
   Color? get barrierColor => barrier;
 
   @override
-  bool get barrierDismissible => true;
+  bool get barrierDismissible => barrierDismissibleFlag;
 
   @override
   String? barrierLabel;

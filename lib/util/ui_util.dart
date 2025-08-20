@@ -264,6 +264,7 @@ abstract class UIUtil {
         Sheets.showAppHeightNineSheet(
           context: context,
           theme: theme,
+          barrierDismissible: false,
           widget: SendSheet(uri: uri, rbf: rbf),
         );
       }
@@ -305,6 +306,7 @@ abstract class UIUtil {
       Sheets.showAppHeightNineSheet(
         context: context,
         theme: theme,
+        barrierDismissible: false,
         widget: SendConfirmSheet(sendTx: sendTx, rbf: rbf),
       );
     } catch (e) {

@@ -37,31 +37,60 @@ class WalletHome extends HookConsumerWidget {
     final l10n = l10nOf(context);
 
     ref.watch(_walletWatcherProvider);
+    // Ensure stable hook order: declare useRef outside useEffect
+    final isHandling = useRef(false);
 
     useEffect(() {
-      final notifier = ref.read(appLinkProvider.notifier);
-      return notifier.addListener((appLink) {
+      void handle(String? appLink) {
         if (appLink == null) {
           return;
         }
-        final walletAuth = ref.read(walletAuthNotifierProvider);
-        if (walletAuth == null || walletAuth.walletIsLocked) {
+
+        final walletAuth = ref.read(walletAuthProvider);
+        if (walletAuth.isLocked) {
           return;
         }
+        if (isHandling.value) return;
+        isHandling.value = true;
+
         final prefix = ref.read(addressPrefixProvider);
         final uri = HoosatUri.tryParse(appLink, prefix: prefix);
 
-        Future.microtask(() {
-          if (uri == null) {
-            UIUtil.showSnackbar(l10n.hoosatUriInvalid, context);
-            return;
-          }
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          // Delay slightly to let any transient lifecycle (inactive/resumed)
+          // caused by NFC intents settle, so the sheet isn't immediately closed.
+          Future.delayed(const Duration(milliseconds: 300), () {
+            if (uri == null) {
+              UIUtil.showSnackbar(l10n.hoosatUriInvalid, context);
+              // clear link and unlock handling
+              ref.read(appLinkProvider.notifier).state = null;
+              isHandling.value = false;
+              return;
+            }
 
-          UIUtil.showSendFlow(context, ref: ref, uri: uri);
-
-          notifier.state = null;
+            UIUtil.showSendFlow(context, ref: ref, uri: uri);
+            // clear link and unlock handling
+            ref.read(appLinkProvider.notifier).state = null;
+            isHandling.value = false;
+          });
         });
-      }, fireImmediately: true);
+      }
+
+      ref.listen<String?>(
+        appLinkProvider,
+        (_, next) => handle(next),
+      );
+      ref.listen(
+        walletAuthProvider.select((auth) => auth.isLocked),
+        (_, __) => handle(ref.read(appLinkProvider)),
+      );
+
+      // Defer initial handle to next frame to avoid modifying providers during build
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        handle(ref.read(appLinkProvider));
+      });
+
+      return null;
     }, const []);
 
     return Column(
