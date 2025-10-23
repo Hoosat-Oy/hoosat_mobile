@@ -34,14 +34,16 @@ final _hoosatPriceRemoteProvider =
   }
 
   try {
-    var price = await getCoinGeckoApiPrice(fiat);
-    // fallback to Kaspium API if CoinGecko API fails
-    // if (price == null) {
-    //   price = await getKaspiumApiPrice(fiat);
-    // }
-    // if (price == null) {
-    //   throw Exception('Failed to fetch remote exchange rate');
-    // }
+    var price = await getCoinPaprikaApiPrice(fiat);
+    if (price == null) {
+      price = await getHoosatApiPrice(fiat);
+    }
+    if (price == null) {
+      price = await getCoinGeckoApiPrice(fiat);
+    }
+    if (price == null) {
+      throw Exception('Failed to fetch remote exchange rate');
+    }
 
     return CoinGeckoPrice(
       currency: currency.currency,
