@@ -15,6 +15,10 @@
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
 		BF2989F82EAA527200D1F816 /* CoreNFC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2989F52EAA4CF400D1F816 /* CoreNFC.framework */; };
+		DKImagePickerControllerPrivacyManifest /* DKImagePickerController.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = DKImagePickerControllerPrivacyManifest /* DKImagePickerController.xcprivacy */; };
+		DKPhotoGalleryPrivacyManifest /* DKPhotoGallery.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = DKPhotoGalleryPrivacyManifest /* DKPhotoGallery.xcprivacy */; };
+		SDWebImagePrivacyManifest /* SDWebImage.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = SDWebImagePrivacyManifest /* SDWebImage.xcprivacy */; };
+		SwiftyGifPrivacyManifest /* SwiftyGif.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = SwiftyGifPrivacyManifest /* SwiftyGif.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,6 +54,10 @@
 		BF2989F52EAA4CF400D1F816 /* CoreNFC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreNFC.framework; path = System/Library/Frameworks/CoreNFC.framework; sourceTree = SDKROOT; };
 		EA14E3EBAFCA77D469C9D467 /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
 		F7B9EE4F2D22DDEC00936EEB /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
+		DKImagePickerControllerPrivacyManifest /* DKImagePickerController.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DKImagePickerController.xcprivacy"; sourceTree = "<group>"; };
+		DKPhotoGalleryPrivacyManifest /* DKPhotoGallery.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DKPhotoGallery.xcprivacy"; sourceTree = "<group>"; };
+		SDWebImagePrivacyManifest /* SDWebImage.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SDWebImage.xcprivacy"; sourceTree = "<group>"; };
+		SwiftyGifPrivacyManifest /* SwiftyGif.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SwiftyGif.xcprivacy"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +134,10 @@
 				1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */,
 				74858FAE1ED2DC5600515810 /* AppDelegate.swift */,
 				74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */,
+				DKImagePickerControllerPrivacyManifest /* DKImagePickerController.xcprivacy */,
+				DKPhotoGalleryPrivacyManifest /* DKPhotoGallery.xcprivacy */,
+				SDWebImagePrivacyManifest /* SDWebImage.xcprivacy */,
+				SwiftyGifPrivacyManifest /* SwiftyGif.xcprivacy */,
 			);
 			path = Runner;
 			sourceTree = "<group>";
@@ -197,6 +209,10 @@
 				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
 				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
 				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
+				DKImagePickerControllerPrivacyManifest /* DKImagePickerController.xcprivacy in Resources */,
+				DKPhotoGalleryPrivacyManifest /* DKPhotoGallery.xcprivacy in Resources */,
+				SDWebImagePrivacyManifest /* SDWebImage.xcprivacy in Resources */,
+				SwiftyGifPrivacyManifest /* SwiftyGif.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
