@@ -23,7 +23,8 @@
         android:label="Hoosat Mobile"
         android:icon="@mipmap/ic_launcher"
         android:allowBackup="false"
-        android:enableOnBackInvokedCallback="true">
+        android:enableOnBackInvokedCallback="true"
+        android:largeHeap="true">
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />

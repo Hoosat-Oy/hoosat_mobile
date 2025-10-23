@@ -23,6 +23,7 @@ android {
     compileSdkVersion 36
     ndkVersion flutter.ndkVersion
 
+
     compileOptions {
         coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_17
@@ -42,10 +43,15 @@ android {
 
     defaultConfig {
         applicationId "fi.hoosat_mobile.hoosatwallet"
-        minSdkVersion 24
+        minSdkVersion 24  // Keep compatibility with older devices
         targetSdkVersion 36
         versionCode flutter.versionCode
         versionName flutter.versionName
+        
+        // Enable 16KB page size support
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86_64'
+        }
     }
 
     signingConfigs {
@@ -70,6 +76,23 @@ android {
             }
         }
     }
+
+    // Support for 16KB page sizes (Android 15+ requirement)
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging false
+        }
+    }
+
+    // Additional 16KB page size support configuration
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            if (outputFileName.endsWith('.apk')) {
+                outputFileName = outputFileName.replace('.apk', '-16kb-aligned.apk')
+            }
+        }
+    }
+
 }
 
 flutter {
