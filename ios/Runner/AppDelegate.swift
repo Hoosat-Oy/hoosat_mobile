@@ -2,7 +2,7 @@ import UIKit
 import Flutter
 import CoreNFC
 
-@UIApplicationMain
+@main
 @objc class AppDelegate: FlutterAppDelegate, NFCNDEFReaderSessionDelegate {
     private var nfcSession: NFCNDEFReaderSession?
     private var methodChannel: FlutterMethodChannel?
