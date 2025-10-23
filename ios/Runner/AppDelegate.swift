@@ -72,10 +72,33 @@ import CoreNFC
 
         // Handle Well-Known URI record (RTD_URI)
         if record.typeNameFormat == .nfcWellKnown, String(data: record.type, encoding: .utf8) == "U" {
-
-       // if record.typeNameFormat == .nfcWellKnown, record.type == NFCNDEFWellKnownType.uri {
-            if let url = record.wellKnownTypeURIPayload() {
-                uri = url.absoluteString
+            
+            // if record.typeNameFormat == .nfcWellKnown, record.type == NFCNDEFWellKnownType.uri {
+            //     if let url = record.wellKnownTypeURIPayload() {
+            //         uri = url.absoluteString
+            //   }
+            //}
+            if record.typeNameFormat == .nfcWellKnown, String(data: record.type, encoding: .utf8) == "U" {
+                // Manual URI parsing for iOS 11-12 compatibility
+                let payload = record.payload
+                if payload.count > 0 {
+                    let prefixIndex = Int(payload[0])
+                    let uriPrefixes = [
+                        "", "http://www.", "https://www.", "http://", "https://",
+                        "tel:", "mailto:", "ftp://anonymous:anonymous@", "ftp://ftp.",
+                        "ftps://", "sftp://", "smb://", "nfs://", "ftp://", "dav://",
+                        "news:", "telnet://", "imap:", "rtsp://", "urn:", "pop:",
+                        "sip:", "sips:", "tftp:", "btspp://", "btl2cap://", "btgoep://",
+                        "tcpobex://", "irdaobex://", "file://", "urn:epc:id:",
+                        "urn:epc:tag:", "urn:epc:pat:", "urn:epc:raw:", "urn:epc:",
+                        "urn:nfc:"
+                    ]
+                    let uriString = String(data: payload[1...], encoding: .utf8) ?? ""
+                    let fullUri = (prefixIndex < uriPrefixes.count ? uriPrefixes[prefixIndex] : "") + uriString
+                    if let url = URL(string: fullUri) {
+                        uri = url.absoluteString
+                    }
+                }
             }
         }
         // Handle text/uri-list MIME type
