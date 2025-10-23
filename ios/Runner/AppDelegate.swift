@@ -71,7 +71,9 @@ import CoreNFC
         var uri: String?
 
         // Handle Well-Known URI record (RTD_URI)
-        if record.typeNameFormat == .nfcWellKnown, record.type == NFCNDEFWellKnownType.uri {
+        if record.typeNameFormat == .nfcWellKnown, String(data: record.type, encoding: .utf8) == "U" {
+
+       // if record.typeNameFormat == .nfcWellKnown, record.type == NFCNDEFWellKnownType.uri {
             if let url = record.wellKnownTypeURIPayload() {
                 uri = url.absoluteString
             }
