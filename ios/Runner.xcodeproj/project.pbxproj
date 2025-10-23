@@ -19,6 +19,7 @@
 		DKPhotoGalleryPrivacyManifest /* DKPhotoGallery.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = DKPhotoGalleryPrivacyManifest /* DKPhotoGallery.xcprivacy */; };
 		SDWebImagePrivacyManifest /* SDWebImage.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = SDWebImagePrivacyManifest /* SDWebImage.xcprivacy */; };
 		SwiftyGifPrivacyManifest /* SwiftyGif.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = SwiftyGifPrivacyManifest /* SwiftyGif.xcprivacy */; };
+		AppPrivacyManifest /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = AppPrivacyManifest /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,6 +59,7 @@
 		DKPhotoGalleryPrivacyManifest /* DKPhotoGallery.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DKPhotoGallery.xcprivacy"; sourceTree = "<group>"; };
 		SDWebImagePrivacyManifest /* SDWebImage.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SDWebImage.xcprivacy"; sourceTree = "<group>"; };
 		SwiftyGifPrivacyManifest /* SwiftyGif.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SwiftyGif.xcprivacy"; sourceTree = "<group>"; };
+		AppPrivacyManifest /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PrivacyInfo.xcprivacy"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				DKPhotoGalleryPrivacyManifest /* DKPhotoGallery.xcprivacy */,
 				SDWebImagePrivacyManifest /* SDWebImage.xcprivacy */,
 				SwiftyGifPrivacyManifest /* SwiftyGif.xcprivacy */,
+				AppPrivacyManifest /* PrivacyInfo.xcprivacy */,
 			);
 			path = Runner;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				DKPhotoGalleryPrivacyManifest /* DKPhotoGallery.xcprivacy in Resources */,
 				SDWebImagePrivacyManifest /* SDWebImage.xcprivacy in Resources */,
 				SwiftyGifPrivacyManifest /* SwiftyGif.xcprivacy in Resources */,
+				AppPrivacyManifest /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
