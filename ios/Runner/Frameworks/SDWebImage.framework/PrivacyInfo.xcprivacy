@@ -3,16 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>NSPrivacyAccessedAPITypes</key>
-    <array>
-        <dict>
-            <key>NSPrivacyAccessedAPIType</key>
-            <string>NSPrivacyAccessedAPICategoryNetwork</string>
-            <key>NSPrivacyAccessedAPITypeReasons</key>
-            <array>
-                <string>1C8F.1</string> <!-- User-initiated network access for downloading images -->
-            </array>
-        </dict>
-    </array>
+    <array/>
     <key>NSPrivacyCollectedDataTypes</key>
     <array/>
     <key>NSPrivacyTracking</key>
