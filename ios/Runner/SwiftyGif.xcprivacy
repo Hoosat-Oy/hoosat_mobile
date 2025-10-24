@@ -9,7 +9,7 @@
             <string>NSPrivacyAccessedAPICategoryFileTimestamp</string>
             <key>NSPrivacyAccessedAPITypeReasons</key>
             <array>
-                <string>3B2E.1</string> <!-- Accessing file timestamps for GIF file handling -->
+                <string>E174.1</string> <!-- Accessing file timestamps for GIF file handling -->
             </array>
         </dict>
     </array>
