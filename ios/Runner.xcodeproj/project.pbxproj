@@ -136,10 +136,6 @@
 				1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */,
 				74858FAE1ED2DC5600515810 /* AppDelegate.swift */,
 				74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */,
-				DKImagePickerControllerPrivacyManifest /* DKImagePickerController.xcprivacy */,
-				DKPhotoGalleryPrivacyManifest /* DKPhotoGallery.xcprivacy */,
-				SDWebImagePrivacyManifest /* SDWebImage.xcprivacy */,
-				SwiftyGifPrivacyManifest /* SwiftyGif.xcprivacy */,
 				AppPrivacyManifest /* PrivacyInfo.xcprivacy */,
 			);
 			path = Runner;
