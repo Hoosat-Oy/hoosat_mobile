@@ -79,12 +79,12 @@ class IndiumTheme extends BaseTheme {
       SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.transparent);
 
   BoxShadow boxShadow = BoxShadow(
-    color: darkDeepBlue.withOpacity(0.1),
+    color: darkDeepBlue.withOpacitySafe(0.1),
     offset: Offset(0, 5),
     blurRadius: 15,
   );
   BoxShadow boxShadowButton = BoxShadow(
-    color: darkDeepBlue.withOpacity(0.2),
+    color: darkDeepBlue.withOpacitySafe(0.2),
     offset: Offset(0, 5),
     blurRadius: 15,
   );

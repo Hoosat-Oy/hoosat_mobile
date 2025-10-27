@@ -31,7 +31,7 @@ class CarbonTheme extends BaseTheme {
   Color success15 = green.withOpacitySafe(0.15);
 
   Color successDark = greenDark;
-  Color successDark30 = greenDark.withOpacity(0.3);
+  Color successDark30 = greenDark.withOpacitySafe(0.3);
 
   Color background = black;
   Color background40 = black.withOpacitySafe(0.4);
@@ -46,27 +46,27 @@ class CarbonTheme extends BaseTheme {
   Color text60 = whiteish.withOpacitySafe(0.6);
   Color text45 = whiteish.withOpacitySafe(0.45);
   Color text30 = whiteish.withOpacitySafe(0.3);
-  Color text20 = whiteish.withOpacity(0.2);
-  Color text15 = whiteish.withOpacity(0.15);
-  Color text10 = whiteish.withOpacity(0.1);
-  Color text05 = whiteish.withOpacity(0.05);
-  Color text03 = whiteish.withOpacity(0.03);
+  Color text20 = whiteish.withOpacitySafe(0.2);
+  Color text15 = whiteish.withOpacitySafe(0.15);
+  Color text10 = whiteish.withOpacitySafe(0.1);
+  Color text05 = whiteish.withOpacitySafe(0.05);
+  Color text03 = whiteish.withOpacitySafe(0.03);
 
-  Color overlay90 = blackLighter.withOpacity(0.9);
-  Color overlay85 = blackLighter.withOpacity(0.85);
-  Color overlay80 = blackLighter.withOpacity(0.8);
-  Color overlay70 = blackLighter.withOpacity(0.7);
-  Color overlay50 = blackLighter.withOpacity(0.5);
-  Color overlay30 = blackLighter.withOpacity(0.3);
-  Color overlay20 = blackLighter.withOpacity(0.2);
+  Color overlay90 = blackLighter.withOpacitySafe(0.9);
+  Color overlay85 = blackLighter.withOpacitySafe(0.85);
+  Color overlay80 = blackLighter.withOpacitySafe(0.8);
+  Color overlay70 = blackLighter.withOpacitySafe(0.7);
+  Color overlay50 = blackLighter.withOpacitySafe(0.5);
+  Color overlay30 = blackLighter.withOpacitySafe(0.3);
+  Color overlay20 = blackLighter.withOpacitySafe(0.2);
 
-  Color barrier = blackBlueish.withOpacity(0.8);
-  Color barrierWeaker = blackBlueish.withOpacity(0.7);
-  Color barrierWeakest = blackBlueish.withOpacity(0.35);
-  Color barrierStronger = blackBlueish.withOpacity(0.9);
+  Color barrier = blackBlueish.withOpacitySafe(0.8);
+  Color barrierWeaker = blackBlueish.withOpacitySafe(0.7);
+  Color barrierWeakest = blackBlueish.withOpacitySafe(0.35);
+  Color barrierStronger = blackBlueish.withOpacitySafe(0.9);
 
-  Color animationOverlayMedium = blackBlueish.withOpacity(0.8);
-  Color animationOverlayStrong = blackBlueish.withOpacity(0.9);
+  Color animationOverlayMedium = blackBlueish.withOpacitySafe(0.8);
+  Color animationOverlayStrong = blackBlueish.withOpacitySafe(0.9);
 
   //Brightness brightness = Brightness.dark;
   SystemUiOverlayStyle systemOverlayStyle = SystemUiOverlayStyle.dark;
@@ -74,13 +74,13 @@ class CarbonTheme extends BaseTheme {
       SystemUiOverlayStyle.light.copyWith(statusBarColor: Colors.transparent);
 
   BoxShadow boxShadow = BoxShadow(
-    color: white.withOpacity(0.14),
+    color: white.withOpacitySafe(0.14),
     offset: Offset(0, 0),
     blurRadius: 0,
     spreadRadius: 1,
   );
   BoxShadow boxShadowButton = BoxShadow(
-    color: brightBlue.withOpacity(0.24),
+    color: brightBlue.withOpacitySafe(0.24),
     offset: Offset(0, 0),
     blurRadius: 0,
     spreadRadius: 0,

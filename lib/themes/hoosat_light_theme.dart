@@ -79,12 +79,12 @@ class HoosatLightTheme extends BaseTheme {
       SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.transparent);
 
   BoxShadow boxShadow = BoxShadow(
-    color: darkDeepTeal.withOpacity(0.1),
+    color: darkDeepTeal.withOpacitySafe(0.1),
     offset: Offset(0, 3),
     blurRadius: 15,
   );
   BoxShadow boxShadowButton = BoxShadow(
-    color: darkDeepTeal.withOpacity(0.2),
+    color: darkDeepTeal.withOpacitySafe(0.2),
     offset: Offset(0, 3),
     blurRadius: 15,
   );
