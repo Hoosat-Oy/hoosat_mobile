@@ -2,22 +2,17 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:share_plus/share_plus.dart';
 
-import '../app_constants.dart';
 import '../app_icons.dart';
 import '../app_providers.dart';
 import '../app_router.dart';
 import '../contacts/contacts_widget.dart';
-import '../hoosat/hoosat.dart';
 import '../l10n/l10n.dart';
 import '../settings/available_currency.dart';
 import '../settings/available_language.dart';
 import '../settings/available_themes.dart';
 import '../settings_advanced/advanced_menu.dart';
-import '../util/platform.dart';
 import '../util/ui_util.dart';
-import '../util/util.dart';
 import '../widgets/app_simpledialog.dart';
 import '../widgets/dialog.dart';
 import '../widgets/gradient_widgets.dart';
@@ -162,7 +157,7 @@ class _SettingsSheetState extends ConsumerState<SettingsSheet>
     }
   }
 
-  void _onBackButtonPressed(bool didPop) {
+  void _onBackButtonPressed(bool didPop, Object? result) {
     if (_contactsOpen) {
       setState(() => _contactsOpen = false);
       _contactsController.reverse();
@@ -190,7 +185,7 @@ class _SettingsSheetState extends ConsumerState<SettingsSheet>
     // presses and replace the main settings widget with contacts based on a bool
     return PopScope(
       canPop: false,
-      onPopInvoked: _onBackButtonPressed,
+      onPopInvokedWithResult: _onBackButtonPressed,
       child: ClipRect(
         child: Stack(children: [
           Consumer(builder: (context, ref, _) {
@@ -246,13 +241,13 @@ class _SettingsSheetState extends ConsumerState<SettingsSheet>
       final styles = ref.watch(stylesProvider);
       final l10n = l10nOf(context);
 
-      final network = ref.watch(networkProvider);
-      final wallet = ref.watch(walletProvider);
+      // final network = ref.watch(networkProvider);
+      // final wallet = ref.watch(walletProvider);
       final hasMnemonic = ref.watch(walletHasMnemonic);
 
-      final canDonate = !kPlatformIsIOS &&
-          network == HoosatNetwork.mainnet &&
-          !wallet.isViewOnly;
+      // final canDonate = !kPlatformIsIOS &&
+      //     network == HoosatNetwork.mainnet &&
+      //     !wallet.isViewOnly;
 
       Future<void> backupSecretPhrase() async {
         final authUtil = ref.read(authUtilProvider);
@@ -273,15 +268,17 @@ class _SettingsSheetState extends ConsumerState<SettingsSheet>
         );
       }
 
-      void contactSupport() =>
-          openUrl('mailto:$kSupportEmail?subject=Hoosat Mobile support');
+      // void contactSupport() =>
+      //     openUrl('mailto:$kSupportEmail?subject=Hoosat Mobile support');
 
-      void share() {
-        Share.share(
-          l10n.shareHoosatMobileText,
-          subject: l10n.shareHoosatMobileSubject,
-        );
-      }
+      // void share() {
+      //   SharePlus.instance.share(
+      //     ShareParams(
+      //       text: l10n.shareHoosatMobileText,
+      //       subject: l10n.shareHoosatMobileSubject,
+      //     ),
+      //   );
+      // }
 
       void logout() {
         AppDialogs.showConfirmDialog(

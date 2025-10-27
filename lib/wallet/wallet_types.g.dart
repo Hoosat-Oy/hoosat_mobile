@@ -122,10 +122,6 @@ _$WalletInfoImpl _$$WalletInfoImplFromJson(Map json) => _$WalletInfoImpl(
           ? const WalletKind.localHdSchnorr()
           : WalletKind.fromJson(Map<String, dynamic>.from(json['kind'] as Map)),
       wid: json['wid'] as String,
-      boxInfo: json['boxInfo'] == null
-          ? null
-          : BoxInfoByNetwork.fromJson(
-              Map<String, dynamic>.from(json['boxInfo'] as Map)),
       mainnetPublicKey: json['mainnetPublicKey'] as String,
       usesBip39Passphrase: json['usesBip39Passphrase'] as bool? ?? false,
     );
@@ -135,17 +131,10 @@ Map<String, dynamic> _$$WalletInfoImplToJson(_$WalletInfoImpl instance) {
     'name': instance.name,
     'kind': instance.kind.toJson(),
     'wid': instance.wid,
+    'mainnetPublicKey': instance.mainnetPublicKey,
+    'usesBip39Passphrase': instance.usesBip39Passphrase,
   };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('boxInfo', instance.boxInfo?.toJson());
-  val['mainnetPublicKey'] = instance.mainnetPublicKey;
-  val['usesBip39Passphrase'] = instance.usesBip39Passphrase;
   return val;
 }
 

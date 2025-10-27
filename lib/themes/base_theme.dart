@@ -73,6 +73,12 @@ extension ColorOpacitySafe on Color {
   Color withOpacitySafe(double opacity) {
     final clamped = opacity.clamp(0.0, 1.0);
     final a = (clamped * 255).round().clamp(0, 255);
-    return Color.fromARGB(a, red, green, blue);
+
+    return Color.fromARGB(
+      a,
+      (r * 255.0).round() & 0xff,
+      (g * 255.0).round() & 0xff,
+      (b * 255.0).round() & 0xff,
+    );
   }
 }

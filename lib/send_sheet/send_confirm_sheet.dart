@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -11,7 +10,6 @@ import '../hoosat/hoosat.dart';
 import '../l10n/l10n.dart';
 import '../util/numberutil.dart';
 import '../util/ui_util.dart';
-import '../utxos/utxos_selection_page.dart';
 import '../widgets/address_card.dart';
 import '../widgets/amount_card.dart';
 import '../widgets/app_text_field.dart';
@@ -135,23 +133,23 @@ class SendConfirmSheet extends HookConsumerWidget {
       );
     }
 
-    Future<void> selectUtxos({required Amount priorityFee}) async {
-      final notifier = ref.read(selectedUtxosProvider.notifier);
-      notifier.state = ISet(tx.userSelectedUtxos);
+    // Future<void> selectUtxos({required Amount priorityFee}) async {
+    //   final notifier = ref.read(selectedUtxosProvider.notifier);
+    //   notifier.state = ISet(tx.userSelectedUtxos);
 
-      final selectedUtxos = await Sheets.showAppHeightNineSheet<List<Utxo>>(
-        context: context,
-        theme: theme,
-        widget: UtxosSelectionPage(tx: tx.copyWith(priorityFee: priorityFee)),
-      );
+    //   final selectedUtxos = await Sheets.showAppHeightNineSheet<List<Utxo>>(
+    //     context: context,
+    //     theme: theme,
+    //     widget: UtxosSelectionPage(tx: tx.copyWith(priorityFee: priorityFee)),
+    //   );
 
-      if (selectedUtxos != null) {
-        await updateTx(
-          selectedUtxos: selectedUtxos,
-          priorityFee: priorityFee,
-        );
-      }
-    }
+    //   if (selectedUtxos != null) {
+    //     await updateTx(
+    //       selectedUtxos: selectedUtxos,
+    //       priorityFee: priorityFee,
+    //     );
+    //   }
+    // }
 
     Future<void> adjustFee({Amount? requiredPriorityFee}) async {
       Amount priorityFee = tx.priorityFee;

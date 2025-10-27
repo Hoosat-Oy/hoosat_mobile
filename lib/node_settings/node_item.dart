@@ -83,11 +83,20 @@ class NodeItem extends ConsumerWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Radio<ActiveNodeConfig>(
-                    value: item,
-                    groupValue: activeConfig,
-                    activeColor: theme.primary,
-                    onChanged: (_) => change(),
+                  // Use an explicit icon for the radio state instead of
+                  // the deprecated `groupValue` API. The visual and
+                  // interaction remain the same: tapping the row calls
+                  // `change()` above.
+                  Semantics(
+                    checked: item == activeConfig,
+                    child: Icon(
+                      item == activeConfig
+                          ? Icons.radio_button_checked
+                          : Icons.radio_button_unchecked,
+                      size: 20,
+                      color:
+                          item == activeConfig ? theme.primary : theme.text60,
+                    ),
                   ),
                   const SizedBox(width: 10),
                   Expanded(

@@ -65,7 +65,8 @@ class Dialog extends StatelessWidget {
   final ShapeBorder? shape;
 
   Color _getColor(BuildContext context) {
-    return Theme.of(context).dialogBackgroundColor;
+    return Theme.of(context).dialogTheme.backgroundColor ??
+        Theme.of(context).colorScheme.surface;
   }
 
   double _getHeight(BuildContext context) {

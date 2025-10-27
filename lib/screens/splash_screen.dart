@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 
 import '../app_providers.dart';
 import '../app_router.dart';
@@ -11,13 +10,12 @@ import '../l10n/l10n.dart';
 import '../settings/wallet_settings.dart';
 import '../util/lock_settings.dart';
 import '../util/ui_util.dart';
-import '../widgets/notice_dialog.dart';
 
-final _noticeShownProvider = StateProvider<bool>((ref) {
-  final sharedPrefsUtil = ref.watch(sharedPrefsUtilProvider);
-  final shown = sharedPrefsUtil.getNoticeShown();
-  return shown;
-});
+// final _noticeShownProvider = StateProvider<bool>((ref) {
+//   final sharedPrefsUtil = ref.watch(sharedPrefsUtilProvider);
+//   final shown = sharedPrefsUtil.getNoticeShown();
+//   return shown;
+// });
 
 class SplashScreen extends HookConsumerWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -26,20 +24,20 @@ class SplashScreen extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = ref.watch(themeProvider);
 
-    Future<void> checkNotice() async {
-      final noticeShown = ref.read(_noticeShownProvider.notifier);
-      if (noticeShown.state) {
-        return;
-      }
-      final version = (await PackageInfo.fromPlatform()).version + " (Beta)";
-      noticeShown.state = true;
-      await showDialog(
-        barrierColor: ref.read(themeProvider).barrier,
-        context: context,
-        barrierDismissible: false,
-        builder: (context) => NoticeDialog(version: version),
-      );
-    }
+    // Future<void> checkNotice() async {
+    //   final noticeShown = ref.read(_noticeShownProvider.notifier);
+    //   if (noticeShown.state) {
+    //     return;
+    //   }
+    //   final version = (await PackageInfo.fromPlatform()).version + " (Beta)";
+    //   noticeShown.state = true;
+    //   await showDialog(
+    //     barrierColor: ref.read(themeProvider).barrier,
+    //     context: context,
+    //     barrierDismissible: false,
+    //     builder: (context) => NoticeDialog(version: version),
+    //   );
+    // }
 
     Future<void> checkWalletStatus() async {
       final walletBundle = ref.read(walletBundleProvider);

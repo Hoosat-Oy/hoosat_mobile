@@ -80,7 +80,7 @@ extension BoxInfoExtension on SettingsRepository {
     var bundle = getBoxInfoBundle(wallet.wid);
 
     if (!bundle.wasMigrated) {
-      final mainnet = wallet.boxInfo?.mainnet;
+      final mainnet = bundle.byNetworkId[kHoosatNetworkIdMainnet];
       bundle = bundle.copyWith(
         byNetworkId: mainnet != null
             ? {

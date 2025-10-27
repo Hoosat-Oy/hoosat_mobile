@@ -8,7 +8,6 @@ import '../app_providers.dart';
 import '../app_router.dart';
 import '../chain_state/chain_state.dart';
 import '../l10n/l10n.dart';
-import '../main_card/main_card.dart';
 import '../settings/wallet_settings.dart';
 import '../settings_drawer/settings_drawer.dart';
 import '../util/lock_settings.dart';

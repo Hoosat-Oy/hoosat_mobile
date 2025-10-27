@@ -98,9 +98,18 @@ class ReceiveSheet extends HookConsumerWidget {
             name: '${address}.png',
             mimeType: 'image/png',
           );
-          Share.shareXFiles([file], text: address);
+          await SharePlus.instance.share(
+            ShareParams(
+              files: [XFile(file.path)],
+              text: address,
+            ),
+          );
         } else {
-          Share.share(address);
+          SharePlus.instance.share(
+            ShareParams(
+              text: address,
+            ),
+          );
         }
         showShareCard.value = false;
       } catch (e, st) {

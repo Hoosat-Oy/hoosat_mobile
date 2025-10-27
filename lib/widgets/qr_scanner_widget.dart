@@ -193,7 +193,7 @@ class _QrScannerWidgetState extends ConsumerState<QrScannerWidget> {
 
   @override
   void dispose() {
-    controller?.dispose();
+    // controller?.dispose();
     super.dispose();
   }
 }

@@ -38,7 +38,11 @@ Future<void> exportContacts(WidgetRef ref, BuildContext context) async {
 
   final lockDisabled = ref.read(lockDisabledProvider.notifier);
   lockDisabled.state = true;
-  await Share.shareXFiles([XFile(contactsFile.path)]);
+  await SharePlus.instance.share(
+    ShareParams(
+      files: [XFile(contactsFile.path)],
+    ),
+  );
   lockDisabled.state = false;
 }
 
