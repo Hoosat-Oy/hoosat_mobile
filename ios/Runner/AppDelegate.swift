@@ -11,21 +11,31 @@ import CoreNFC
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        // Create and configure Flutter engine
-        let flutterEngine = FlutterEngine(name: "main_engine")
-        flutterEngine.run()
-        GeneratedPluginRegistrant.register(with: flutterEngine)
-        
-        // Set root view controller
-        let controller = FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
-        window?.rootViewController = controller
-        window?.makeKeyAndVisible()
-        
-        // Initialize method channel
-        methodChannel = FlutterMethodChannel(
-            name: "fi.hoosat_mobile.hoosatwallet/links",
-            binaryMessenger: controller.binaryMessenger
-        )
+        // Prefer the storyboard-created FlutterViewController (safer on iOS 13+ and avoids conflicts)
+        if let existingController = window?.rootViewController as? FlutterViewController {
+            methodChannel = FlutterMethodChannel(
+                name: "fi.hoosat_mobile.hoosatwallet/links",
+                binaryMessenger: existingController.binaryMessenger
+            )
+        } else {
+            // Fallback: create and configure a Flutter engine and view controller
+            let flutterEngine = FlutterEngine(name: "main_engine")
+            flutterEngine.run()
+            GeneratedPluginRegistrant.register(with: flutterEngine)
+
+            let controller = FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
+            // If window is nil (no storyboard), create one and attach the controller
+            if window == nil {
+                window = UIWindow(frame: UIScreen.main.bounds)
+            }
+            window?.rootViewController = controller
+            window?.makeKeyAndVisible()
+
+            methodChannel = FlutterMethodChannel(
+                name: "fi.hoosat_mobile.hoosatwallet/links",
+                binaryMessenger: controller.binaryMessenger
+            )
+        }
 
         // Handle deep links from launch options (e.g., app opened via custom URI)
         if let url = launchOptions?[.url] as? URL {

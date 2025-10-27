@@ -18,34 +18,34 @@ class CarbonTheme extends BaseTheme {
   static const blackLighter = Color(0xFF0E0F0F);
 
   Color primary = brightBlue;
-  Color primary60 = brightBlue.withOpacity(0.6);
-  Color primary45 = brightBlue.withOpacity(0.45);
-  Color primary30 = brightBlue.withOpacity(0.3);
-  Color primary20 = brightBlue.withOpacity(0.2);
-  Color primary15 = brightBlue.withOpacity(0.15);
-  Color primary10 = brightBlue.withOpacity(0.1);
+  Color primary60 = brightBlue.withOpacitySafe(0.6);
+  Color primary45 = brightBlue.withOpacitySafe(0.45);
+  Color primary30 = brightBlue.withOpacitySafe(0.3);
+  Color primary20 = brightBlue.withOpacitySafe(0.2);
+  Color primary15 = brightBlue.withOpacitySafe(0.15);
+  Color primary10 = brightBlue.withOpacitySafe(0.1);
 
   Color success = green;
-  Color success60 = green.withOpacity(0.6);
-  Color success30 = green.withOpacity(0.3);
-  Color success15 = green.withOpacity(0.15);
+  Color success60 = green.withOpacitySafe(0.6);
+  Color success30 = green.withOpacitySafe(0.3);
+  Color success15 = green.withOpacitySafe(0.15);
 
   Color successDark = greenDark;
   Color successDark30 = greenDark.withOpacity(0.3);
 
   Color background = black;
-  Color background40 = black.withOpacity(0.4);
-  Color background00 = black.withOpacity(0.0);
+  Color background40 = black.withOpacitySafe(0.4);
+  Color background00 = black.withOpacitySafe(0.0);
 
   Color backgroundDark = black;
-  Color backgroundDark00 = black.withOpacity(0.0);
+  Color backgroundDark00 = black.withOpacitySafe(0.0);
 
   Color backgroundDarkest = blackLighter;
 
-  Color text = whiteish.withOpacity(0.9);
-  Color text60 = whiteish.withOpacity(0.6);
-  Color text45 = whiteish.withOpacity(0.45);
-  Color text30 = whiteish.withOpacity(0.3);
+  Color text = whiteish.withOpacitySafe(0.9);
+  Color text60 = whiteish.withOpacitySafe(0.6);
+  Color text45 = whiteish.withOpacitySafe(0.45);
+  Color text30 = whiteish.withOpacitySafe(0.3);
   Color text20 = whiteish.withOpacity(0.2);
   Color text15 = whiteish.withOpacity(0.15);
   Color text10 = whiteish.withOpacity(0.1);

@@ -60,3 +60,19 @@ abstract class BaseTheme {
 
   bool get isLightTheme;
 }
+
+// Extension providing a safe replacement for the deprecated `withOpacity` helper.
+// Use `withOpacitySafe` to avoid the deprecated API and precision loss from
+// repeated alpha composition. This computes a Color with the requested alpha
+// without changing the original color's RGB channels.
+extension ColorOpacitySafe on Color {
+  /// Returns a copy of this color with the given opacity (0.0 - 1.0).
+  ///
+  /// This avoids using the deprecated `withOpacity` API and uses an explicit
+  /// ARGB construction to keep results deterministic.
+  Color withOpacitySafe(double opacity) {
+    final clamped = opacity.clamp(0.0, 1.0);
+    final a = (clamped * 255).round().clamp(0, 255);
+    return Color.fromARGB(a, red, green, blue);
+  }
+}
