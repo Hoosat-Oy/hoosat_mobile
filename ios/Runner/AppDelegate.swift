@@ -13,13 +13,13 @@ import CoreNFC
     ) -> Bool {
         // Prefer the storyboard-created FlutterViewController (safer on iOS 13+ and avoids conflicts)
         if let existingController = window?.rootViewController as? FlutterViewController {
-            // Ensure plugins are registered when using the storyboard-created
-            // FlutterViewController. Without this, platform channels (Pigeon)
-            // handlers such as shared_preferences_foundation may not be
-            // registered and you'll see "Unable to establish connection on channel"
-            // errors. Registering with `self` (the AppDelegate) hooks up
-            // GeneratedPluginRegistrant for the existing controller.
-            GeneratedPluginRegistrant.register(with: self)
+            // Ensure plugins are registered with the storyboard-created
+            // FlutterViewController's registry. Registering with the
+            // controller ensures its engine/plugin registry receives the
+            // generated plugin registrations (Pigeon channels like
+            // shared_preferences_foundation will be attached to the same
+            // engine the controller uses).
+            GeneratedPluginRegistrant.register(with: existingController)
 
             methodChannel = FlutterMethodChannel(
                 name: "fi.hoosat_mobile.hoosatwallet/links",
