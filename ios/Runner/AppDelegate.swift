@@ -11,8 +11,17 @@ import CoreNFC
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        // Initialize Flutter engine and method channel
-        let controller = window?.rootViewController as! FlutterViewController
+        // Create and configure Flutter engine
+        let flutterEngine = FlutterEngine(name: "main_engine")
+        flutterEngine.run()
+        GeneratedPluginRegistrant.register(with: flutterEngine)
+        
+        // Set root view controller
+        let controller = FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
+        window?.rootViewController = controller
+        window?.makeKeyAndVisible()
+        
+        // Initialize method channel
         methodChannel = FlutterMethodChannel(
             name: "fi.hoosat_mobile.hoosatwallet/links",
             binaryMessenger: controller.binaryMessenger
