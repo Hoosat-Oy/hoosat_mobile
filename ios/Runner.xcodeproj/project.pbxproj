@@ -14,12 +14,11 @@
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
-		BF2989F82EAA527200D1F816 /* CoreNFC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2989F52EAA4CF400D1F816 /* CoreNFC.framework */; };
+		AppPrivacyManifestBuild /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = AppPrivacyManifest /* PrivacyInfo.xcprivacy */; };
 		DKImagePickerControllerPrivacyManifestBuild /* DKImagePickerController.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = DKImagePickerControllerPrivacyManifest /* DKImagePickerController.xcprivacy */; };
 		DKPhotoGalleryPrivacyManifestBuild /* DKPhotoGallery.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = DKPhotoGalleryPrivacyManifest /* DKPhotoGallery.xcprivacy */; };
 		SDWebImagePrivacyManifestBuild /* SDWebImage.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = SDWebImagePrivacyManifest /* SDWebImage.xcprivacy */; };
 		SwiftyGifPrivacyManifestBuild /* SwiftyGif.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = SwiftyGifPrivacyManifest /* SwiftyGif.xcprivacy */; };
-		AppPrivacyManifestBuild /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = AppPrivacyManifest /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,15 +50,15 @@
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DFAFFDCA09AB1FD74490D5A /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
+		AppPrivacyManifest /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		BA8BDD4DAFBF48DD9F833270 /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF2989F52EAA4CF400D1F816 /* CoreNFC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreNFC.framework; path = System/Library/Frameworks/CoreNFC.framework; sourceTree = SDKROOT; };
+		DKImagePickerControllerPrivacyManifest /* DKImagePickerController.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DKImagePickerController.xcprivacy; sourceTree = "<group>"; };
+		DKPhotoGalleryPrivacyManifest /* DKPhotoGallery.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DKPhotoGallery.xcprivacy; sourceTree = "<group>"; };
 		EA14E3EBAFCA77D469C9D467 /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
 		F7B9EE4F2D22DDEC00936EEB /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
-		DKImagePickerControllerPrivacyManifest /* DKImagePickerController.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DKImagePickerController.xcprivacy"; sourceTree = "<group>"; };
-		DKPhotoGalleryPrivacyManifest /* DKPhotoGallery.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DKPhotoGallery.xcprivacy"; sourceTree = "<group>"; };
-		SDWebImagePrivacyManifest /* SDWebImage.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SDWebImage.xcprivacy"; sourceTree = "<group>"; };
-		SwiftyGifPrivacyManifest /* SwiftyGif.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SwiftyGif.xcprivacy"; sourceTree = "<group>"; };
-		AppPrivacyManifest /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PrivacyInfo.xcprivacy"; sourceTree = "<group>"; };
+		SDWebImagePrivacyManifest /* SDWebImage.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SDWebImage.xcprivacy; sourceTree = "<group>"; };
+		SwiftyGifPrivacyManifest /* SwiftyGif.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SwiftyGif.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +66,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF2989F82EAA527200D1F816 /* CoreNFC.framework in Frameworks */,
 				5B8F30338C8810E67ACDA7F2 /* Pods_Runner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +111,7 @@
 				97C146EF1CF9000F007C117D /* Products */,
 				6D503D158B09F1BB8EA187AF /* Pods */,
 				972C3B8290D5E66A23BDB515 /* Frameworks */,
+				BFC56F8A2EB35838009468DE /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,6 +138,17 @@
 				AppPrivacyManifest /* PrivacyInfo.xcprivacy */,
 			);
 			path = Runner;
+			sourceTree = "<group>";
+		};
+		BFC56F8A2EB35838009468DE /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				DKImagePickerControllerPrivacyManifest /* DKImagePickerController.xcprivacy */,
+				DKPhotoGalleryPrivacyManifest /* DKPhotoGallery.xcprivacy */,
+				SDWebImagePrivacyManifest /* SDWebImage.xcprivacy */,
+				SwiftyGifPrivacyManifest /* SwiftyGif.xcprivacy */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,9 +237,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

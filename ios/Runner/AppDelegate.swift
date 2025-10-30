@@ -2,8 +2,7 @@ import UIKit
 import Flutter
 
 @main
-@objc class AppDelegate: FlutterAppDelegate, NFCNDEFReaderSessionDelegate {
-    private var nfcSession: NFCNDEFReaderSession?
+@objc class AppDelegate: FlutterAppDelegate {
     private var methodChannel: FlutterMethodChannel?
 
     override func application(
