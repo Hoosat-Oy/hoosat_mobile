@@ -58,7 +58,7 @@ class WalletHome extends HookConsumerWidget {
 
         WidgetsBinding.instance.addPostFrameCallback((_) {
           // Delay slightly to let any transient lifecycle (inactive/resumed)
-          // caused by NFC intents settle, so the sheet isn't immediately closed.
+          // so the sheet isn't immediately closed.
           Future.delayed(const Duration(milliseconds: 300), () {
             if (uri == null) {
               UIUtil.showSnackbar(l10n.hoosatUriInvalid, context);
