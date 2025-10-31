@@ -102,6 +102,23 @@ final txCacheServiceProvider =
     log: log,
   );
 
+  // Provide a lightweight resolver for previous outpoint data using the current
+  // wallet UTXO set to avoid transient "Missing input tx" logs when parents
+  // aren't in cache yet.
+  txCache.resolveOutpoint = (String txId, int index) {
+    final utxos = ref.read(utxoListProvider);
+    for (final u in utxos) {
+      if (u.outpoint.transactionId == txId && u.outpoint.index == index) {
+        return (
+          u.address,
+          // Amount in sompi; TxInputData expects int
+          u.utxoEntry.amount.toInt(),
+        );
+      }
+    }
+    return null;
+  };
+
   ref.listen(
     HoosatApiServiceProvider,
     (_, api) => txCache.api = api,

@@ -8,6 +8,11 @@ import '../hoosat/hoosat.dart';
 import 'transaction_types.dart';
 import 'tx_cache_index.dart';
 
+typedef OutpointResolver = (String address, int amount)? Function(
+  String txId,
+  int index,
+);
+
 class TxCacheService {
   // Index of transaction ids ordered by timestamp
   final TxCacheIndex _txIndex;
@@ -20,6 +25,11 @@ class TxCacheService {
 
   late HoosatApiService api;
   final Logger log;
+
+  // Optional resolver to map a previous outpoint (txId, index) to (address, amount)
+  // using local wallet data (e.g., current UTXO set). Helps when the API/cache
+  // doesn't have the parent transaction available yet.
+  OutpointResolver? resolveOutpoint;
 
   int get txCount => _txIndex.length;
 
@@ -78,7 +88,16 @@ class TxCacheService {
 
       final inputTx = memCache[input.previousOutpointHash];
       if (inputTx == null) {
-        log.e('Missing input tx for $input');
+        // Try resolving from local wallet data if available
+        final resolved = resolveOutpoint?.call(
+          input.previousOutpointHash,
+          input.previousOutpointIndex.toInt(),
+        );
+        if (resolved != null) {
+          return TxInputData(address: resolved.$1, amount: resolved.$2);
+        }
+
+        log.w('Missing input tx for $input');
         return null;
       }
 

@@ -25,6 +25,7 @@ class CompoundUtxosDialog extends ConsumerWidget {
     final styles = ref.watch(stylesProvider);
     final l10n = l10nOf(context);
 
+    final log = ref.read(loggerProvider);
     final utxos = ref.watch(utxoListProvider);
     final balance = ref.watch(formatedTotalBalanceProvider);
     final maxSend = NumberUtil.formatedAmount(ref.watch(maxSendProvider));
@@ -42,27 +43,59 @@ class CompoundUtxosDialog extends ConsumerWidget {
         final addressNotifier = ref.read(addressNotifierProvider);
         final changeAddress = await addressNotifier.nextChangeAddress;
 
-        final spendableUtxos = ref.read(spendableUtxosProvider);
-        if (spendableUtxos.length <= 1) {
+        final List<Utxo> allSpendableUtxos = ref.read(spendableUtxosProvider);
+        // Select the first chunk for the compound tx (or iterate spendableChunks if you want to process all)
+        if (allSpendableUtxos.length <= 1) {
           UIUtil.showSnackbar(l10n.compoundTooFewUtxos, context);
           appRouter.pop(context);
           return;
         }
-
-        Amount? priorityFee;
-        if (rbf) {
-          final pendingTx = ref.read(txNotifierProvider).pendingTxs.first;
-          priorityFee = Amount.raw(pendingTx.fees.priorityFee.raw + BigInt.one);
+        const int chunkSize = 84;
+        final List<List<Utxo>> spendableChunks = [];
+        for (var i = 0; i < allSpendableUtxos.length; i += chunkSize) {
+          final end = (i + chunkSize) > allSpendableUtxos.length
+              ? allSpendableUtxos.length
+              : i + chunkSize;
+          spendableChunks.add(allSpendableUtxos.sublist(i, end));
         }
 
-        final compoundTx = walletService.createCompoundTx(
-          compoundAddress: changeAddress.address,
-          spendableUtxos: spendableUtxos,
-          feePerInput: kFeePerInput,
-          priorityFee: priorityFee,
-        );
-        await walletService.sendTransaction(compoundTx.tx, rbf: rbf);
-        ref.invalidate(pendingTxsProvider);
+        log.d('Spendable Chunks: ${spendableChunks.length}');
+        // Fire transactions at ~200ms intervals to speed up compounding while
+        // avoiding a flood. Schedule all sends and wait for completion.
+        final futures = <Future<void>>[];
+        const gap = Duration(milliseconds: 200);
+        for (var i = 0; i < spendableChunks.length; i++) {
+          final delay = gap * i;
+          futures.add(Future.delayed(delay, () async {
+            log.d(
+                'Compound Iteration $i starting (chunk=${spendableChunks[i].length})');
+
+            Amount? priorityFee;
+            if (rbf) {
+              try {
+                final pending = ref.read(txNotifierProvider).pendingTxs;
+                if (pending.isNotEmpty) {
+                  final p = pending.first;
+                  priorityFee = Amount.raw(p.fees.priorityFee.raw + BigInt.one);
+                }
+              } catch (_) {
+                // ignore
+              }
+            }
+
+            final compoundTx = walletService.createCompoundTx(
+              compoundAddress: changeAddress.address,
+              spendableUtxos: spendableChunks[i],
+              feePerInput: kFeePerInput,
+              priorityFee: priorityFee,
+            );
+            final txId =
+                await walletService.sendTransaction(compoundTx.tx, rbf: rbf);
+            log.i('Compound Iteration $i submitted txId=$txId');
+            ref.invalidate(pendingTxsProvider);
+          }));
+        }
+        await Future.wait(futures);
 
         if (lightMode) {
           // give some time for compound tx to broadcast and get accepted
