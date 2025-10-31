@@ -9,6 +9,7 @@ import '../wallet/wallet_types.dart';
 import 'transaction_notifier.dart';
 import 'transaction_types.dart';
 import 'tx_cache_service.dart';
+import 'recent_outpoints_provider.dart';
 
 // All new transactions from hoosat node
 final _newTransactionProvider = StreamProvider.autoDispose((ref) {
@@ -106,6 +107,14 @@ final txCacheServiceProvider =
   // wallet UTXO set to avoid transient "Missing input tx" logs when parents
   // aren't in cache yet.
   txCache.resolveOutpoint = (String txId, int index) {
+    // 1) Check recently-spent outpoints cache first
+    final recent = ref.read(recentOutpointsProvider);
+    final recentHit = recent['$txId:$index'];
+    if (recentHit != null) {
+      return recentHit;
+    }
+
+    // 2) Fallback to current UTXO set
     final utxos = ref.read(utxoListProvider);
     for (final u in utxos) {
       if (u.outpoint.transactionId == txId && u.outpoint.index == index) {

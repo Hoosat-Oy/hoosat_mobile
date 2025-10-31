@@ -9,6 +9,7 @@ import '../util/numberutil.dart';
 import '../util/ui_util.dart';
 import '../widgets/app_simpledialog.dart';
 import '../widgets/dialog.dart';
+import '../transactions/recent_outpoints_provider.dart';
 
 class CompoundUtxosDialog extends ConsumerWidget {
   final bool lightMode;
@@ -69,6 +70,16 @@ class CompoundUtxosDialog extends ConsumerWidget {
           futures.add(Future.delayed(delay, () async {
             log.d(
                 'Compound Iteration $i starting (chunk=${spendableChunks[i].length})');
+
+            // Pre-seed recent outpoints cache with the inputs we are about to spend
+            final recent = ref.read(recentOutpointsProvider.notifier);
+            for (final u in spendableChunks[i]) {
+              recent.add(
+                u.outpoint,
+                u.address,
+                u.utxoEntry.amount.toInt(),
+              );
+            }
 
             Amount? priorityFee;
             if (rbf) {

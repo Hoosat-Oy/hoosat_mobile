@@ -26,9 +26,8 @@ class RecentOutpoints extends StateNotifier<Map<String, (String, int)>> {
     };
   }
 
-  ((String, int))? get(String txId, int index) {
-    return state[_keyForRaw(txId, index)];
-  }
+  (String, int)? getEntry(String txId, int index) =>
+      state[_keyForRaw(txId, index)];
 
   void clear() => state = {};
 }
