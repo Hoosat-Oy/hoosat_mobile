@@ -97,8 +97,7 @@ class __$$WalletSettingsImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$WalletSettingsImpl implements _WalletSettings {
-  const _$WalletSettingsImpl(
-  {this.requestPassword = RequestPassword.atLaunch});
+  const _$WalletSettingsImpl({this.requestPassword = RequestPassword.atLaunch});
 
   factory _$WalletSettingsImpl.fromJson(Map<String, dynamic> json) =>
       _$$WalletSettingsImplFromJson(json);
@@ -118,7 +117,7 @@ class _$WalletSettingsImpl implements _WalletSettings {
         (other.runtimeType == runtimeType &&
             other is _$WalletSettingsImpl &&
             (identical(other.requestPassword, requestPassword) ||
-        other.requestPassword == requestPassword));
+                other.requestPassword == requestPassword));
   }
 
   @JsonKey(ignore: true)
@@ -141,8 +140,8 @@ class _$WalletSettingsImpl implements _WalletSettings {
 }
 
 abstract class _WalletSettings implements WalletSettings {
-  const factory _WalletSettings(
-    {final RequestPassword requestPassword}) = _$WalletSettingsImpl;
+  const factory _WalletSettings({final RequestPassword requestPassword}) =
+      _$WalletSettingsImpl;
 
   factory _WalletSettings.fromJson(Map<String, dynamic> json) =
       _$WalletSettingsImpl.fromJson;
