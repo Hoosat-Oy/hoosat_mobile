@@ -9,7 +9,6 @@ part 'wallet_settings_types.g.dart';
 class WalletSettings with _$WalletSettings {
   const factory WalletSettings({
     @Default(RequestPassword.atLaunch) RequestPassword requestPassword,
-    @Default(false) bool autoCompoundEnabled,
   }) = _WalletSettings;
 
   factory WalletSettings.fromJson(Map<String, dynamic> json) =>

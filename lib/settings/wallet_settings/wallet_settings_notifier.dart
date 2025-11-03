@@ -33,12 +33,4 @@ class WalletSettingsStateNotifier extends StateNotifier<WalletSettings> {
     state = state.copyWith(requestPassword: requestPassword);
     return repository.setWalletSettings(key, state);
   }
-
-  Future<void> setAutoCompoundEnabled(bool enabled) async {
-    if (state.autoCompoundEnabled == enabled) {
-      return;
-    }
-    state = state.copyWith(autoCompoundEnabled: enabled);
-    return repository.setWalletSettings(key, state);
-  }
 }

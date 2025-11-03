@@ -11,14 +11,12 @@ _$WalletSettingsImpl _$$WalletSettingsImplFromJson(Map json) =>
       requestPassword: $enumDecodeNullable(
               _$RequestPasswordEnumMap, json['requestPassword']) ??
           RequestPassword.atLaunch,
-      autoCompoundEnabled: json['autoCompoundEnabled'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$WalletSettingsImplToJson(
         _$WalletSettingsImpl instance) =>
     <String, dynamic>{
       'requestPassword': _$RequestPasswordEnumMap[instance.requestPassword]!,
-      'autoCompoundEnabled': instance.autoCompoundEnabled,
     };
 
 const _$RequestPasswordEnumMap = {

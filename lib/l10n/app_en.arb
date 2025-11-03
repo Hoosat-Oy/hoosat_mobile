@@ -28,10 +28,6 @@
   "hoosatUriCopied": "Hoosat URI Copied",
   "hoosatUriCopyFailed": "Failed to copy Hoosat URI",
   "advancedHeader": "Advanced",
-  "autoCompound": "Automatic UTXO consolidation",
-  "autoCompoundDescription": "When enabled, your wallet will automatically consolidate many small UTXOs into fewer, larger ones to improve future send performance. This creates one or more transactions and will incur network fees.",
-  "autoCompoundEnabledToast": "Automatic consolidation enabled",
-  "autoCompoundDisabledToast": "Automatic consolidation disabled",
   "amount": "Amount",
   "amountConfirm": "Amount {amount} {coin}",
   "@amountConfirm": {
