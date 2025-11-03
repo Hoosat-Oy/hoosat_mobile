@@ -306,30 +306,6 @@ abstract class AppLocalizations {
   /// **'Advanced'**
   String get advancedHeader;
 
-  /// No description provided for @autoCompound.
-  ///
-  /// In en, this message translates to:
-  /// **'Automatic UTXO consolidation'**
-  String get autoCompound;
-
-  /// No description provided for @autoCompoundDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'When enabled, your wallet will automatically consolidate many small UTXOs into fewer, larger ones to improve future send performance. This creates one or more transactions and will incur network fees.'**
-  String get autoCompoundDescription;
-
-  /// No description provided for @autoCompoundEnabledToast.
-  ///
-  /// In en, this message translates to:
-  /// **'Automatic consolidation enabled'**
-  String get autoCompoundEnabledToast;
-
-  /// No description provided for @autoCompoundDisabledToast.
-  ///
-  /// In en, this message translates to:
-  /// **'Automatic consolidation disabled'**
-  String get autoCompoundDisabledToast;
-
   /// No description provided for @amount.
   ///
   /// In en, this message translates to:
