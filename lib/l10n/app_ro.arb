@@ -270,7 +270,7 @@
   "hoosatUriInvalid": "Adresa URL Hoosat este invalidă",
   "compoundUtxos": "Agrega tranzacțiile",
   "compoundRequired": "Compus este necesar",
-  "compoundRequiredDescription": "Suma tranzacției necesită prea multe UTXO-uri. Compunerea va reduce numărul de UTXO-uri.",
+  "compoundRequiredDescription": "Ai multe ieșiri necheltuite mici. Consolidarea le va contopi în mai puține UTXO-uri mai mari, astfel încât trimitările viitoare să fie mai rapide și să poată necesita comisioane mai mici. Aceasta creează una sau mai multe tranzacții și implică plata comisioanelor rețelei.",
   "compoundUtxosDescription": "Combină mai multe tranzacții in una singură",
   "compoundUtxosConfirmation": "Agregare tranzacții?",
   "compoundingUtxos": "Tranzacțiile se agregă",

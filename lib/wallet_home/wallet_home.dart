@@ -12,6 +12,8 @@ import '../util/ui_util.dart';
 import '../utxos/utxos_widget.dart';
 import '../widgets/gradient_widgets.dart';
 import 'wallet_action_buttons.dart';
+import '../settings_advanced/compound_utxos_dialog.dart';
+import '../widgets/app_simpledialog.dart';
 
 final _walletWatcherProvider = Provider.autoDispose((ref) {
   ref.watch(virtualDaaScoreProvider);
@@ -41,6 +43,42 @@ class WalletHome extends HookConsumerWidget {
     final isHandling = useRef(false);
 
     useEffect(() {
+      // Suggest compounding if UTXO count exceeds chunk size when wallet is opened.
+      void maybeSuggestCompound() async {
+        final walletAuth = ref.read(walletAuthProvider);
+        if (walletAuth.isLocked) return;
+
+        // Skip suggestion for view-only wallets
+        final wallet = ref.read(walletProvider);
+        if (wallet.isViewOnly) return;
+
+        // Avoid suggesting while an app link is being processed.
+        final appLink = ref.read(appLinkProvider);
+        if (appLink != null) return;
+
+        final utxos = ref.read(utxoListProvider);
+        const chunkSize = 84;
+        if (utxos.length > chunkSize) {
+          // Check for pending txs to decide RBF behavior (may show a quick prompt if pending exists)
+          final (:cont, :rbf) =
+              await UIUtil.checkForPendingTx(context, ref: ref);
+          if (!cont) {
+            // user cancelled; don't show again this session
+            ref.read(compoundPromptShownProvider.notifier).state = true;
+            return;
+          }
+          if (!context.mounted) return;
+          // Show a lightweight suggestion dialog that reuses the compound dialog in light mode
+          await showAppDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (_) => CompoundUtxosDialog(lightMode: true, rbf: rbf),
+          );
+          // Mark as shown for this session
+          ref.read(compoundPromptShownProvider.notifier).state = true;
+        }
+      }
+
       void handle(String? appLink) {
         if (appLink == null) {
           return;
@@ -88,6 +126,8 @@ class WalletHome extends HookConsumerWidget {
       // Defer initial handle to next frame to avoid modifying providers during build
       WidgetsBinding.instance.addPostFrameCallback((_) {
         handle(ref.read(appLinkProvider));
+        // Also check for compound suggestion after first frame
+        maybeSuggestCompound();
       });
 
       return null;

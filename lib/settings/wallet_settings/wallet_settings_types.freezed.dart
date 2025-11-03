@@ -21,6 +21,7 @@ WalletSettings _$WalletSettingsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$WalletSettings {
   RequestPassword get requestPassword => throw _privateConstructorUsedError;
+  bool get autoCompoundEnabled => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,7 @@ abstract class $WalletSettingsCopyWith<$Res> {
           WalletSettings value, $Res Function(WalletSettings) then) =
       _$WalletSettingsCopyWithImpl<$Res, WalletSettings>;
   @useResult
-  $Res call({RequestPassword requestPassword});
+  $Res call({RequestPassword requestPassword, bool autoCompoundEnabled});
 }
 
 /// @nodoc
@@ -51,12 +52,17 @@ class _$WalletSettingsCopyWithImpl<$Res, $Val extends WalletSettings>
   @override
   $Res call({
     Object? requestPassword = null,
+    Object? autoCompoundEnabled = null,
   }) {
     return _then(_value.copyWith(
       requestPassword: null == requestPassword
           ? _value.requestPassword
           : requestPassword // ignore: cast_nullable_to_non_nullable
               as RequestPassword,
+      autoCompoundEnabled: null == autoCompoundEnabled
+          ? _value.autoCompoundEnabled
+          : autoCompoundEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -69,7 +75,7 @@ abstract class _$$WalletSettingsImplCopyWith<$Res>
       __$$WalletSettingsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({RequestPassword requestPassword});
+  $Res call({RequestPassword requestPassword, bool autoCompoundEnabled});
 }
 
 /// @nodoc
@@ -84,12 +90,17 @@ class __$$WalletSettingsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? requestPassword = null,
+    Object? autoCompoundEnabled = null,
   }) {
     return _then(_$WalletSettingsImpl(
       requestPassword: null == requestPassword
           ? _value.requestPassword
           : requestPassword // ignore: cast_nullable_to_non_nullable
               as RequestPassword,
+      autoCompoundEnabled: null == autoCompoundEnabled
+          ? _value.autoCompoundEnabled
+          : autoCompoundEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -97,7 +108,9 @@ class __$$WalletSettingsImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$WalletSettingsImpl implements _WalletSettings {
-  const _$WalletSettingsImpl({this.requestPassword = RequestPassword.atLaunch});
+  const _$WalletSettingsImpl(
+      {this.requestPassword = RequestPassword.atLaunch,
+      this.autoCompoundEnabled = false});
 
   factory _$WalletSettingsImpl.fromJson(Map<String, dynamic> json) =>
       _$$WalletSettingsImplFromJson(json);
@@ -105,10 +118,13 @@ class _$WalletSettingsImpl implements _WalletSettings {
   @override
   @JsonKey()
   final RequestPassword requestPassword;
+  @override
+  @JsonKey()
+  final bool autoCompoundEnabled;
 
   @override
   String toString() {
-    return 'WalletSettings(requestPassword: $requestPassword)';
+    return 'WalletSettings(requestPassword: $requestPassword, autoCompoundEnabled: $autoCompoundEnabled)';
   }
 
   @override
@@ -117,12 +133,15 @@ class _$WalletSettingsImpl implements _WalletSettings {
         (other.runtimeType == runtimeType &&
             other is _$WalletSettingsImpl &&
             (identical(other.requestPassword, requestPassword) ||
-                other.requestPassword == requestPassword));
+                other.requestPassword == requestPassword) &&
+            (identical(other.autoCompoundEnabled, autoCompoundEnabled) ||
+                other.autoCompoundEnabled == autoCompoundEnabled));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, requestPassword);
+  int get hashCode =>
+      Object.hash(runtimeType, requestPassword, autoCompoundEnabled);
 
   @JsonKey(ignore: true)
   @override
@@ -140,14 +159,17 @@ class _$WalletSettingsImpl implements _WalletSettings {
 }
 
 abstract class _WalletSettings implements WalletSettings {
-  const factory _WalletSettings({final RequestPassword requestPassword}) =
-      _$WalletSettingsImpl;
+  const factory _WalletSettings(
+      {final RequestPassword requestPassword,
+      final bool autoCompoundEnabled}) = _$WalletSettingsImpl;
 
   factory _WalletSettings.fromJson(Map<String, dynamic> json) =
       _$WalletSettingsImpl.fromJson;
 
   @override
   RequestPassword get requestPassword;
+  @override
+  bool get autoCompoundEnabled;
   @override
   @JsonKey(ignore: true)
   _$$WalletSettingsImplCopyWith<_$WalletSettingsImpl> get copyWith =>

@@ -270,7 +270,7 @@
   "hoosatUriInvalid": "URI de Hoosat inválido",
   "compoundUtxos": "Combinar transacções ",
   "compoundRequired": "Necessário Combinar",
-  "compoundRequiredDescription": "A quantidade da transação requer demasiados UTXOs. A combinação irá reduzir o número de UTXOs.",
+  "compoundRequiredDescription": "Tem muitos outputs não gastos pequenos. A consolidação irá juntá-los em menos UTXOs maiores, tornando envios futuros mais rápidos e possivelmente com taxas mais baixas. Isto cria uma ou mais transacções e implicará taxas de rede.",
   "compoundUtxosDescription": "Combinar múltiplos UTXOs para um",
   "compoundUtxosConfirmation": "Combinar transacções?",
   "compoundingUtxos": "A combinar transacções",

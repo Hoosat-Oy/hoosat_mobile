@@ -11,3 +11,5 @@ export 'wallet_address/wallet_address_providers.dart';
 export 'wallet_auth/wallet_auth_providers.dart';
 export 'wallet_balance/wallet_balance_providers.dart';
 export 'wallet_signer/wallet_signer_providers.dart';
+export 'settings_advanced/compound_prompt_provider.dart';
+export 'settings/wallet_settings/wallet_settings_providers.dart';

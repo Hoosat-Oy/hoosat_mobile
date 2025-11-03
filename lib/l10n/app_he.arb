@@ -270,7 +270,7 @@
   "hoosatUriInvalid": "URI של כספא לא חוקי",
   "compoundUtxos": "עסקאות מורכבות",
   "compoundRequired": "Compound required",
-  "compoundRequiredDescription": "The transaction amount requires too many UTXOs. Compounding will reduce the number of UTXOs.",
+  "compoundRequiredDescription": "יש לך הרבה פלטים לא-מוצאים קטנים (UTXO). איחוד ימזג אותם לפחות UTXO גדולים יותר כך שהעברות עתידיות יהיו מהירות יותר ואולי עם עמלות נמוכות יותר. פעולה זו יוצרת עסקה אחת או יותר ומחייבת עמלות רשת.",
   "compoundUtxosDescription": "שלב מספר UTXOs לאחד",
   "compoundUtxosConfirmation": "עסקאות מורכבות?",
   "compoundingUtxos": "עסקאות מורכבות",

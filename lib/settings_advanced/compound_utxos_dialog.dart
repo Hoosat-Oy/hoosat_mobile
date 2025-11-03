@@ -8,10 +8,9 @@ import '../l10n/l10n.dart';
 import '../util/numberutil.dart';
 import '../util/ui_util.dart';
 import '../widgets/app_simpledialog.dart';
-import '../widgets/dialog.dart';
 import '../transactions/recent_outpoints_provider.dart';
 
-class CompoundUtxosDialog extends ConsumerWidget {
+class CompoundUtxosDialog extends ConsumerStatefulWidget {
   final bool lightMode;
   final bool rbf;
 
@@ -22,7 +21,18 @@ class CompoundUtxosDialog extends ConsumerWidget {
   });
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<CompoundUtxosDialog> createState() =>
+      _CompoundUtxosDialogState();
+}
+
+class _CompoundUtxosDialogState extends ConsumerState<CompoundUtxosDialog> {
+  bool _isCompounding = false;
+  int _totalChunks = 0;
+  int _completedChunks = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    final ref = this.ref;
     final styles = ref.watch(stylesProvider);
     final l10n = l10nOf(context);
 
@@ -34,11 +44,13 @@ class CompoundUtxosDialog extends ConsumerWidget {
 
     Future<void> sendCompoundTx() async {
       try {
-        AppDialogs.showInProgressDialog(
-          context,
-          l10n.compoundingUtxos,
-          l10n.compoundingMessage,
-        );
+        if (mounted) {
+          setState(() {
+            _isCompounding = true;
+            _completedChunks = 0;
+            _totalChunks = 0;
+          });
+        }
 
         final walletService = ref.read(walletServiceProvider);
         final addressNotifier = ref.read(addressNotifierProvider);
@@ -48,6 +60,8 @@ class CompoundUtxosDialog extends ConsumerWidget {
         // Select the first chunk for the compound tx (or iterate spendableChunks if you want to process all)
         if (allSpendableUtxos.length <= 1) {
           UIUtil.showSnackbar(l10n.compoundTooFewUtxos, context);
+          // Close dialog since there's nothing to do
+          if (mounted) setState(() => _isCompounding = false);
           appRouter.pop(context);
           return;
         }
@@ -60,65 +74,74 @@ class CompoundUtxosDialog extends ConsumerWidget {
           spendableChunks.add(allSpendableUtxos.sublist(i, end));
         }
 
+        // Pre-seed recent outpoints cache with the inputs we are about to spend
+        final recent = ref.read(recentOutpointsProvider.notifier);
+        for (final u in allSpendableUtxos) {
+          recent.add(
+            u.outpoint,
+            u.address,
+            u.utxoEntry.amount.toInt(),
+          );
+        }
+        if (mounted) {
+          setState(() {
+            _totalChunks = spendableChunks.length;
+            _completedChunks = 0;
+          });
+        }
+
+        Amount? priorityFee;
+        if (widget.rbf) {
+          try {
+            final pending = ref.read(txNotifierProvider).pendingTxs;
+            if (pending.isNotEmpty) {
+              final p = pending.first;
+              priorityFee = Amount.raw(p.fees.priorityFee.raw + BigInt.one);
+            }
+          } catch (_) {
+            // ignore
+          }
+        }
+
         log.d('Spendable Chunks: ${spendableChunks.length}');
         // Fire transactions at ~200ms intervals to speed up compounding while
         // avoiding a flood. Schedule all sends and wait for completion.
-        final futures = <Future<void>>[];
-        const gap = Duration(milliseconds: 200);
         for (var i = 0; i < spendableChunks.length; i++) {
-          final delay = gap * i;
-          futures.add(Future.delayed(delay, () async {
-            log.d(
-                'Compound Iteration $i starting (chunk=${spendableChunks[i].length})');
+          log.d('Compound Iteration $i, (chunk=${spendableChunks[i].length})');
 
-            // Pre-seed recent outpoints cache with the inputs we are about to spend
-            final recent = ref.read(recentOutpointsProvider.notifier);
-            for (final u in spendableChunks[i]) {
-              recent.add(
-                u.outpoint,
-                u.address,
-                u.utxoEntry.amount.toInt(),
-              );
-            }
+          final compoundTx = walletService.createCompoundTx(
+            compoundAddress: changeAddress.address,
+            spendableUtxos: spendableChunks[i],
+            feePerInput: kFeePerInput,
+            priorityFee: priorityFee,
+          );
+          final txId = await walletService.sendTransaction(compoundTx.tx,
+              rbf: widget.rbf);
+          log.i('Compound Iteration $i done, txId=$txId');
 
-            Amount? priorityFee;
-            if (rbf) {
-              try {
-                final pending = ref.read(txNotifierProvider).pendingTxs;
-                if (pending.isNotEmpty) {
-                  final p = pending.first;
-                  priorityFee = Amount.raw(p.fees.priorityFee.raw + BigInt.one);
-                }
-              } catch (_) {
-                // ignore
-              }
-            }
-
-            final compoundTx = walletService.createCompoundTx(
-              compoundAddress: changeAddress.address,
-              spendableUtxos: spendableChunks[i],
-              feePerInput: kFeePerInput,
-              priorityFee: priorityFee,
-            );
-            final txId =
-                await walletService.sendTransaction(compoundTx.tx, rbf: rbf);
-            log.i('Compound Iteration $i submitted txId=$txId');
-            ref.invalidate(pendingTxsProvider);
-          }));
+          if (mounted) {
+            setState(() {
+              _completedChunks += 1;
+            });
+          }
         }
-        await Future.wait(futures);
+        ref.invalidate(pendingTxsProvider);
 
-        if (lightMode) {
+        if (widget.lightMode) {
           // give some time for compound tx to broadcast and get accepted
           await Future.delayed(const Duration(seconds: 5));
-          // close both dialogs
-          appRouter.pop(context);
         }
 
         UIUtil.showSnackbar(l10n.compoundSuccess, context);
       } catch (e) {
         UIUtil.showSnackbar(l10n.compoundFailure, context);
       } finally {
+        if (mounted) {
+          setState(() {
+            _isCompounding = false;
+          });
+        }
+        // Do not auto-close if this is the on-open light-mode prompt; let user close it.
         appRouter.pop(context);
       }
     }
@@ -134,15 +157,22 @@ class CompoundUtxosDialog extends ConsumerWidget {
 
     return AppAlertDialog(
       title: Text(
-        lightMode ? l10n.compoundRequired : l10n.compoundUtxosConfirmation,
+        widget.lightMode
+            ? l10n.compoundRequired
+            : l10n.compoundUtxosConfirmation,
         style: styles.textStyleDialogHeader,
       ),
-      content: lightMode
-          ? Text(
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (widget.lightMode)
+            Text(
               l10n.compoundRequiredDescription,
               style: styles.textStyleSettingItemHeader,
             )
-          : Row(
+          else
+            Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
@@ -197,6 +227,14 @@ class CompoundUtxosDialog extends ConsumerWidget {
                 ),
               ],
             ),
+          if (_isCompounding) ...[
+            const SizedBox(height: 16),
+            LinearProgressIndicator(
+              value: _totalChunks > 0 ? _completedChunks / _totalChunks : null,
+            ),
+          ],
+        ],
+      ),
       actions: [
         TextButton(
           style: styles.dialogButtonStyle,
@@ -208,13 +246,35 @@ class CompoundUtxosDialog extends ConsumerWidget {
         ),
         TextButton(
           style: styles.dialogButtonStyle,
-          child: Text(
-            l10n.compoundUppercased,
-            style: styles.textStyleDialogOptions,
-          ),
-          onPressed: compound,
+          onPressed: _isCompounding ? null : compound,
+          child: _isCompounding
+              ? Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(
+                      width: 14,
+                      height: 14,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      _totalChunks > 0
+                          ? '${l10n.compoundUppercased} ${_completedChunks}/${_totalChunks}'
+                          : l10n.compoundUppercased,
+                      style: styles.textStyleDialogOptions,
+                    ),
+                  ],
+                )
+              : Text(
+                  l10n.compoundUppercased,
+                  style: styles.textStyleDialogOptions,
+                ),
         ),
       ],
+      // Show a linear progress indicator under content when compounding
+      contentPadding: const EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 0.0),
     );
   }
 }

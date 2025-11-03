@@ -270,7 +270,7 @@
   "hoosatUriInvalid": "Hoosat URI baliogabea",
   "compoundUtxos": "Transakzio konposatuak",
   "compoundRequired": "Compound required",
-  "compoundRequiredDescription": "The transaction amount requires too many UTXOs. Compounding will reduce the number of UTXOs.",
+  "compoundRequiredDescription": "UTXO txiki asko dituzu. Bateratzeak hauek UTXO handiago gutxiagotan elkartuko ditu, etorkizuneko bidalketak azkarragoak izan daitezen eta baliteke kuota txikiagoak behar izatea. Honek transakzio bat edo gehiago sortzen ditu eta sare-tasak sortzen dira.",
   "compoundUtxosDescription": "Konbinatu hainbat UTXO bakarrean",
   "compoundUtxosConfirmation": "Transakzio konposatu?",
   "compoundingUtxos": "Konposaketa-eragiketak",

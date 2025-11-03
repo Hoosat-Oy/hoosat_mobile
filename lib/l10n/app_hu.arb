@@ -270,7 +270,7 @@
   "hoosatUriInvalid": "Helytelen Hoosat URI",
   "compoundUtxos": "Tranzakciók egyesítése",
   "compoundRequired": "Compound required",
-  "compoundRequiredDescription": "The transaction amount requires too many UTXOs. Compounding will reduce the number of UTXOs.",
+  "compoundRequiredDescription": "Sok kicsi el nem költött kimenete van. A konszolidálás ezeket kevesebb, nagyobb UTXO-ba egyesíti, így a jövőbeni küldések gyorsabbak lehetnek és alacsonyabb díjakkal járhatnak. Ez egy vagy több tranzakciót hoz létre, és hálózati díjakat von maga után.",
   "compoundUtxosDescription": "Több Maradék (UTXOs) egyesítése",
   "compoundUtxosConfirmation": "Egyesíted a tranzakciókat?",
   "compoundingUtxos": "Egyesített tranzakciók",

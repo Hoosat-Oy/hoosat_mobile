@@ -270,7 +270,7 @@
   "hoosatUriInvalid": "Invalid Hoosat URI",
   "compoundUtxos": "Compound transactions",
   "compoundRequired": "Compound required",
-  "compoundRequiredDescription": "The transaction amount requires too many UTXOs. Compounding will reduce the number of UTXOs.",
+  "compoundRequiredDescription": "آپ کے پاس بہت سے چھوٹے غیر خرچ شدہ آؤٹ پٹس (UTXO) ہیں۔ یکجائی انہیں کم، بڑے UTXO میں ضم کر دے گی تاکہ آئندہ بھیجنا تیز ہو اور ممکنہ طور پر کم فیس درکار ہو۔ اس سے ایک یا زیادہ ٹرانزیکشنز بنتی ہیں اور نیٹ ورک فیس لاگو ہوتی ہے۔",
   "compoundUtxosDescription": "Combine multiple UTXOs into one",
   "compoundUtxosConfirmation": "Compound transactions?",
   "compoundingUtxos": "Compounding transactions",

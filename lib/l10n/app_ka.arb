@@ -270,7 +270,7 @@
   "hoosatUriInvalid": "არასწორი Hoosat URI",
   "compoundUtxos": "გაერთიანებული ტრანზაქციები",
   "compoundRequired": "Compound required",
-  "compoundRequiredDescription": "The transaction amount requires too many UTXOs. Compounding will reduce the number of UTXOs.",
+  "compoundRequiredDescription": "თქვენ გაქვთ ბევრი მცირე გამოუყენებელი გამომავალი (UTXO). კონსოლიდაცია მათ ნაკლებ, მაგრამ უფრო დიდ UTXO-ებად გააერთიანებს, რაც მომავალ გაგზავნებს დააჩქარებს და შესაძლოა საკომისიოც შეამციროს. ეს ქმნის ერთ ან რამდენიმე ტრანზაქციას და იწვევს ქსელის საკომისიოს.",
   "compoundUtxosDescription": "გააერთიანეთ რამდენიმე UTXO ერთში",
   "compoundUtxosConfirmation": "გაერთიანებული ტრანზაქციები?",
   "compoundingUtxos": "ტრანზაქციების გაერთიანება",

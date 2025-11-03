@@ -270,7 +270,7 @@
   "hoosatUriInvalid": "Geçersiz Hoosat URI Adresi",
   "compoundUtxos": "İşlemleri birleştir",
   "compoundRequired": "Birleştirme Gerekli",
-  "compoundRequiredDescription": "İşlemdeki miktar, çok fazla UTXO gerektiriyor. Birleştirilirse gereken UTXO miktarı azalacak.",
+  "compoundRequiredDescription": "Birçok küçük harcanmamış çıktınız var. Birleştirme, bunları daha az sayıda ve daha büyük UTXO'larda toplayarak gelecekteki gönderimlerin daha hızlı ve muhtemelen daha düşük ücretli olmasını sağlar. Bu işlem bir veya daha fazla işlem oluşturur ve ağ ücretleri doğurur.",
   "compoundUtxosDescription": "Birden çok UTXO'yu tek bir UTXO'da birleştir",
   "compoundUtxosConfirmation": "İşlemler birleştirilsin mi?",
   "compoundingUtxos": "İşlemler birleştiriliyor",

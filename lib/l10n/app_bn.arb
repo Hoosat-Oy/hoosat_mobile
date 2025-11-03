@@ -270,7 +270,7 @@
   "hoosatUriInvalid": "অবৈধ Hoosat URI",
   "compoundUtxos": "যৌগিক লেনদেন",
   "compoundRequired": "Compound required",
-  "compoundRequiredDescription": "The transaction amount requires too many UTXOs. Compounding will reduce the number of UTXOs.",
+  "compoundRequiredDescription": "আপনার অনেক ছোট অব্যয়িত আউটপুট (UTXO) রয়েছে। কনসোলিডেশন এগুলোকে কম সংখ্যক বড় UTXO-তে একত্রিত করবে, ফলে ভবিষ্যতের লেনদেন দ্রুত হবে এবং সম্ভবত কম ফি লাগবে। এতে একটি বা একাধিক লেনদেন তৈরি হবে এবং নেটওয়ার্ক ফি প্রযোজ্য হবে।",
   "compoundUtxosDescription": "একাধিক UTXO একত্রিত করুন",
   "compoundUtxosConfirmation": "যৌগিক লেনদেন?",
   "compoundingUtxos": "চক্রবৃদ্ধি লেনদেন",

@@ -270,7 +270,7 @@
   "hoosatUriInvalid": "URI Hoosat tidak sah",
   "compoundUtxos": "Gabungkan Transaksi ",
   "compoundRequired": "Compound required",
-  "compoundRequiredDescription": "The transaction amount requires too many UTXOs. Compounding will reduce the number of UTXOs.",
+  "compoundRequiredDescription": "Anda mempunyai banyak output kecil yang belum digunakan (UTXO). Penggabungan akan menggabungkannya kepada bilangan UTXO yang lebih sedikit dan lebih besar supaya penghantaran akan datang lebih pantas dan mungkin dengan yuran lebih rendah. Ini mewujudkan satu atau lebih transaksi dan akan dikenakan yuran rangkaian.",
   "compoundUtxosDescription": "Gabungkan berbilang UTXO menjadi satu",
   "compoundUtxosConfirmation": "Kompaun Transaksi?",
   "compoundingUtxos": "Urus niaga pengkompaunan transaksi",

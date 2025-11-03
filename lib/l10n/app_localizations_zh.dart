@@ -74,6 +74,19 @@ class AppLocalizationsZh extends AppLocalizations {
   String get advancedHeader => '高级';
 
   @override
+  String get autoCompound => 'Automatic UTXO consolidation';
+
+  @override
+  String get autoCompoundDescription =>
+      'When enabled, your wallet will automatically consolidate many small UTXOs into fewer, larger ones to improve future send performance. This creates one or more transactions and will incur network fees.';
+
+  @override
+  String get autoCompoundEnabledToast => 'Automatic consolidation enabled';
+
+  @override
+  String get autoCompoundDisabledToast => 'Automatic consolidation disabled';
+
+  @override
   String get amount => '数额';
 
   @override
@@ -870,10 +883,11 @@ class AppLocalizationsZh extends AppLocalizations {
   String get compoundUtxos => '合并交易（化零为整）';
 
   @override
-  String get compoundRequired => '需要合并';
+  String get compoundRequired => '合并小额 UTXO';
 
   @override
-  String get compoundRequiredDescription => '这笔交易需要过多的 UTXO，建议合并余额以减少所需的 UTXO。';
+  String get compoundRequiredDescription =>
+      '你有许多小额未花费输出（UTXO）。合并会把它们整合为更少但更大的 UTXO，使后续转账更快且手续费可能更低。这将创建一笔或多笔交易，并会产生网络手续费。';
 
   @override
   String get compoundUtxosDescription => '合并多个地址的零钱到一个地址。';

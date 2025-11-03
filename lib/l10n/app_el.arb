@@ -270,7 +270,7 @@
   "hoosatUriInvalid": "Μη έγκυρο ενιαίο αναγνωριστικό πόρων του Κάσπα",
   "compoundUtxos": "Σύνθετες συναλλαγές",
   "compoundRequired": "Compound required",
-  "compoundRequiredDescription": "The transaction amount requires too many UTXOs. Compounding will reduce the number of UTXOs.",
+  "compoundRequiredDescription": "Έχετε πολλά μικρά μη δαπανημένα outputs (UTXO). Η ενοποίηση θα τα συγχωνεύσει σε λιγότερα, μεγαλύτερα UTXO ώστε οι μελλοντικές αποστολές να είναι ταχύτερες και ενδεχομένως με χαμηλότερα τέλη. Αυτό δημιουργεί μία ή περισσότερες συναλλαγές και επιφέρει χρεώσεις δικτύου.",
   "compoundUtxosDescription": "Συνδυάστε πολλαπλές εκροές αδιάθετων συναλλαγών σε μία",
   "compoundUtxosConfirmation": "Σύνθετες συναλλαγές?",
   "compoundingUtxos": "Γίνεται σύνθεση συναλλαγών",

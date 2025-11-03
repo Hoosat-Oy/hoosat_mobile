@@ -270,7 +270,7 @@
   "hoosatUriInvalid": "अमान्य Hoosat URI",
   "compoundUtxos": "यौगिक लेनदेन",
   "compoundRequired": "Compound required",
-  "compoundRequiredDescription": "The transaction amount requires too many UTXOs. Compounding will reduce the number of UTXOs.",
+  "compoundRequiredDescription": "आपके पास कई छोटे अप्रयुक्त आउटपुट (UTXO) हैं। समेकन उन्हें कम, बड़े UTXO में मिला देगा ताकि भविष्य में भेजना तेज हो और संभवतः कम शुल्क लगे। इससे एक या अधिक लेनदेन बनेंगे और नेटवर्क शुल्क लगेगा।",
   "compoundUtxosDescription": "एकाधिक UTXOs को एक में संयोजित करें",
   "compoundUtxosConfirmation": "मिश्रित लेनदेन?",
   "compoundingUtxos": "शेष राशि के साथ एड्रेस देखें",

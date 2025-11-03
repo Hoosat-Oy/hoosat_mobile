@@ -174,3 +174,5 @@ class AdvancedMenu extends ConsumerWidget {
     );
   }
 }
+
+// (Auto-compound toggle removed as per request)

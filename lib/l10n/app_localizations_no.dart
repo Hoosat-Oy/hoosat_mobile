@@ -75,6 +75,19 @@ class AppLocalizationsNo extends AppLocalizations {
   String get advancedHeader => 'Avansert';
 
   @override
+  String get autoCompound => 'Automatic UTXO consolidation';
+
+  @override
+  String get autoCompoundDescription =>
+      'When enabled, your wallet will automatically consolidate many small UTXOs into fewer, larger ones to improve future send performance. This creates one or more transactions and will incur network fees.';
+
+  @override
+  String get autoCompoundEnabledToast => 'Automatic consolidation enabled';
+
+  @override
+  String get autoCompoundDisabledToast => 'Automatic consolidation disabled';
+
+  @override
   String get amount => 'Beløp';
 
   @override
@@ -903,7 +916,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get compoundRequiredDescription =>
-      'The transaction amount requires too many UTXOs. Compounding will reduce the number of UTXOs.';
+      'Du har mange små ubrukte utganger (UTXO). Konsolidering vil slå dem sammen til færre, større UTXO-er slik at fremtidige sendinger går raskere og kanskje med lavere gebyrer. Dette oppretter én eller flere transaksjoner og påløper nettverksgebyrer.';
 
   @override
   String get compoundUtxosDescription => 'Combine multiple UTXOs into one';

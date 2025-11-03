@@ -306,6 +306,30 @@ abstract class AppLocalizations {
   /// **'Advanced'**
   String get advancedHeader;
 
+  /// No description provided for @autoCompound.
+  ///
+  /// In en, this message translates to:
+  /// **'Automatic UTXO consolidation'**
+  String get autoCompound;
+
+  /// No description provided for @autoCompoundDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'When enabled, your wallet will automatically consolidate many small UTXOs into fewer, larger ones to improve future send performance. This creates one or more transactions and will incur network fees.'**
+  String get autoCompoundDescription;
+
+  /// No description provided for @autoCompoundEnabledToast.
+  ///
+  /// In en, this message translates to:
+  /// **'Automatic consolidation enabled'**
+  String get autoCompoundEnabledToast;
+
+  /// No description provided for @autoCompoundDisabledToast.
+  ///
+  /// In en, this message translates to:
+  /// **'Automatic consolidation disabled'**
+  String get autoCompoundDisabledToast;
+
   /// No description provided for @amount.
   ///
   /// In en, this message translates to:
@@ -1809,13 +1833,13 @@ abstract class AppLocalizations {
   /// No description provided for @compoundRequired.
   ///
   /// In en, this message translates to:
-  /// **'Compound required'**
+  /// **'Consolidate small UTXOs'**
   String get compoundRequired;
 
   /// No description provided for @compoundRequiredDescription.
   ///
   /// In en, this message translates to:
-  /// **'The transaction amount requires too many UTXOs. Compounding will reduce the number of UTXOs.'**
+  /// **'You have many small unspent outputs. Consolidating will merge them into fewer, larger UTXOs so future sends are faster and may require lower fees. This creates one or more transactions and will incur network fees.'**
   String get compoundRequiredDescription;
 
   /// No description provided for @compoundUtxosDescription.
